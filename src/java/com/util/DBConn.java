@@ -1,4 +1,4 @@
-package com.spring.util;
+package com.util;
 
 import java.sql.*;
 
