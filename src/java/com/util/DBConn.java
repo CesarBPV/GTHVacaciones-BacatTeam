@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class DBConn {
 
-  	Connection conn;
+  	private static Connection conn = null;
 	String str_driver;	
 	
 	
@@ -19,7 +19,7 @@ public class DBConn {
 		this.str_driver	= str_driver;		
 	}
 	
-  	public Connection getConnection() throws SQLException, Exception {
+  	public static Connection getConnection() throws SQLException, Exception {
 
   	        try{
 	             //String sc="jdbc:postgresql://"+"127.0.0.1:5432"+"/"+crypt.decrypt(str_driver);
