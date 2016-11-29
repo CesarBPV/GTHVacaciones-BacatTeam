@@ -73,7 +73,7 @@ public class areaDAO implements Operaciones<area> {
         List<area> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_READALL);
+            ps = con.prepareStatement(SQL_READ);
             rs = ps.executeQuery();
             while (rs.next()) {
                 area x = new area();

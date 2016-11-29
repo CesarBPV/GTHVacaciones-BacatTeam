@@ -24,7 +24,7 @@ public class trabajadorDAO implements Operaciones<trabajador> {
     private Connection con;
     private final static String SQL_VALIDA = "SELECT *FROM trabajador WHERE user=? AND clave=?";
     private final static String SQL_CREATE = "INSERT INTO trabajador (NOMBRES, APELLIDOS, SEXO, TIPO_DOC, NUM_DOC, CORREO, FECHA_NAC) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    private final static String SQL_UPDATE = "UPDATE trabajador SET clave=? WHERE idtrabajador=?";
+    private final static String SQL_UPDATE = "UPDATE trabajador SET NOMBRES=?, APELLIDOS=?, SEXO=?, TIPO_DOC=?, NUM_DOC=?, CORREO=?, FECHA_NAC=? WHERE idtrabajador=?";
     private final static String SQL_DELETE = "DELETE FROM trabajador WHERE idtrabajador=?";
     private final static String SQL_SEARCH = "SELECT *FROM trabajador WHERE user=?";
     private final static String SQL_READALL = "SELECT *FROM trabajador";
@@ -63,7 +63,7 @@ public class trabajadorDAO implements Operaciones<trabajador> {
                 x.setTipo_doc(rs.getString("tipo_doc"));
                 x.setNum_doc(rs.getInt("num_doc"));
                 x.setCorreo(rs.getString("correo"));
-                x.setFecha_nac(rs.getDate("idusuario"));
+                x.setFecha_nac(rs.getDate("fecha_nac"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -77,7 +77,7 @@ public class trabajadorDAO implements Operaciones<trabajador> {
         List<trabajador> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_READALL);
+            ps = con.prepareStatement(SQL_READ);
             rs = ps.executeQuery();
             while (rs.next()) {
                 trabajador x = new trabajador();
@@ -95,8 +95,14 @@ public class trabajadorDAO implements Operaciones<trabajador> {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_UPDATE);
-            ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setString(1, x.getNombres());
+            ps.setString(2, x.getApellidos());
+            ps.setString(3, x.getSexo());
+            ps.setInt(4, x.getNum_doc());
+            ps.setString(5, x.getTipo_doc());
+            ps.setString(6, x.getCorreo());
+            ps.setDate(7, x.getFecha_nac());
+            ps.setInt(8, x.getIdtrabajador());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -110,8 +116,13 @@ public class trabajadorDAO implements Operaciones<trabajador> {
         try {
             con = DBConn.getConnection();
             ps =con.prepareStatement(SQL_CREATE);
-            ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setString(1, x.getNombres());
+            ps.setString(2, x.getApellidos());
+            ps.setString(3, x.getSexo());
+            ps.setInt(4, x.getNum_doc());
+            ps.setString(5, x.getTipo_doc());
+            ps.setString(6, x.getCorreo());
+            ps.setDate(7, x.getFecha_nac());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: "+e);
@@ -143,7 +154,7 @@ public class trabajadorDAO implements Operaciones<trabajador> {
             rs = ps.executeQuery();
             while (rs.next()) {
                 trabajador x = new trabajador();
-                x.setIdarea(rs.getInt("idarea"));
+                x.setIdtrabajador(rs.getInt("idtrabajador"));
                 lista.add(x);
             }
         } catch (Exception e) {

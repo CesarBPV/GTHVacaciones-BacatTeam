@@ -22,14 +22,14 @@ public class vacacion_actualizacionDAO implements Operaciones<vacacion_actualiza
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM vacacion_actualizacion WHERE user=? AND clave=?";
-    private final static String SQL_CREATE = "INSERT INTO vacacion_actualizacion ( user, clave) VALUES (?, ?)";
-    private final static String SQL_UPDATE = "UPDATE vacacion_actualizacion SET clave=? WHERE idusuario=?";
-    private final static String SQL_DELETE = "DELETE FROM vacacion_actualizacion WHERE idusuario=?";
-    private final static String SQL_SEARCH = "SELECT *FROM vacacion_actualizacion WHERE user=?";
-    private final static String SQL_READALL = "SELECT *FROM vacacion_actualizacion";
-    private final static String SQL_READ = "SELECT *FROM vacacion_actualizacion WHERE idusuario=?";
-    private final static String SQL_BUSCAR = "SELECT *FROM vacacion_actualizacion WHERE idusuario=?";
+    private final static String SQL_VALIDA = "SELECT *FROM vacacion_autorizacion WHERE user=? AND clave=?";
+    private final static String SQL_CREATE = "INSERT INTO vacacion_autorizacion (ESTADO, NROPASO, VACACION_ID, PUESTO_ID) VALUES (?, ?, ?, ?)";
+    private final static String SQL_UPDATE = "UPDATE vacacion_autorizacion SET ESTADO=?, NROPASO=?, VACACION_ID=?, PUESTO_ID=? WHERE idautorizacion_vacacion=?";
+    private final static String SQL_DELETE = "DELETE FROM vacacion_autorizacion WHERE idautorizacion_vacacion=?";
+    private final static String SQL_SEARCH = "SELECT *FROM vacacion_autorizacion WHERE user=?";
+    private final static String SQL_READALL = "SELECT *FROM vacacion_autorizacion";
+    private final static String SQL_READ = "SELECT *FROM vacacion_autorizacion WHERE idautorizacion_vacacion=?";
+    private final static String SQL_BUSCAR = "SELECT *FROM vacacion_autorizacion WHERE idautorizacion_vacacion=?";
   
     public int validar(String user, String clave) {
         int op = 0;
@@ -57,9 +57,11 @@ public class vacacion_actualizacionDAO implements Operaciones<vacacion_actualiza
             rs = ps.executeQuery();
             while (rs.next()) {
                 vacacion_actualizacion x = new vacacion_actualizacion();
-                x.setIdarea(rs.getInt("idusuario"));
-                x.setNombre(rs.getString("user"));
-                x.setDepartamento_id(rs.getInt("user"));
+                x.setIdautorizacion_vacacion(rs.getInt("idautorizacion_vacacion"));
+                x.setEstado(rs.getString("estado"));
+                x.setNropaso(rs.getString("nropaso"));
+                x.setVacacion_id(rs.getInt("vacacion_id"));
+                x.setPuesto_id(rs.getInt("puesto_id"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -73,13 +75,11 @@ public class vacacion_actualizacionDAO implements Operaciones<vacacion_actualiza
         List<vacacion_actualizacion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_READALL);
+            ps = con.prepareStatement(SQL_READ);
             rs = ps.executeQuery();
             while (rs.next()) {
                 vacacion_actualizacion x = new vacacion_actualizacion();
-                ps.setInt(1, x.getIdarea());
-                ps.setString(2, x.getNombre());
-                ps.setInt(3, x.getDepartamento_id());
+                ps.setInt(1, x.getIdautorizacion_vacacion());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -93,8 +93,11 @@ public class vacacion_actualizacionDAO implements Operaciones<vacacion_actualiza
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_UPDATE);
-            ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setString(1, x.getEstado());
+            ps.setString(2, x.getNropaso());
+            ps.setInt(3, x.getVacacion_id());
+            ps.setInt(4, x.getPuesto_id());
+            ps.setInt(5, x.getIdautorizacion_vacacion());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -108,8 +111,10 @@ public class vacacion_actualizacionDAO implements Operaciones<vacacion_actualiza
         try {
             con = DBConn.getConnection();
             ps =con.prepareStatement(SQL_CREATE);
-            ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setString(1, x.getEstado());
+            ps.setString(2, x.getNropaso());
+            ps.setInt(3, x.getVacacion_id());
+            ps.setInt(4, x.getPuesto_id());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: "+e);
@@ -141,7 +146,7 @@ public class vacacion_actualizacionDAO implements Operaciones<vacacion_actualiza
             rs = ps.executeQuery();
             while (rs.next()) {
                 vacacion_actualizacion x = new vacacion_actualizacion();
-                x.setIdarea(rs.getInt("idarea"));
+                x.setIdautorizacion_vacacion(rs.getInt("idautorizacion_vacacion"));
                 lista.add(x);
             }
         } catch (Exception e) {

@@ -74,7 +74,7 @@ public class detalle_vacacionDAO implements Operaciones<detalle_vacacion> {
         List<detalle_vacacion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_READALL);
+            ps = con.prepareStatement(SQL_READ);
             rs = ps.executeQuery();
             while (rs.next()) {
                 detalle_vacacion x = new detalle_vacacion();

@@ -23,8 +23,8 @@ public class usuarioDAO implements Operaciones<usuario> {
     private ResultSet rs;
     private Connection con;
     private final static String SQL_VALIDA = "SELECT *FROM usuario WHERE user=? AND clave=?";
-    private final static String SQL_CREATE = "INSERT INTO usuario ( user, clave) VALUES (?, ?)";
-    private final static String SQL_UPDATE = "UPDATE usuario SET clave=? WHERE idusuario=?";
+    private final static String SQL_CREATE = "INSERT INTO usuario (USUARIO, CLAVE, IDTRABAJADOR) VALUES (?, ?, ?)";
+    private final static String SQL_UPDATE = "UPDATE usuario SET USUARIO=?, CLAVE=?, IDTRABAJADOR=? WHERE idusuario=?";
     private final static String SQL_DELETE = "DELETE FROM usuario WHERE idusuario=?";
     private final static String SQL_SEARCH = "SELECT *FROM usuario WHERE user=?";
     private final static String SQL_READALL = "SELECT *FROM usuario";
@@ -57,9 +57,10 @@ public class usuarioDAO implements Operaciones<usuario> {
             rs = ps.executeQuery();
             while (rs.next()) {
                 usuario x = new usuario();
-                x.setIdarea(rs.getInt("idusuario"));
-                x.setNombre(rs.getString("user"));
-                x.setDepartamento_id(rs.getInt("user"));
+                x.setIdusuario(rs.getInt("idusuario"));
+                x.setUsuario(rs.getString("usuario"));
+                x.setClave(rs.getString("clave"));
+                x.setIdtrabajador(rs.getInt("idtrabajador"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -73,13 +74,11 @@ public class usuarioDAO implements Operaciones<usuario> {
         List<usuario> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_READALL);
+            ps = con.prepareStatement(SQL_READ);
             rs = ps.executeQuery();
             while (rs.next()) {
                 usuario x = new usuario();
-                ps.setInt(1, x.getIdarea());
-                ps.setString(2, x.getNombre());
-                ps.setInt(3, x.getDepartamento_id());
+                ps.setInt(1, x.getIdusuario());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -93,8 +92,10 @@ public class usuarioDAO implements Operaciones<usuario> {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_UPDATE);
-            ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setString(1, x.getUsuario());            
+            ps.setString(2, x.getClave());
+            ps.setInt(3, x.getIdtrabajador());
+            ps.setInt(4, x.getIdusuario());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -108,8 +109,9 @@ public class usuarioDAO implements Operaciones<usuario> {
         try {
             con = DBConn.getConnection();
             ps =con.prepareStatement(SQL_CREATE);
-            ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setString(1, x.getUsuario());            
+            ps.setString(2, x.getClave());
+            ps.setInt(3, x.getIdtrabajador());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: "+e);
@@ -141,7 +143,7 @@ public class usuarioDAO implements Operaciones<usuario> {
             rs = ps.executeQuery();
             while (rs.next()) {
                 usuario x = new usuario();
-                x.setIdarea(rs.getInt("idarea"));
+                x.setIdusuario(rs.getInt("idusuario"));
                 lista.add(x);
             }
         } catch (Exception e) {

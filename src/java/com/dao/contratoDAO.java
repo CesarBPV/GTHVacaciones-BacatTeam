@@ -75,7 +75,7 @@ public class contratoDAO implements Operaciones<contrato> {
         List<contrato> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_READALL);
+            ps = con.prepareStatement(SQL_READ);
             rs = ps.executeQuery();
             while (rs.next()) {
                 contrato x = new contrato();
