@@ -6,7 +6,7 @@
 package com.dao;
 
 import com.interfaces.Operaciones;
-import com.model.area;
+import com.model.usuario;
 import com.util.DBConn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author kael74
  */
-public class usuarioDAO implements Operaciones<area> {
+public class usuarioDAO implements Operaciones<usuario> {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
@@ -49,14 +49,14 @@ public class usuarioDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> ReadAll() {
-        List<area> lista = new ArrayList<>();
+    public List<usuario> ReadAll() {
+        List<usuario> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READALL);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
+                usuario x = new usuario();
                 x.setIdarea(rs.getInt("idusuario"));
                 x.setNombre(rs.getString("user"));
                 x.setDepartamento_id(rs.getInt("user"));
@@ -69,14 +69,14 @@ public class usuarioDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> Read(int id) {
-        List<area> lista = new ArrayList<>();
+    public List<usuario> Read(int id) {
+        List<usuario> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READALL);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
+                usuario x = new usuario();
                 ps.setInt(1, x.getIdarea());
                 ps.setString(2, x.getNombre());
                 ps.setInt(3, x.getDepartamento_id());
@@ -88,7 +88,7 @@ public class usuarioDAO implements Operaciones<area> {
         return lista;  }
 
     @Override
-    public int update(area x) {
+    public int update(usuario x) {
         int op = 0;
         try {
             con = DBConn.getConnection();
@@ -103,7 +103,7 @@ public class usuarioDAO implements Operaciones<area> {
     }
 
     @Override
-    public int insert(area x) {
+    public int insert(usuario x) {
         int op = 0;
         try {
             con = DBConn.getConnection();
@@ -132,15 +132,15 @@ public class usuarioDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> buscar(int id) {
-        List<area> lista = new ArrayList<>();
+    public List<usuario> buscar(int id) {
+        List<usuario> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_BUSCAR);
             ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
+                usuario x = new usuario();
                 x.setIdarea(rs.getInt("idarea"));
                 lista.add(x);
             }

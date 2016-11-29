@@ -24,7 +24,7 @@ public class areaDAO implements Operaciones<area> {
     private Connection con;
     private final static String SQL_VALIDA = "SELECT *FROM AREA WHERE user=? AND clave=?";
     private final static String SQL_CREATE = "INSERT INTO AREA ( nombre, departamento) VALUES (?, ?)";
-    private final static String SQL_UPDATE = "UPDATE AREA SET nombre=? WHERE idarea=?";
+    private final static String SQL_UPDATE = "UPDATE AREA SET nombre=?, departamento=? WHERE idarea=?";
     private final static String SQL_DELETE = "DELETE FROM AREA WHERE idarea=?";
     private final static String SQL_SEARCH = "SELECT *FROM AREA WHERE user=?";
     private final static String SQL_READALL = "SELECT *FROM AREA";
@@ -78,8 +78,6 @@ public class areaDAO implements Operaciones<area> {
             while (rs.next()) {
                 area x = new area();
                 ps.setInt(1, x.getIdarea());
-                ps.setString(2, x.getNombre());
-                ps.setInt(3, x.getDepartamento_id());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -95,6 +93,7 @@ public class areaDAO implements Operaciones<area> {
             ps = con.prepareStatement(SQL_UPDATE);
             ps.setString(1, x.getNombre());
             ps.setInt(2, x.getDepartamento_id());
+            ps.setInt(3, x.getIdarea());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);

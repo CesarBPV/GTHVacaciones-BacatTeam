@@ -6,7 +6,7 @@
 package com.dao;
 
 import com.interfaces.Operaciones;
-import com.model.area;
+import com.model.trabajador;
 import com.util.DBConn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,18 +18,18 @@ import java.util.List;
  *
  * @author kael74
  */
-public class trabajadorDAO implements Operaciones<area> {
+public class trabajadorDAO implements Operaciones<trabajador> {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM usuario WHERE user=? AND clave=?";
-    private final static String SQL_CREATE = "INSERT INTO usuario ( user, clave) VALUES (?, ?)";
-    private final static String SQL_UPDATE = "UPDATE usuario SET clave=? WHERE idusuario=?";
-    private final static String SQL_DELETE = "DELETE FROM usuario WHERE idusuario=?";
-    private final static String SQL_SEARCH = "SELECT *FROM usuario WHERE user=?";
-    private final static String SQL_READALL = "SELECT *FROM usuario";
-    private final static String SQL_READ = "SELECT *FROM usuario WHERE idusuario=?";
-    private final static String SQL_BUSCAR = "SELECT *FROM usuario WHERE idusuario=?";
+    private final static String SQL_VALIDA = "SELECT *FROM trabajador WHERE user=? AND clave=?";
+    private final static String SQL_CREATE = "INSERT INTO trabajador (NOMBRES, APELLIDOS, SEXO, TIPO_DOC, NUM_DOC, CORREO, FECHA_NAC) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private final static String SQL_UPDATE = "UPDATE trabajador SET clave=? WHERE idtrabajador=?";
+    private final static String SQL_DELETE = "DELETE FROM trabajador WHERE idtrabajador=?";
+    private final static String SQL_SEARCH = "SELECT *FROM trabajador WHERE user=?";
+    private final static String SQL_READALL = "SELECT *FROM trabajador";
+    private final static String SQL_READ = "SELECT *FROM trabajador WHERE idtrabajador=?";
+    private final static String SQL_BUSCAR = "SELECT *FROM trabajador WHERE idtrabajador=?";
   
     public int validar(String user, String clave) {
         int op = 0;
@@ -49,17 +49,21 @@ public class trabajadorDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> ReadAll() {
-        List<area> lista = new ArrayList<>();
+    public List<trabajador> ReadAll() {
+        List<trabajador> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READALL);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
-                x.setIdarea(rs.getInt("idusuario"));
-                x.setNombre(rs.getString("user"));
-                x.setDepartamento_id(rs.getInt("user"));
+                trabajador x = new trabajador();
+                x.setNombres(rs.getString("nombres"));
+                x.setApellidos(rs.getString("apellidos"));
+                x.setSexo(rs.getString("sexo"));
+                x.setTipo_doc(rs.getString("tipo_doc"));
+                x.setNum_doc(rs.getInt("num_doc"));
+                x.setCorreo(rs.getString("correo"));
+                x.setFecha_nac(rs.getDate("idusuario"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -69,17 +73,15 @@ public class trabajadorDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> Read(int id) {
-        List<area> lista = new ArrayList<>();
+    public List<trabajador> Read(int id) {
+        List<trabajador> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READALL);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
-                ps.setInt(1, x.getIdarea());
-                ps.setString(2, x.getNombre());
-                ps.setInt(3, x.getDepartamento_id());
+                trabajador x = new trabajador();
+                ps.setInt(1, x.getIdtrabajador());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -88,7 +90,7 @@ public class trabajadorDAO implements Operaciones<area> {
         return lista;  }
 
     @Override
-    public int update(area x) {
+    public int update(trabajador x) {
         int op = 0;
         try {
             con = DBConn.getConnection();
@@ -103,7 +105,7 @@ public class trabajadorDAO implements Operaciones<area> {
     }
 
     @Override
-    public int insert(area x) {
+    public int insert(trabajador x) {
         int op = 0;
         try {
             con = DBConn.getConnection();
@@ -132,15 +134,15 @@ public class trabajadorDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> buscar(int id) {
-        List<area> lista = new ArrayList<>();
+    public List<trabajador> buscar(int id) {
+        List<trabajador> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_BUSCAR);
             ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
+                trabajador x = new trabajador();
                 x.setIdarea(rs.getInt("idarea"));
                 lista.add(x);
             }
