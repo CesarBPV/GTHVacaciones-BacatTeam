@@ -18,18 +18,18 @@ import java.util.List;
  *
  * @author kael74
  */
-public class areaDAO implements Operaciones<area> {
+public class detalle_vacacionDAO implements Operaciones<area> {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM AREA WHERE user=? AND clave=?";
-    private final static String SQL_CREATE = "INSERT INTO AREA ( nombre, departamento) VALUES (?, ?)";
-    private final static String SQL_UPDATE = "UPDATE AREA SET nombre=? WHERE idarea=?";
-    private final static String SQL_DELETE = "DELETE FROM AREA WHERE idarea=?";
-    private final static String SQL_SEARCH = "SELECT *FROM AREA WHERE user=?";
-    private final static String SQL_READALL = "SELECT *FROM AREA";
-    private final static String SQL_READ = "SELECT *FROM AREA WHERE idarea=?";
-    private final static String SQL_BUSCAR = "SELECT *FROM AREA WHERE idarea=?";
+    private final static String SQL_VALIDA = "SELECT *FROM usuario WHERE user=? AND clave=?";
+    private final static String SQL_CREATE = "INSERT INTO usuario ( user, clave) VALUES (?, ?)";
+    private final static String SQL_UPDATE = "UPDATE usuario SET clave=? WHERE idusuario=?";
+    private final static String SQL_DELETE = "DELETE FROM usuario WHERE idusuario=?";
+    private final static String SQL_SEARCH = "SELECT *FROM usuario WHERE user=?";
+    private final static String SQL_READALL = "SELECT *FROM usuario";
+    private final static String SQL_READ = "SELECT *FROM usuario WHERE idusuario=?";
+    private final static String SQL_BUSCAR = "SELECT *FROM usuario WHERE idusuario=?";
   
     public int validar(String user, String clave) {
         int op = 0;
@@ -57,9 +57,9 @@ public class areaDAO implements Operaciones<area> {
             rs = ps.executeQuery();
             while (rs.next()) {
                 area x = new area();
-                x.setIdarea(rs.getInt("idarea"));
-                x.setNombre(rs.getString("nombre"));
-                x.setDepartamento_id(rs.getInt("deparatamento"));
+                x.setIdarea(rs.getInt("idusuario"));
+                x.setNombre(rs.getString("user"));
+                x.setDepartamento_id(rs.getInt("user"));
                 lista.add(x);
             }
         } catch (Exception e) {
