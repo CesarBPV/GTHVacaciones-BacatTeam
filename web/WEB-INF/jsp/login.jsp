@@ -61,7 +61,7 @@
 				<span id="logo"> <img src="resources/img/logo.png" alt="SmartAdmin"> </span>
 			</div>
 
-			<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
+			<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">No tiene una cuenta?</span> <a href="register.html" class="btn btn-danger">Crear una Cuenta</a> </span>
 
 		</header>
 
@@ -72,32 +72,32 @@
 
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-						<h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+						<h1 class="txt-color-red login-header-big">BACAT Team</h1>
 						<div class="hero">
 
 							<div class="pull-left login-desc-box-l">
-								<h4 class="paragraph-header">It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!</h4>
+								<h4 class="paragraph-header">¿Qué es Bacat? Bacat es el Grupo desarrollador de esta seccion del Programa que se encarga del área de Vacaciones.</h4>
 								<div class="login-app-icons">
-									<a href="javascript:void(0);" class="btn btn-danger btn-sm">Frontend Template</a>
-									<a href="javascript:void(0);" class="btn btn-danger btn-sm">Find out more</a>
+									<a href="javascript:void(0);" class="btn btn-danger btn-sm">Miembros</a>
+									<a href="javascript:void(0);" class="btn btn-danger btn-sm">Boton de pánico</a>
 								</div>
 							</div>
 							
-							<img src="resources/img/demo/iphoneview.png" class="pull-right display-image" alt="" style="width:210px">
+							<img src="resources/img/demo/admin.png" class="pull-right display-image" alt="" style="width:350px">
 
 						</div>
 
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-								<h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
+								<h5 class="about-heading">Caso que aprobemos:</h5>
 								<p>
-									Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+									Lanzaremos a Cesar a la piscina de la UPeU con todo y mochila :3
 								</p>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-								<h5 class="about-heading">Not just your average template!</h5>
+								<h5 class="about-heading">Caso nos Jalemos</h5>
 								<p>
-									Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
+									Presione el Boton de panico todo lo que quiera, pero nada pasara usted ya Desaprobo el curso y la Frego como todo en su vida :'v 
 								</p>
 							</div>
 						</div>
@@ -107,44 +107,44 @@
 						<div class="well no-padding">
 							<form action="index.html" id="login-form" class="smart-form client-form">
 								<header>
-									Sign In
+									Ingrese a su Cuenta
 								</header>
 
 								<fieldset>
 									
 									<section>
-										<label class="label">E-mail</label>
+										<label class="label">Correo Electronico</label>
 										<label class="input"> <i class="icon-append fa fa-user"></i>
 											<input type="email" name="email">
-											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
+											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Por favor ingrese su correo/usuario</b></label>
 									</section>
 
 									<section>
-										<label class="label">Password</label>
+										<label class="label">Contraseña</label>
 										<label class="input"> <i class="icon-append fa fa-lock"></i>
 											<input type="password" name="password">
-											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
+											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Ingrese su contraseña</b> </label>
 										<div class="note">
-											<a href="forgotpassword.html">Forgot password?</a>
+											<a href="forgotpassword.html">Olvido su contraseña</a>
 										</div>
 									</section>
 
 									<section>
 										<label class="checkbox">
 											<input type="checkbox" name="remember" checked="">
-											<i></i>Stay signed in</label>
+											<i></i>Mantener la Sesion</label>
 									</section>
 								</fieldset>
 								<footer>
 									<button type="submit" class="btn btn-primary">
-										Sign in
+										Ingresar
 									</button>
 								</footer>
 							</form>
 
 						</div>
 						
-						<h5 class="text-center"> - Or sign in using -</h5>
+						<h5 class="text-center"> - o Ingrese usando... -</h5>
 															
 							<ul class="list-inline text-center">
 								<li>
