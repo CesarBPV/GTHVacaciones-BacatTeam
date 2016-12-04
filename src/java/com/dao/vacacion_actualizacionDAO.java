@@ -5,7 +5,7 @@
  */
 package com.dao;
 
-import com.interfaces.Operaciones;
+import com.interfaces.ImpVacacion_actualizacionDao;
 import com.model.vacacion_actualizacion;
 import com.util.DBConn;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author kael74
  */
-public class vacacion_actualizacionDAO implements Operaciones<vacacion_actualizacion> {
+public class vacacion_actualizacionDAO implements ImpVacacion_actualizacionDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;

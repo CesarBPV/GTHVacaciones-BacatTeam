@@ -5,7 +5,7 @@
  */
 package com.dao;
 
-import com.interfaces.Operaciones;
+import com.interfaces.ImpContratoDao;
 import com.model.contrato;
 import com.util.DBConn;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author kael74
  */
-public class contratoDAO implements Operaciones<contrato> {
+public class contratoDAO implements ImpContratoDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;

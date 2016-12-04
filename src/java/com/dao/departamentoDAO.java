@@ -5,7 +5,7 @@
  */
 package com.dao;
 
-import com.interfaces.Operaciones;
+import com.interfaces.ImpDepartamentoDao;
 import com.model.departamento;
 import com.util.DBConn;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author kael74
  */
-public class departamentoDAO implements Operaciones<departamento> {
+public class departamentoDAO implements ImpDepartamentoDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;

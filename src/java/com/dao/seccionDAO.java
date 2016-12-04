@@ -5,7 +5,7 @@
  */
 package com.dao;
 
-import com.interfaces.Operaciones;
+import com.interfaces.ImpSeccionDao;
 import com.model.seccion;
 import com.util.DBConn;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author kael74
  */
-public class seccionDAO implements Operaciones<seccion> {
+public class seccionDAO implements ImpSeccionDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;

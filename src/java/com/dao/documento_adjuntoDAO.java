@@ -5,7 +5,7 @@
  */
 package com.dao;
 
-import com.interfaces.Operaciones;
+import com.interfaces.ImpDocumento_adjuntoDao;
 import com.model.documento_adjunto;
 import com.util.DBConn;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author kael74
  */
-public class documento_adjuntoDAO implements Operaciones<documento_adjunto> {
+public class documento_adjuntoDAO implements ImpDocumento_adjuntoDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;

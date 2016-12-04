@@ -5,7 +5,7 @@
  */
 package com.dao;
 
-import com.interfaces.Operaciones;
+import com.interfaces.ImpDireccionDao;
 import com.model.direccion;
 import com.util.DBConn;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author kael74
  */
-public class direccionDAO implements Operaciones<direccion> {
+public class direccionDAO implements ImpDireccionDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;

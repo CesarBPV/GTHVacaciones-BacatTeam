@@ -5,24 +5,27 @@
  */
 package com.dao;
 
-import com.interfaces.Operaciones;
+import com.interfaces.ImpUsuarioDao;
 import com.model.usuario;
 import com.util.DBConn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author kael74
  */
-public class usuarioDAO implements Operaciones<usuario> {
+public class usuarioDAO implements ImpUsuarioDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM usuario WHERE user=? AND clave=?";
+    private final static String SQL_VALIDA = "SELECT * FROM usuario WHERE usuario=? AND clave=?";
     private final static String SQL_CREATE = "INSERT INTO usuario (USUARIO, CLAVE, IDTRABAJADOR) VALUES (?, ?, ?)";
     private final static String SQL_UPDATE = "UPDATE usuario SET USUARIO=?, CLAVE=?, IDTRABAJADOR=? WHERE idusuario=?";
     private final static String SQL_DELETE = "DELETE FROM usuario WHERE idusuario=?";
@@ -31,8 +34,8 @@ public class usuarioDAO implements Operaciones<usuario> {
     private final static String SQL_READ = "SELECT *FROM usuario WHERE idusuario=?";
     private final static String SQL_BUSCAR = "SELECT *FROM usuario WHERE idusuario=?";
   
-    public int validar(String user, String clave) {
-        int op = 0;
+    public String validar(String user, String clave) {
+        String iduser = null;
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_VALIDA);
@@ -40,12 +43,19 @@ public class usuarioDAO implements Operaciones<usuario> {
             ps.setString(2, clave);
             rs = ps.executeQuery();
             while (rs.next()) {
-                op = 1;
+                iduser = rs.getString("idusuario");
             }
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
-        return op;
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return iduser;
     }
 
     @Override
@@ -66,6 +76,13 @@ public class usuarioDAO implements Operaciones<usuario> {
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return lista;
     }
 
@@ -84,6 +101,13 @@ public class usuarioDAO implements Operaciones<usuario> {
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return lista;  }
 
     @Override
@@ -99,6 +123,13 @@ public class usuarioDAO implements Operaciones<usuario> {
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return op;
     }
@@ -116,6 +147,13 @@ public class usuarioDAO implements Operaciones<usuario> {
         } catch (Exception e) {
             System.out.println("Error: "+e);
         }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return op;        
     }
 
@@ -129,6 +167,13 @@ public class usuarioDAO implements Operaciones<usuario> {
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return op;
     }
@@ -148,6 +193,13 @@ public class usuarioDAO implements Operaciones<usuario> {
             }
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return lista;
     }

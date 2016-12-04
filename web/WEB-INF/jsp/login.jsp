@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" id="extr-page">
+<html lang="es" id="extr-page">
 	<head>
 		<meta charset="utf-8">
 		<title> SmartAdmin</title>
@@ -58,10 +58,10 @@
 		<header id="header">
 
 			<div id="logo-group">
-				<span id="logo"> <img src="resources/img/logo.png" alt="SmartAdmin"> </span>
+				<span id="logo"> <img src="resources/img/logoRRHH.png" style=" position: absolute;top: 8px; width:100px; height:36px " alt="Talento Humano"> </span>
 			</div>
 
-			<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">No tiene una cuenta?</span> <a href="register.html" class="btn btn-danger">Crear una Cuenta</a> </span>
+			<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">¿No tiene una cuenta?</span> <a href="register.html" class="btn btn-danger">Crear una Cuenta</a> </span>
 
 		</header>
 
@@ -76,10 +76,10 @@
 						<div class="hero">
 
 							<div class="pull-left login-desc-box-l">
-								<h4 class="paragraph-header">ï¿½Quï¿½ es Bacat? Bacat es el Grupo desarrollador de esta seccion del Programa que se encarga del ï¿½rea de Vacaciones.</h4>
+								<h4 class="paragraph-header">¿Qué es Bacat? Bacat es el Grupo desarrollador de esta seccion del Programa que se encarga del Área de Vacaciones.</h4>
 								<div class="login-app-icons">
 									<a href="javascript:void(0);" class="btn btn-danger btn-sm">Miembros</a>
-									<a href="javascript:void(0);" class="btn btn-danger btn-sm">Boton de pï¿½nico</a>
+									<a href="javascript:void(0);" class="btn btn-danger btn-sm">Boton de pánico</a>
 								</div>
 							</div>
 							
@@ -105,7 +105,7 @@
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 						<div class="well no-padding">
-							<form action="index.html" id="login-form" class="smart-form client-form">
+							<form method="post" action="index" id="login-form" class="smart-form client-form">
 								<header>
 									Ingrese a su Cuenta
 								</header>
@@ -113,26 +113,26 @@
 								<fieldset>
 									
 									<section>
-										<label class="label">Correo Electronico</label>
+										<label class="label">Usuario</label>
 										<label class="input"> <i class="icon-append fa fa-user"></i>
-											<input type="email" name="email">
-											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Por favor ingrese su correo/usuario</b></label>
+											<input type="text" name="username">
+											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Por favor ingrese su nombre de usuario</b></label>
 									</section>
 
 									<section>
-										<label class="label">Contraseï¿½a</label>
+										<label class="label">Contraseña</label>
 										<label class="input"> <i class="icon-append fa fa-lock"></i>
 											<input type="password" name="password">
-											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Ingrese su contraseï¿½a</b> </label>
+											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Ingrese su contraseña</b> </label>
 										<div class="note">
-											<a href="forgotpassword.html">Olvido su contraseï¿½a</a>
+											<a href="forgotpassword.html">Olvido su contraseña</a>
 										</div>
 									</section>
 
 									<section>
 										<label class="checkbox">
 											<input type="checkbox" name="remember" checked="">
-											<i></i>Mantener la Sesion</label>
+											<i></i>Mantener la Sesión</label>
 									</section>
 								</fieldset>
 								<footer>
@@ -208,9 +208,8 @@
 				$("#login-form").validate({
 					// Rules for form validation
 					rules : {
-						email : {
-							required : true,
-							email : true
+						username : {
+							required : true
 						},
 						password : {
 							required : true,
@@ -221,12 +220,11 @@
 
 					// Messages for form validation
 					messages : {
-						email : {
-							required : 'Please enter your email address',
-							email : 'Please enter a VALID email address'
+						username : {
+							required : 'Por favor ingrese su nombre de usuario'
 						},
 						password : {
-							required : 'Please enter your password'
+							required : 'Porfavor ingrese su contraseña'
 						}
 					},
 

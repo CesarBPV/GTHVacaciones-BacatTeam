@@ -60,7 +60,7 @@
         <div id="logo-group">
 
             <!-- PLACE YOUR LOGO HERE -->
-            <span id="logo"> <img src="resources/img/logo.png" alt="SmartAdmin"> </span>
+            <span id="logo"> <img src="resources/img/logoRRHH.png" style=" position: absolute;top: 8px; width:100px; height:36px " alt="Talento Humano"> </span>
             <!-- END LOGO PLACEHOLDER -->
             <%
                 if (false) {

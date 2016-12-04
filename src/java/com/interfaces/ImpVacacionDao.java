@@ -5,20 +5,18 @@
  */
 package com.interfaces;
 
+import com.model.vacacion;
 import java.util.List;
 
 /**
  *
- * @author kael74
+ * @author CESAR
  */
-public interface Operaciones<Entidad> 
-{
-    
-    public List<Entidad> ReadAll();
-    public List<Entidad> Read(int id);
-    public int update(Entidad x);
-    public int insert(Entidad x);
+public interface ImpVacacionDao {
+    public List<vacacion> ReadAll();
+    public List<vacacion> Read(int id);
+    public int update(vacacion x);
+    public int insert(vacacion x);
     public int delete(int id);  
-    public List<Entidad> buscar(int id);
-    
+    public List<vacacion> buscar(int id);
 }
