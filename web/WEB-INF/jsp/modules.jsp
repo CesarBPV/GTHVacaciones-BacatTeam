@@ -3,7 +3,7 @@
     Created on : 03/12/2016, 09:51:58 PM
     Author     : CESAR
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -13,10 +13,10 @@
         <title>Talento Humano</title>
         <meta name="description" content="Responsive Retina-Friendly Menu with different, size-dependent layouts" />
         <meta name="keywords" content="responsive menu, retina-ready, icon font, media queries, css3, transition, mobile" />
-        <link rel="stylesheet" type="text/css" href="resources/css/Css_Modulos/component.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="resources/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="resources/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="resources/css/smartadmin-production.min.css">
+        <link rel="stylesheet" type="text/css" href="<c:url value="resources/css/Css_Modulos/component.css"/>" />
+        <link rel="stylesheet" type="text/css" media="screen" href="<c:url value="resources/css/bootstrap.min.css"/>">
+        <link rel="stylesheet" type="text/css" media="screen" href="<c:url value="resources/css/font-awesome.min.css"/>">
+        <link rel="stylesheet" type="text/css" media="screen" href="<c:url value="resources/css/smartadmin-production.min.css"/>">
     </head>
     <body>
         <!-- HEADER -->
@@ -56,24 +56,12 @@
             <br>
             <br>
             <nav id="menu" class="nav"  >	
-                <ul class="slideInLeft" >
+                <ul >
                     <li class="bounceIn animated">
                         <form action="menu" method="POST" >
-                            <a href="#" style="text-decoration: none;font-size:20px " >
+                            <a href="index" style="text-decoration: none;font-size:20px " >
                                 <span class="icon">
-                                    <i aria-hidden="true" ></i>
-                                </span>
-                                <span>Gestión</span>
-                            </a> 
-                        </form>
-                    </li>
-                </ul>	
-                <ul class="slideInLeft" >
-                    <li class="bounceIn animated">
-                        <form action="menu" method="POST" >
-                            <a href="#" style="text-decoration: none;font-size:20px " >
-                                <span class="icon">
-                                    <i aria-hidden="true" ></i>
+                                    <i aria-hidden="true" class="fa fa-cogs" ></i>
                                 </span>
                                 <span>Programación</span>
                             </a> 
@@ -83,7 +71,7 @@
             </nav>
                 
         </div><!-- /container -->
-        <script src="resources/js/Js_Modulos/modernizr.custom.js"></script>
+        <script src="<c:url value="resources/js/Js_Modulos/modernizr.custom.js"/>"></script>
         <script>
                                 //  The function to change the class
                                 var changeClass = function (r, className1, className2) {
