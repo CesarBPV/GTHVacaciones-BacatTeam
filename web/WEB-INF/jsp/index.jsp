@@ -174,7 +174,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="login.html" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
+                            <a href="login?opc=logout" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
                         </li>
                     </ul>
                 </li>
@@ -182,7 +182,8 @@
 
             <!-- logout button -->
             <div id="logout" class="btn-header transparent pull-right">
-                <span> <a href="login.html" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+                <span> <a href="login?opc=logout" title="Sign Out" data-action="userLogout" data-logout-msg="¿Está complemetamente seguro de cerrar sesión?"><i class="fa fa-sign-out"></i>
+                            Salir</a> </span>
             </div>
             <!-- end logout button -->
 

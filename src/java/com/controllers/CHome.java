@@ -22,8 +22,8 @@ public class CHome {
 
     ImpUsuarioDao udao = new usuarioDAO();
 
-    @RequestMapping("/index")
-    public String index(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping("/menu")
+    public String menu(HttpServletRequest request, HttpServletResponse response) {
         HttpSession sesion = request.getSession();
         if (request.getSession().getAttribute("idusuario") == null) {
             String username = request.getParameter("username");
@@ -33,12 +33,12 @@ public class CHome {
                 System.out.println("idusuario:   "+iduser);
                 if (iduser != null) {
                     sesion.setAttribute("idusuario", iduser);
-                    return "index";
+                    return "modules";
                 }else{
-                    return login();
+                    return "login";
                 }
             }else{
-                return login();
+                return "login";
             }
         } else {
             System.out.println(request.getSession().getAttribute("idusuario"));
@@ -47,7 +47,21 @@ public class CHome {
     }
 
     @RequestMapping("/login")
-    public String login() {
+    public String login(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession sesion = request.getSession();
+        String opc=request.getParameter("opc");
+        if("logout".equals(opc)){
+            sesion.removeAttribute("idusuario");
+        }
         return "login";
+    }
+    @RequestMapping("/index")
+    public String index(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession sesion = request.getSession();
+        if(sesion.getAttribute("idusuario")==null){
+            return "login";
+        }else{
+            return "index";
+        }
     }
 }
