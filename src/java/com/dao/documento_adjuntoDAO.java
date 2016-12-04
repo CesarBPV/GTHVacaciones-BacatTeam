@@ -6,7 +6,7 @@
 package com.dao;
 
 import com.interfaces.Operaciones;
-import com.model.seccion;
+import com.model.documento_adjunto;
 import com.util.DBConn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,18 +18,18 @@ import java.util.List;
  *
  * @author kael74
  */
-public class seccionDAO implements Operaciones<seccion> {
+public class documento_adjuntoDAO implements Operaciones<documento_adjunto> {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM seccion WHERE user=? AND clave=?";
-    private final static String SQL_CREATE = "INSERT INTO seccion (NOMBRE, AREA_ID) VALUES (?, ?)";
-    private final static String SQL_UPDATE = "UPDATE seccion SET NOMBRE=?, AREA_ID=? WHERE idseccion=?";
-    private final static String SQL_DELETE = "DELETE FROM seccion WHERE idseccion=?";
-    private final static String SQL_SEARCH = "SELECT *FROM seccion WHERE user=?";
-    private final static String SQL_READALL = "SELECT *FROM seccion";
-    private final static String SQL_READ = "SELECT *FROM seccion WHERE idseccion=?";
-    private final static String SQL_BUSCAR = "SELECT *FROM seccion WHERE idseccion=?";
+    private final static String SQL_VALIDA = "SELECT *FROM documento_adjunto WHERE user=? AND clave=?";
+    private final static String SQL_CREATE = "INSERT INTO documento_adjunto (DIRECCION_DOC, NOMBRE_DOC, DESCRIPCION_DOC) VALUES (?, ?, ?)";
+    private final static String SQL_UPDATE = "UPDATE documento_adjunto SET DIRECCION_DOC=?, NOMBRE_DOC=?, DESCRIPCION_DOC=? WHERE documento_adjunto_id=?";
+    private final static String SQL_DELETE = "DELETE FROM documento_adjunto WHERE documento_adjunto_id=?";
+    private final static String SQL_SEARCH = "SELECT *FROM documento_adjunto WHERE user=?";
+    private final static String SQL_READALL = "SELECT *FROM documento_adjunto";
+    private final static String SQL_READ = "SELECT *FROM documento_adjunto WHERE documento_adjunto_id=?";
+    private final static String SQL_BUSCAR = "SELECT *FROM documento_adjunto WHERE documento_adjunto_id=?";
   
     public int validar(String user, String clave) {
         int op = 0;
@@ -49,17 +49,18 @@ public class seccionDAO implements Operaciones<seccion> {
     }
 
     @Override
-    public List<seccion> ReadAll() {
-        List<seccion> lista = new ArrayList<>();
+    public List<documento_adjunto> ReadAll() {
+        List<documento_adjunto> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READALL);
             rs = ps.executeQuery();
             while (rs.next()) {
-                seccion x = new seccion();
-                x.setIdseccion(rs.getInt("idusuario"));
-                x.setNombre(rs.getString("nombre"));
-                x.setArea_id(rs.getInt("area_id"));
+                documento_adjunto x = new documento_adjunto();
+                x.setDocumento_adjunto_id(rs.getInt("documento_adjunto_id"));
+                x.setDireccion_doc(rs.getString("direccion_doc"));
+                x.setNombre_doc(rs.getString("nombre_doc"));
+                x.setDescripcion_doc(rs.getString("descripcion_doc"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -69,15 +70,15 @@ public class seccionDAO implements Operaciones<seccion> {
     }
 
     @Override
-    public List<seccion> Read(int id) {
-        List<seccion> lista = new ArrayList<>();
+    public List<documento_adjunto> Read(int id) {
+        List<documento_adjunto> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
             rs = ps.executeQuery();
             while (rs.next()) {
-                seccion x = new seccion();
-                ps.setInt(1, x.getIdseccion());
+                documento_adjunto x = new documento_adjunto();
+                ps.setInt(1, x.getDocumento_adjunto_id());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -86,14 +87,15 @@ public class seccionDAO implements Operaciones<seccion> {
         return lista;  }
 
     @Override
-    public int update(seccion x) {
+    public int update(documento_adjunto x) {
         int op = 0;
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_UPDATE);
-            ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getArea_id());
-            ps.setInt(3, x.getIdseccion());
+            ps.setString(1, x.getDireccion_doc());
+            ps.setString(2, x.getNombre_doc());
+            ps.setString(3, x.getDescripcion_doc());
+            ps.setInt(4, x.getDocumento_adjunto_id());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -102,13 +104,14 @@ public class seccionDAO implements Operaciones<seccion> {
     }
 
     @Override
-    public int insert(seccion x) {
+    public int insert(documento_adjunto x) {
         int op = 0;
         try {
             con = DBConn.getConnection();
             ps =con.prepareStatement(SQL_CREATE);
-            ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getArea_id());
+            ps.setString(1, x.getDireccion_doc());
+            ps.setString(2, x.getNombre_doc());
+            ps.setString(3, x.getDescripcion_doc());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: "+e);
@@ -131,16 +134,16 @@ public class seccionDAO implements Operaciones<seccion> {
     }
 
     @Override
-    public List<seccion> buscar(int id) {
-        List<seccion> lista = new ArrayList<>();
+    public List<documento_adjunto> buscar(int id) {
+        List<documento_adjunto> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_BUSCAR);
             ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                seccion x = new seccion();
-                x.setIdseccion(rs.getInt("idseccion"));
+                documento_adjunto x = new documento_adjunto();
+                x.setDocumento_adjunto_id(rs.getInt("documento_adjunto_id"));
                 lista.add(x);
             }
         } catch (Exception e) {

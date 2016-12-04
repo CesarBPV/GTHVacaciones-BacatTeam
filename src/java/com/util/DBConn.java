@@ -23,7 +23,7 @@ public class DBConn {
 
   	        try{
 	             //String sc="jdbc:postgresql://"+"127.0.0.1:5432"+"/"+crypt.decrypt(str_driver);
-                 String sc="jdbc:oracle:thin:user01/user@localhost:1521:xe";       
+                 String sc="jdbc:oracle:thin:db_gth_vacaciones/bacat@localhost:1521:xe";       
 			     DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
                  conn = DriverManager.getConnection(sc); 
 	        
@@ -40,9 +40,9 @@ public class DBConn {
 
 	public String close() throws SQLException {
     	try{
-       		if(conn!=null) {
+       		 
        			conn.close(); System.out.println("Cerrar Coneccion...");
-       		}
+       		
        		return "Close Connection.";
        	}catch(SQLException e){
     		throw new SQLException("Connect.close "+e.getMessage());

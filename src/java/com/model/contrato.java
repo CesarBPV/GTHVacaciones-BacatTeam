@@ -11,7 +11,7 @@ import java.sql.Date;
  */
 public class contrato {
     private int idcontrato;
-    private int idtrabajdor;
+    private int idtrabajador;
     private Date fecha_desde;
     private Date fecha_hasta;
     private int puesto_id;
@@ -27,14 +27,14 @@ public class contrato {
 
     public contrato(int idcontrato, int idtrabajdor, Date fecha_desde, Date fecha_hasta) {
         this.idcontrato = idcontrato;
-        this.idtrabajdor = idtrabajdor;
+        this.idtrabajador = idtrabajador;
         this.fecha_desde = fecha_desde;
         this.fecha_hasta = fecha_hasta;
     }
 
     public contrato(int idcontrato, int idtrabajdor, Date fecha_desde, Date fecha_hasta, int puesto_id) {
         this.idcontrato = idcontrato;
-        this.idtrabajdor = idtrabajdor;
+        this.idtrabajador = idtrabajador;
         this.fecha_desde = fecha_desde;
         this.fecha_hasta = fecha_hasta;
         this.puesto_id = puesto_id;
@@ -48,12 +48,12 @@ public class contrato {
         this.idcontrato = idcontrato;
     }
 
-    public int getIdtrabajdor() {
-        return idtrabajdor;
+    public int getIdtrabajador() {
+        return idtrabajador;
     }
 
-    public void setIdtrabajdor(int idtrabajdor) {
-        this.idtrabajdor = idtrabajdor;
+    public void setIdtrabajador(int idtrabajador) {
+        this.idtrabajador = idtrabajador;
     }
 
     public Date getFecha_desde() {

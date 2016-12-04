@@ -6,7 +6,7 @@
 package com.dao;
 
 import com.interfaces.Operaciones;
-import com.model.area;
+import com.model.detalle_vacacion;
 import com.util.DBConn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,18 +18,18 @@ import java.util.List;
  *
  * @author kael74
  */
-public class detalle_vacacionDAO implements Operaciones<area> {
+public class detalle_vacacionDAO implements Operaciones<detalle_vacacion> {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM usuario WHERE user=? AND clave=?";
-    private final static String SQL_CREATE = "INSERT INTO usuario ( user, clave) VALUES (?, ?)";
-    private final static String SQL_UPDATE = "UPDATE usuario SET clave=? WHERE idusuario=?";
-    private final static String SQL_DELETE = "DELETE FROM usuario WHERE idusuario=?";
-    private final static String SQL_SEARCH = "SELECT *FROM usuario WHERE user=?";
-    private final static String SQL_READALL = "SELECT *FROM usuario";
-    private final static String SQL_READ = "SELECT *FROM usuario WHERE idusuario=?";
-    private final static String SQL_BUSCAR = "SELECT *FROM usuario WHERE idusuario=?";
+    private final static String SQL_VALIDA = "SELECT *FROM detalle_vacacion WHERE user=? AND clave=?";
+    private final static String SQL_CREATE = "INSERT INTO detalle_vacacion (FECHA_INICIO, FECHA_FIN, VACACION_ID) VALUES (?, ?, ?)";
+    private final static String SQL_UPDATE = "UPDATE detalle_vacacion SET FECHA_INICIO=?,FECHA_FIN=?,VACACION_ID=? WHERE iddetalle_vacacion=?";
+    private final static String SQL_DELETE = "DELETE FROM detalle_vacacion WHERE iddetalle_vacacion=?";
+    private final static String SQL_SEARCH = "SELECT *FROM detalle_vacacion WHERE user=?";
+    private final static String SQL_READALL = "SELECT *FROM detalle_vacacion";
+    private final static String SQL_READ = "SELECT *FROM detalle_vacacion WHERE iddetalle_vacacion=?";
+    private final static String SQL_BUSCAR = "SELECT *FROM detalle_vacacion WHERE iddetalle_vacacion=?";
   
     public int validar(String user, String clave) {
         int op = 0;
@@ -49,17 +49,18 @@ public class detalle_vacacionDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> ReadAll() {
-        List<area> lista = new ArrayList<>();
+    public List<detalle_vacacion> ReadAll() {
+        List<detalle_vacacion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READALL);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
-                x.setIdarea(rs.getInt("idusuario"));
-                x.setNombre(rs.getString("user"));
-                x.setDepartamento_id(rs.getInt("user"));
+                detalle_vacacion x = new detalle_vacacion();
+                x.setIddetalle_vacacion(rs.getInt("iddetalle_vacacion"));
+                x.setFecha_inicio(rs.getDate("fecha_inicio"));
+                x.setFecha_fin(rs.getDate("fecha_fin"));
+                x.setVacacion_id(rs.getInt("vacacion_id"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -69,17 +70,15 @@ public class detalle_vacacionDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> Read(int id) {
-        List<area> lista = new ArrayList<>();
+    public List<detalle_vacacion> Read(int id) {
+        List<detalle_vacacion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_READALL);
+            ps = con.prepareStatement(SQL_READ);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
-                ps.setInt(1, x.getIdarea());
-                ps.setString(2, x.getNombre());
-                ps.setInt(3, x.getDepartamento_id());
+                detalle_vacacion x = new detalle_vacacion();
+                ps.setInt(1, x.getIddetalle_vacacion());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -88,13 +87,15 @@ public class detalle_vacacionDAO implements Operaciones<area> {
         return lista;  }
 
     @Override
-    public int update(area x) {
+    public int update(detalle_vacacion x) {
         int op = 0;
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_UPDATE);
-            ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setDate(1, x.getFecha_inicio());
+            ps.setDate(2, x.getFecha_fin());
+            ps.setInt(3, x.getVacacion_id());
+            ps.setInt(4, x.getIddetalle_vacacion());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -103,13 +104,14 @@ public class detalle_vacacionDAO implements Operaciones<area> {
     }
 
     @Override
-    public int insert(area x) {
+    public int insert(detalle_vacacion x) {
         int op = 0;
         try {
             con = DBConn.getConnection();
             ps =con.prepareStatement(SQL_CREATE);
-            ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setDate(1, x.getFecha_inicio());
+            ps.setDate(2, x.getFecha_fin());
+            ps.setInt(3, x.getVacacion_id());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: "+e);
@@ -132,16 +134,16 @@ public class detalle_vacacionDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> buscar(int id) {
-        List<area> lista = new ArrayList<>();
+    public List<detalle_vacacion> buscar(int id) {
+        List<detalle_vacacion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_BUSCAR);
             ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
-                x.setIdarea(rs.getInt("idarea"));
+                detalle_vacacion x = new detalle_vacacion();
+                x.setIddetalle_vacacion(rs.getInt("iddetalle_vacacion"));
                 lista.add(x);
             }
         } catch (Exception e) {

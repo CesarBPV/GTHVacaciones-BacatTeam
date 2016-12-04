@@ -6,7 +6,7 @@
 package com.dao;
 
 import com.interfaces.Operaciones;
-import com.model.area;
+import com.model.departamento;
 import com.util.DBConn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,18 +18,18 @@ import java.util.List;
  *
  * @author kael74
  */
-public class departamentoDAO implements Operaciones<area> {
+public class departamentoDAO implements Operaciones<departamento> {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM usuario WHERE user=? AND clave=?";
-    private final static String SQL_CREATE = "INSERT INTO usuario ( user, clave) VALUES (?, ?)";
-    private final static String SQL_UPDATE = "UPDATE usuario SET clave=? WHERE idusuario=?";
-    private final static String SQL_DELETE = "DELETE FROM usuario WHERE idusuario=?";
-    private final static String SQL_SEARCH = "SELECT *FROM usuario WHERE user=?";
-    private final static String SQL_READALL = "SELECT *FROM usuario";
-    private final static String SQL_READ = "SELECT *FROM usuario WHERE idusuario=?";
-    private final static String SQL_BUSCAR = "SELECT *FROM usuario WHERE idusuario=?";
+    private final static String SQL_VALIDA = "SELECT *FROM departamento WHERE user=? AND clave=?";
+    private final static String SQL_CREATE = "INSERT INTO departamento (NOMBRE, DIRECCION_ID) VALUES (?, ?)";
+    private final static String SQL_UPDATE = "UPDATE departamento SET nombre=? WHERE iddepartamento=?";
+    private final static String SQL_DELETE = "DELETE FROM departamento WHERE iddepartamento=?";
+    private final static String SQL_SEARCH = "SELECT *FROM departamento WHERE user=?";
+    private final static String SQL_READALL = "SELECT *FROM departamento";
+    private final static String SQL_READ = "SELECT *FROM departamento WHERE iddepartamento=?";
+    private final static String SQL_BUSCAR = "SELECT *FROM departamento WHERE iddepartamento=?";
   
     public int validar(String user, String clave) {
         int op = 0;
@@ -49,17 +49,17 @@ public class departamentoDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> ReadAll() {
-        List<area> lista = new ArrayList<>();
+    public List<departamento> ReadAll() {
+        List<departamento> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READALL);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
-                x.setIdarea(rs.getInt("idusuario"));
-                x.setNombre(rs.getString("user"));
-                x.setDepartamento_id(rs.getInt("user"));
+                departamento x = new departamento();
+                x.setIddepartamento(rs.getInt("iddepartamento"));
+                x.setNombre(rs.getString("nombre"));
+                x.setDireccion_id(rs.getInt("direccion_id"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -69,17 +69,15 @@ public class departamentoDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> Read(int id) {
-        List<area> lista = new ArrayList<>();
+    public List<departamento> Read(int id) {
+        List<departamento> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_READALL);
+            ps = con.prepareStatement(SQL_READ);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
-                ps.setInt(1, x.getIdarea());
-                ps.setString(2, x.getNombre());
-                ps.setInt(3, x.getDepartamento_id());
+                departamento x = new departamento();
+                ps.setInt(1, x.getIddepartamento());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -88,13 +86,14 @@ public class departamentoDAO implements Operaciones<area> {
         return lista;  }
 
     @Override
-    public int update(area x) {
+    public int update(departamento x) {
         int op = 0;
         try {
-            con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_UPDATE);
+            con = DBConn.getConnection();           
+            ps = con.prepareStatement(SQL_UPDATE);            
             ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setInt(2, x.getDireccion_id());
+            ps.setInt(3, x.getIddepartamento());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -103,13 +102,13 @@ public class departamentoDAO implements Operaciones<area> {
     }
 
     @Override
-    public int insert(area x) {
+    public int insert(departamento x) {
         int op = 0;
         try {
             con = DBConn.getConnection();
-            ps =con.prepareStatement(SQL_CREATE);
+            ps = con.prepareStatement(SQL_CREATE);
             ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setInt(2, x.getDireccion_id());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: "+e);
@@ -132,16 +131,16 @@ public class departamentoDAO implements Operaciones<area> {
     }
 
     @Override
-    public List<area> buscar(int id) {
-        List<area> lista = new ArrayList<>();
+    public List<departamento> buscar(int id) {
+        List<departamento> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_BUSCAR);
             ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                area x = new area();
-                x.setIdarea(rs.getInt("idarea"));
+                departamento x = new departamento();
+                x.setIddepartamento(rs.getInt("iddepartamento"));
                 lista.add(x);
             }
         } catch (Exception e) {
