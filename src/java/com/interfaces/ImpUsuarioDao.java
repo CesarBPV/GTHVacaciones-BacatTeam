@@ -14,10 +14,10 @@ import java.util.List;
  */
 public interface ImpUsuarioDao {
     public List<usuario> ReadAll();
-    public List<usuario> Read(int id);
+    public List<usuario> Read(String id);
     public int update(usuario x);
     public int insert(usuario x);
     public int delete(int id);  
-    public List<usuario> buscar(int id);
-    public String validar(String user, String clave);
+    public List<usuario> buscar(String id);
+    public List<String> validar(String user, String clave);
 }

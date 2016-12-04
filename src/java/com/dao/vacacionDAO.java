@@ -22,7 +22,6 @@ public class vacacionDAO implements ImpVacacionDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM vacacion WHERE user=? AND clave=?";
     private final static String SQL_CREATE = "INSERT INTO vacacion (IDCONTRATO, ES_VACACION, SOLICITUD_VACACION, REPROGRAMACION_VACACION) VALUES (?, ?, ?, ?)";
     private final static String SQL_UPDATE = "UPDATE vacacion SET IDCONTRATO=?, ES_VACACION=?, SOLICITUD_VACACION=?, REPROGRAMACION_VACACION=? WHERE idvacacion=?";
     private final static String SQL_DELETE = "DELETE FROM vacacion WHERE idvacacion=?";
@@ -30,23 +29,6 @@ public class vacacionDAO implements ImpVacacionDao {
     private final static String SQL_READALL = "SELECT *FROM vacacion";
     private final static String SQL_READ = "SELECT *FROM vacacion WHERE idvacacion=?";
     private final static String SQL_BUSCAR = "SELECT *FROM vacacion WHERE idvacacion=?";
-  
-    public int validar(String user, String clave) {
-        int op = 0;
-        try {
-            con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_VALIDA);
-            ps.setString(1, user);
-            ps.setString(2, clave);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                op = 1;
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-        }
-        return op;
-    }
 
     @Override
     public List<vacacion> ReadAll() {
@@ -57,11 +39,11 @@ public class vacacionDAO implements ImpVacacionDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 vacacion x = new vacacion();
-                x.setIdvacacion(rs.getInt("idvacacion"));
+                x.setIdvacacion(rs.getString("idvacacion"));
                 x.setEs_vacacion(rs.getInt("es_vacacion"));                
                 x.setSolicitud_vacacion(rs.getInt("solicitud_vacacion"));
                 x.setReprogramacion_vacacion(rs.getInt("reprogramacion_vacacion"));
-                x.setIdcontrato(rs.getInt("idcontrato"));
+                x.setIdcontrato(rs.getString("idcontrato"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -71,7 +53,7 @@ public class vacacionDAO implements ImpVacacionDao {
     }
 
     @Override
-    public List<vacacion> Read(int id) {
+    public List<vacacion> Read(String id) {
         List<vacacion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
@@ -79,7 +61,7 @@ public class vacacionDAO implements ImpVacacionDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 vacacion x = new vacacion();
-                ps.setInt(1, x.getIdvacacion());                
+                ps.setString(1, x.getIdvacacion());                
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -93,11 +75,11 @@ public class vacacionDAO implements ImpVacacionDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_UPDATE);
-            ps.setInt(1, x.getIdcontrato());
+            ps.setString(1, x.getIdcontrato());
             ps.setInt(2, x.getEs_vacacion());
             ps.setInt(3, x.getSolicitud_vacacion());
             ps.setInt(4, x.getReprogramacion_vacacion());
-            ps.setInt(5, x.getIdvacacion());
+            ps.setString(5, x.getIdvacacion());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -111,7 +93,7 @@ public class vacacionDAO implements ImpVacacionDao {
         try {
             con = DBConn.getConnection();
             ps =con.prepareStatement(SQL_CREATE);
-            ps.setInt(1, x.getIdcontrato());
+            ps.setString(1, x.getIdcontrato());
             ps.setInt(2, x.getEs_vacacion());
             ps.setInt(3, x.getSolicitud_vacacion());
             ps.setInt(4, x.getReprogramacion_vacacion());
@@ -123,12 +105,12 @@ public class vacacionDAO implements ImpVacacionDao {
     }
 
     @Override
-    public int delete(int id) {
+    public int delete(String id) {
         int op = 0;
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_DELETE);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -137,16 +119,16 @@ public class vacacionDAO implements ImpVacacionDao {
     }
 
     @Override
-    public List<vacacion> buscar(int id) {
+    public List<vacacion> buscar(String id) {
         List<vacacion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_BUSCAR);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 vacacion x = new vacacion();
-                x.setIdvacacion(rs.getInt("idvacacion"));
+                x.setIdvacacion(rs.getString("idvacacion"));
                 lista.add(x);
             }
         } catch (Exception e) {

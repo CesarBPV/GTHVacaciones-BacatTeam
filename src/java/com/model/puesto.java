@@ -10,29 +10,29 @@ package com.model;
  * @author Jose_Luis
  */
 public class puesto {
-    private int idpuesto;
+    private String idpuesto;
     private String nombre;
-    private int seccion_id;
+    private String seccion_id;
 
     public puesto() {
     }
 
-    public puesto(int idpuesto, String nombre) {
+    public puesto(String idpuesto, String nombre) {
         this.idpuesto = idpuesto;
         this.nombre = nombre;
     }
 
-    public puesto(int idpuesto, String nombre, int seccion_id) {
+    public puesto(String idpuesto, String nombre, String seccion_id) {
         this.idpuesto = idpuesto;
         this.nombre = nombre;
         this.seccion_id = seccion_id;
     }
 
-    public int getIdpuesto() {
+    public String getIdpuesto() {
         return idpuesto;
     }
 
-    public void setIdpuesto(int idpuesto) {
+    public void setIdpuesto(String idpuesto) {
         this.idpuesto = idpuesto;
     }
 
@@ -44,11 +44,11 @@ public class puesto {
         this.nombre = nombre;
     }
 
-    public int getSeccion_id() {
+    public String getSeccion_id() {
         return seccion_id;
     }
 
-    public void setSeccion_id(int seccion_id) {
+    public void setSeccion_id(String seccion_id) {
         this.seccion_id = seccion_id;
     }
     

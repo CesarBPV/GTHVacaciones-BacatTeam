@@ -19,7 +19,7 @@ public class DBConn {
 
         try {
             //String sc="jdbc:postgresql://"+"127.0.0.1:5432"+"/"+crypt.decrypt(str_driver);
-            String sc = "jdbc:oracle:thin:user01/123@localhost:1521:xe";
+            String sc = "jdbc:oracle:thin:db_gth_vacaciones/123456@localhost:1521:xe";
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             conn = DriverManager.getConnection(sc);
 

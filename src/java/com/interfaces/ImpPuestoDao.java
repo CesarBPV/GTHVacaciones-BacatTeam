@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ImpPuestoDao {
     public List<puesto> ReadAll();
-    public List<puesto> Read(int id);
+    public List<puesto> Read(String id);
     public int update(puesto x);
     public int insert(puesto x);
-    public int delete(int id);  
-    public List<puesto> buscar(int id);
+    public int delete(String id);  
+    public List<puesto> buscar(String id);
 }

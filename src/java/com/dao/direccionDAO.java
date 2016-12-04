@@ -22,7 +22,6 @@ public class direccionDAO implements ImpDireccionDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM direccion WHERE user=? AND clave=?";
     private final static String SQL_CREATE = "INSERT INTO direccion (NOMBRE, FILIAL) VALUES (?, ?)";
     private final static String SQL_UPDATE = "UPDATE direccion SET NOMBRE=?, FILIAL=? WHERE iddireccion=?";
     private final static String SQL_DELETE = "DELETE FROM direccion WHERE iddireccion=?";
@@ -31,22 +30,6 @@ public class direccionDAO implements ImpDireccionDao {
     private final static String SQL_READ = "SELECT *FROM direccion WHERE iddireccion=?";
     private final static String SQL_BUSCAR = "SELECT *FROM direccion WHERE iddireccion=?";
   
-    public int validar(String user, String clave) {
-        int op = 0;
-        try {
-            con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_VALIDA);
-            ps.setString(1, user);
-            ps.setString(2, clave);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                op = 1;
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-        }
-        return op;
-    }
 
     @Override
     public List<direccion> ReadAll() {
@@ -57,7 +40,7 @@ public class direccionDAO implements ImpDireccionDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 direccion x = new direccion();
-                x.setIddireccion(rs.getInt("iddireccion"));
+                x.setIddireccion(rs.getString("iddireccion"));
                 x.setNombre(rs.getString("nombre"));
                 x.setFilial(rs.getString("filial"));
                 lista.add(x);
@@ -69,7 +52,7 @@ public class direccionDAO implements ImpDireccionDao {
     }
 
     @Override
-    public List<direccion> Read(int id) {
+    public List<direccion> Read(String id) {
         List<direccion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
@@ -77,7 +60,7 @@ public class direccionDAO implements ImpDireccionDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 direccion x = new direccion();
-                ps.setInt(1, x.getIddireccion());
+                ps.setString(1, x.getIddireccion());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -93,7 +76,7 @@ public class direccionDAO implements ImpDireccionDao {
             ps = con.prepareStatement(SQL_UPDATE);
             ps.setString(1, x.getNombre());
             ps.setString(2, x.getFilial());
-            ps.setInt(3, x.getIddireccion());
+            ps.setString(3, x.getIddireccion());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -117,12 +100,12 @@ public class direccionDAO implements ImpDireccionDao {
     }
 
     @Override
-    public int delete(int id) {
+    public int delete(String id) {
         int op = 0;
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_DELETE);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -131,16 +114,16 @@ public class direccionDAO implements ImpDireccionDao {
     }
 
     @Override
-    public List<direccion> buscar(int id) {
+    public List<direccion> buscar(String id) {
         List<direccion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_BUSCAR);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 direccion x = new direccion();
-                x.setIddireccion(rs.getInt("iddireccion"));
+                x.setIddireccion(rs.getString("iddireccion"));
                 lista.add(x);
             }
         } catch (Exception e) {

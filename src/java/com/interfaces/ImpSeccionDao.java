@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ImpSeccionDao {
     public List<seccion> ReadAll();
-    public List<seccion> Read(int id);
+    public List<seccion> Read(String id);
     public int update(seccion x);
     public int insert(seccion x);
-    public int delete(int id);  
-    public List<seccion> buscar(int id);
+    public int delete(String id);  
+    public List<seccion> buscar(String id);
 }

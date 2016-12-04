@@ -22,7 +22,6 @@ public class seccionDAO implements ImpSeccionDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM seccion WHERE user=? AND clave=?";
     private final static String SQL_CREATE = "INSERT INTO seccion (NOMBRE, AREA_ID) VALUES (?, ?)";
     private final static String SQL_UPDATE = "UPDATE seccion SET NOMBRE=?, AREA_ID=? WHERE idseccion=?";
     private final static String SQL_DELETE = "DELETE FROM seccion WHERE idseccion=?";
@@ -30,23 +29,6 @@ public class seccionDAO implements ImpSeccionDao {
     private final static String SQL_READALL = "SELECT *FROM seccion";
     private final static String SQL_READ = "SELECT *FROM seccion WHERE idseccion=?";
     private final static String SQL_BUSCAR = "SELECT *FROM seccion WHERE idseccion=?";
-  
-    public int validar(String user, String clave) {
-        int op = 0;
-        try {
-            con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_VALIDA);
-            ps.setString(1, user);
-            ps.setString(2, clave);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                op = 1;
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-        }
-        return op;
-    }
 
     @Override
     public List<seccion> ReadAll() {
@@ -57,9 +39,9 @@ public class seccionDAO implements ImpSeccionDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 seccion x = new seccion();
-                x.setIdseccion(rs.getInt("idusuario"));
+                x.setIdseccion(rs.getString("idusuario"));
                 x.setNombre(rs.getString("nombre"));
-                x.setArea_id(rs.getInt("area_id"));
+                x.setArea_id(rs.getString("area_id"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -69,7 +51,7 @@ public class seccionDAO implements ImpSeccionDao {
     }
 
     @Override
-    public List<seccion> Read(int id) {
+    public List<seccion> Read(String id) {
         List<seccion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
@@ -77,7 +59,7 @@ public class seccionDAO implements ImpSeccionDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 seccion x = new seccion();
-                ps.setInt(1, x.getIdseccion());
+                ps.setString(1, x.getIdseccion());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -92,8 +74,8 @@ public class seccionDAO implements ImpSeccionDao {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_UPDATE);
             ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getArea_id());
-            ps.setInt(3, x.getIdseccion());
+            ps.setString(2, x.getArea_id());
+            ps.setString(3, x.getIdseccion());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -108,7 +90,7 @@ public class seccionDAO implements ImpSeccionDao {
             con = DBConn.getConnection();
             ps =con.prepareStatement(SQL_CREATE);
             ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getArea_id());
+            ps.setString(2, x.getArea_id());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: "+e);
@@ -117,12 +99,12 @@ public class seccionDAO implements ImpSeccionDao {
     }
 
     @Override
-    public int delete(int id) {
+    public int delete(String id) {
         int op = 0;
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_DELETE);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -131,16 +113,16 @@ public class seccionDAO implements ImpSeccionDao {
     }
 
     @Override
-    public List<seccion> buscar(int id) {
+    public List<seccion> buscar(String id) {
         List<seccion> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_BUSCAR);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 seccion x = new seccion();
-                x.setIdseccion(rs.getInt("idseccion"));
+                x.setIdseccion(rs.getString("idseccion"));
                 lista.add(x);
             }
         } catch (Exception e) {

@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ImpDetalle_vacacionDao {
     public List<detalle_vacacion> ReadAll();
-    public List<detalle_vacacion> Read(int id);
+    public List<detalle_vacacion> Read(String id);
     public int update(detalle_vacacion x);
     public int insert(detalle_vacacion x);
-    public int delete(int id);  
-    public List<detalle_vacacion> buscar(int id);
+    public int delete(String id);  
+    public List<detalle_vacacion> buscar(String id);
 }

@@ -10,7 +10,7 @@ package com.model;
  * @author kael74
  */
 public class documento_adjunto {
-    private int documento_adjunto_id;
+    private String documento_adjunto_id;
     private String direccion_doc;
     private String nombre_doc;
     private String descripcion_doc;
@@ -18,18 +18,18 @@ public class documento_adjunto {
     public documento_adjunto() {
     }
 
-    public documento_adjunto(int documento_adjunto_id, String direccion_doc, String nombre_doc, String descripcion_doc) {
+    public documento_adjunto(String documento_adjunto_id, String direccion_doc, String nombre_doc, String descripcion_doc) {
         this.documento_adjunto_id = documento_adjunto_id;
         this.direccion_doc = direccion_doc;
         this.nombre_doc = nombre_doc;
         this.descripcion_doc = descripcion_doc;
     }
 
-    public int getDocumento_adjunto_id() {
+    public String getDocumento_adjunto_id() {
         return documento_adjunto_id;
     }
 
-    public void setDocumento_adjunto_id(int documento_adjunto_id) {
+    public void setDocumento_adjunto_id(String documento_adjunto_id) {
         this.documento_adjunto_id = documento_adjunto_id;
     }
 

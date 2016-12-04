@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ImpDepartamentoDao {
     public List<departamento> ReadAll();
-    public List<departamento> Read(int id);
+    public List<departamento> Read(String id);
     public int update(departamento x);
     public int insert(departamento x);
-    public int delete(int id);  
-    public List<departamento> buscar(int id);
+    public int delete(String id);  
+    public List<departamento> buscar(String id);
 }

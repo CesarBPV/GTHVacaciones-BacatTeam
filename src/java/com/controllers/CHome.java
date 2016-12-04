@@ -7,6 +7,7 @@ package com.controllers;
 
 import com.dao.usuarioDAO;
 import com.interfaces.ImpUsuarioDao;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -29,10 +30,11 @@ public class CHome {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             if (username != null && password != null) {
-                String iduser = udao.validar(username, password);
-                System.out.println("idusuario:   "+iduser);
-                if (iduser != null) {
-                    sesion.setAttribute("idusuario", iduser);
+                List<String> list = udao.validar(username, password);
+                System.out.println("idusuario:   "+ list.get(0));
+                if (list.get(0) != null) {
+                    sesion.setAttribute("idusuario", list.get(0));
+                    sesion.setAttribute("idtrabajador", list.get(1));
                     return "modules";
                 }else{
                     return "login";

@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ImpAreaDao {
     public List<area> ReadAll();
-    public List<area> Read(int id);
+    public List<area> Read(String id);
     public int update(area x);
     public int insert(area x);
-    public int delete(int id);  
-    public List<area> buscar(int id);
+    public int delete(String id);  
+    public List<area> buscar(String id);
 }

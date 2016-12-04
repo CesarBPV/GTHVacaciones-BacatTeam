@@ -10,7 +10,7 @@ import java.sql.Date;
  * @author Jose_Luis
  */
 public class trabajador {
-    private int idtrabajador;
+    private String idtrabajador;
     private String nombres;
     private String apellidos;
     private String sexo;
@@ -22,7 +22,7 @@ public class trabajador {
     public trabajador() {
     }
 
-    public trabajador(int idtrabajador, String nombres, String apellidos, String sexo, String tipo_doc, int num_doc, String correo, Date fecha_nac) {
+    public trabajador(String idtrabajador, String nombres, String apellidos, String sexo, String tipo_doc, int num_doc, String correo, Date fecha_nac) {
         this.idtrabajador = idtrabajador;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -33,11 +33,11 @@ public class trabajador {
         this.fecha_nac = fecha_nac;
     }
 
-    public int getIdtrabajador() {
+    public String getIdtrabajador() {
         return idtrabajador;
     }
 
-    public void setIdtrabajador(int idtrabajador) {
+    public void setIdtrabajador(String idtrabajador) {
         this.idtrabajador = idtrabajador;
     }
 

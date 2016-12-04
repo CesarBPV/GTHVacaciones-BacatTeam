@@ -10,24 +10,24 @@ package com.model;
  * @author Jose_Luis
  */
 public class direccion {
-    private int iddireccion;
+    private String iddireccion;
     private String nombre;
     private String filial;
 
     public direccion() {
     }
 
-    public direccion(int iddireccion, String nombre, String filial) {
+    public direccion(String iddireccion, String nombre, String filial) {
         this.iddireccion = iddireccion;
         this.nombre = nombre;
         this.filial = filial;
     }
 
-    public int getIddireccion() {
+    public String getIddireccion() {
         return iddireccion;
     }
 
-    public void setIddireccion(int iddireccion) {
+    public void setIddireccion(String iddireccion) {
         this.iddireccion = iddireccion;
     }
 

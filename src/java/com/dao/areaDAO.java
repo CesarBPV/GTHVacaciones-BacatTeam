@@ -30,23 +30,7 @@ public class areaDAO implements ImpAreaDao {
     private final static String SQL_READALL = "SELECT *FROM AREA";
     private final static String SQL_READ = "SELECT *FROM AREA WHERE idarea=?";
     private final static String SQL_BUSCAR = "SELECT *FROM AREA WHERE idarea=?";
-  
-    public int validar(String user, String clave) {
-        int op = 0;
-        try {
-            con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_VALIDA);
-            ps.setString(1, user);
-            ps.setString(2, clave);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                op = 1;
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-        }
-        return op;
-    }
+
 
     @Override
     public List<area> ReadAll() {
@@ -57,9 +41,9 @@ public class areaDAO implements ImpAreaDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 area x = new area();
-                x.setIdarea(rs.getInt("idarea"));
+                x.setIdarea(rs.getString("idarea"));
                 x.setNombre(rs.getString("nombre"));
-                x.setDepartamento_id(rs.getInt("deparatamento"));
+                x.setDepartamento_id(rs.getString("iddeparatamento"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -69,7 +53,7 @@ public class areaDAO implements ImpAreaDao {
     }
 
     @Override
-    public List<area> Read(int id) {
+    public List<area> Read(String id) {
         List<area> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
@@ -77,7 +61,7 @@ public class areaDAO implements ImpAreaDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 area x = new area();
-                ps.setInt(1, x.getIdarea());
+                ps.setString(1, x.getIdarea());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -92,8 +76,8 @@ public class areaDAO implements ImpAreaDao {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_UPDATE);
             ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
-            ps.setInt(3, x.getIdarea());
+            ps.setString(2, x.getDepartamento_id());
+            ps.setString(3, x.getIdarea());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -108,7 +92,7 @@ public class areaDAO implements ImpAreaDao {
             con = DBConn.getConnection();
             ps =con.prepareStatement(SQL_CREATE);
             ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getDepartamento_id());
+            ps.setString(2, x.getDepartamento_id());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: "+e);
@@ -117,12 +101,12 @@ public class areaDAO implements ImpAreaDao {
     }
 
     @Override
-    public int delete(int id) {
+    public int delete(String id) {
         int op = 0;
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_DELETE);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -131,16 +115,16 @@ public class areaDAO implements ImpAreaDao {
     }
 
     @Override
-    public List<area> buscar(int id) {
+    public List<area> buscar(String id) {
         List<area> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_BUSCAR);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 area x = new area();
-                x.setIdarea(rs.getInt("idarea"));
+                x.setIdarea(rs.getString("idarea"));
                 lista.add(x);
             }
         } catch (Exception e) {

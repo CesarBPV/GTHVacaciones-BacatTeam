@@ -22,7 +22,6 @@ public class puestoDAO implements ImpPuestoDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM puesto WHERE user=? AND clave=?";
     private final static String SQL_CREATE = "INSERT INTO puesto (NOMBRE, SECCION_ID) VALUES (?, ?)";
     private final static String SQL_UPDATE = "UPDATE puesto SET NOMBRE=?, SECCION_ID=? WHERE idpuesto=?";
     private final static String SQL_DELETE = "DELETE FROM puesto WHERE idpuesto=?";
@@ -30,23 +29,6 @@ public class puestoDAO implements ImpPuestoDao {
     private final static String SQL_READALL = "SELECT *FROM puesto";
     private final static String SQL_READ = "SELECT *FROM puesto WHERE idpuesto=?";
     private final static String SQL_BUSCAR = "SELECT *FROM puesto WHERE idpuesto=?";
-  
-    public int validar(String user, String clave) {
-        int op = 0;
-        try {
-            con = DBConn.getConnection();
-            ps = con.prepareStatement(SQL_VALIDA);
-            ps.setString(1, user);
-            ps.setString(2, clave);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                op = 1;
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-        }
-        return op;
-    }
 
     @Override
     public List<puesto> ReadAll() {
@@ -57,9 +39,9 @@ public class puestoDAO implements ImpPuestoDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 puesto x = new puesto();
-                x.setIdpuesto(rs.getInt("idpuesto"));
+                x.setIdpuesto(rs.getString("idpuesto"));
                 x.setNombre(rs.getString("nombre"));
-                x.setSeccion_id(rs.getInt("seccion_id"));
+                x.setSeccion_id(rs.getString("seccion_id"));
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -69,7 +51,7 @@ public class puestoDAO implements ImpPuestoDao {
     }
 
     @Override
-    public List<puesto> Read(int id) {
+    public List<puesto> Read(String id) {
         List<puesto> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
@@ -77,7 +59,7 @@ public class puestoDAO implements ImpPuestoDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 puesto x = new puesto();
-                ps.setInt(1, x.getIdpuesto());
+                ps.setString(1, x.getIdpuesto());
                 lista.add(x);
             }
         } catch (Exception e) {
@@ -92,8 +74,8 @@ public class puestoDAO implements ImpPuestoDao {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_UPDATE);
             ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getSeccion_id());
-            ps.setInt(3, x.getIdpuesto());
+            ps.setString(2, x.getSeccion_id());
+            ps.setString(3, x.getIdpuesto());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -108,7 +90,7 @@ public class puestoDAO implements ImpPuestoDao {
             con = DBConn.getConnection();
             ps =con.prepareStatement(SQL_CREATE);
             ps.setString(1, x.getNombre());
-            ps.setInt(2, x.getSeccion_id());
+            ps.setString(2, x.getSeccion_id());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: "+e);
@@ -117,12 +99,12 @@ public class puestoDAO implements ImpPuestoDao {
     }
 
     @Override
-    public int delete(int id) {
+    public int delete(String id) {
         int op = 0;
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_DELETE);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -131,16 +113,16 @@ public class puestoDAO implements ImpPuestoDao {
     }
 
     @Override
-    public List<puesto> buscar(int id) {
+    public List<puesto> buscar(String id) {
         List<puesto> lista = new ArrayList<>();
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_BUSCAR);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 puesto x = new puesto();
-                x.setIdpuesto(rs.getInt("idpuesto"));
+                x.setIdpuesto(rs.getString("idpuesto"));
                 lista.add(x);
             }
         } catch (Exception e) {

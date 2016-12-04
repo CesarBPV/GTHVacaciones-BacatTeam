@@ -10,29 +10,29 @@ package com.model;
  * @author Jose_Luis
  */
 public class seccion {
-    private int idseccion;
+    private String idseccion;
     private String nombre;
-    private int area_id;
+    private String area_id;
 
     public seccion() {
     }
 
-    public seccion(int idseccion, String nombre) {
+    public seccion(String idseccion, String nombre) {
         this.idseccion = idseccion;
         this.nombre = nombre;
     }
 
-    public seccion(int idseccion, String nombre, int area_id) {
+    public seccion(String idseccion, String nombre, String area_id) {
         this.idseccion = idseccion;
         this.nombre = nombre;
         this.area_id = area_id;
     }
 
-    public int getIdseccion() {
+    public String getIdseccion() {
         return idseccion;
     }
 
-    public void setIdseccion(int idseccion) {
+    public void setIdseccion(String idseccion) {
         this.idseccion = idseccion;
     }
 
@@ -44,11 +44,11 @@ public class seccion {
         this.nombre = nombre;
     }
 
-    public int getArea_id() {
+    public String getArea_id() {
         return area_id;
     }
 
-    public void setArea_id(int area_id) {
+    public void setArea_id(String area_id) {
         this.area_id = area_id;
     }
     

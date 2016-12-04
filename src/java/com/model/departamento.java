@@ -10,29 +10,29 @@ package com.model;
  * @author Jose_Luis
  */
 public class departamento {
-    private int iddepartamento;
+    private String iddepartamento;
     private String nombre;
-    private int direccion_id;
+    private String direccion_id;
 
     public departamento() {
     }
 
-    public departamento(int iddepartamento, String nombre) {
+    public departamento(String iddepartamento, String nombre) {
         this.iddepartamento = iddepartamento;
         this.nombre = nombre;
     }
 
-    public departamento(int iddepartamento, String nombre, int direccion_id) {
+    public departamento(String iddepartamento, String nombre, String direccion_id) {
         this.iddepartamento = iddepartamento;
         this.nombre = nombre;
         this.direccion_id = direccion_id;
     }
 
-    public int getIddepartamento() {
+    public String getIddepartamento() {
         return iddepartamento;
     }
 
-    public void setIddepartamento(int iddepartamento) {
+    public void setIddepartamento(String iddepartamento) {
         this.iddepartamento = iddepartamento;
     }
 
@@ -44,11 +44,11 @@ public class departamento {
         this.nombre = nombre;
     }
 
-    public int getDireccion_id() {
+    public String getDireccion_id() {
         return direccion_id;
     }
 
-    public void setDireccion_id(int direccion_id) {
+    public void setDireccion_id(String direccion_id) {
         this.direccion_id = direccion_id;
     }
     

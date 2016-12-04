@@ -1,7 +1,22 @@
+<%@page import="com.sun.xml.internal.ws.api.message.saaj.SAAJFactory"%>
+<%@page import="com.model.trabajador"%>
+<%@page import="com.dao.trabajadorDAO"%>
+<%@page import="com.interfaces.ImpTrabajadorDao"%>
+<%@page import="com.model.usuario"%>
+<%@page import="com.dao.usuarioDAO"%>
+<%@page import="com.interfaces.ImpUsuarioDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
-
+<%
+    HttpSession sesion=request.getSession();
+    ImpUsuarioDao udao=new usuarioDAO();
+    ImpTrabajadorDao tdao=new trabajadorDAO();
+    usuario u=udao.Read((String) sesion.getAttribute("idusuario")).get(0);
+    System.out.println("USUARIO: "+u.getIdusuario());
+    trabajador t=tdao.Read(u.getIdtrabajador()).get(0);
+    String nombres=t.getNombres()+" "+t.getApellidos();
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -305,20 +320,30 @@
     <aside id="left-panel">
 
         <!-- User info -->
-        <div class="login-info">
-            <span> <!-- User image size is adjusted inside CSS, it should stay as it --> 
+            <div class="logininfo slideInRight fast animated">
+                <div class="row">
+                    <div class="avatar-user col-md-3">
+                        <input id="id_trabajador" type="hidden" value="<%out.println(sesion.getAttribute("idtrabajador"));%>" />
+                        <input id="iuser" type="hidden" value="<%out.println(sesion.getAttribute("idusuario"));%>" />
+                        <a href="javascript:void(0);" id="show-shortcut" >
+                            <img id="foto_usuario" src="resources/img/avatars/4.png"  />
+                        </a>  
+                    </div>
+                    <div class="col-md-9">
+                        <div class="login-info text-right">
+                            <span class="spanuser"> <%out.println((String) u.getUsuario()); %></span>  
+                        </div>
 
-                <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
-                    <img src="resources/img/avatars/sunny.png" alt="me" class="online" /> 
-                    <span>
-                        john 
-                    </span>
-                    <i class="fa fa-angle-down"></i>
-                </a> 
+                        <div class="login-info text-right">
+                            <span ><%out.println(nombres.trim()); %> </span> 
+                        </div>
+                    </div>
+                </div>
 
-            </span>
-        </div>
-        <!-- end user info -->
+            </div>
+
+
+            <!-- end user info -->
 
         <!-- NAVIGATION : This navigation is also responsive-->
         <nav>

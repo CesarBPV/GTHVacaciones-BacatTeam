@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ImpDireccionDao {
     public List<direccion> ReadAll();
-    public List<direccion> Read(int id);
+    public List<direccion> Read(String id);
     public int update(direccion x);
     public int insert(direccion x);
-    public int delete(int id);  
-    public List<direccion> buscar(int id);
+    public int delete(String id);  
+    public List<direccion> buscar(String id);
 }

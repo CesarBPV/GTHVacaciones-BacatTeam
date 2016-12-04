@@ -10,29 +10,29 @@ import java.sql.Date;
  * @author Jose_Luis
  */
 public class contrato {
-    private int idcontrato;
-    private int idtrabajador;
+    private String idcontrato;
+    private String idtrabajador;
     private Date fecha_desde;
     private Date fecha_hasta;
-    private int puesto_id;
+    private String puesto_id;
 
     public contrato() {
     }
 
-    public contrato(int idcontrato, Date fecha_desde, Date fecha_hasta) {
+    public contrato(String idcontrato, Date fecha_desde, Date fecha_hasta) {
         this.idcontrato = idcontrato;
         this.fecha_desde = fecha_desde;
         this.fecha_hasta = fecha_hasta;
     }
 
-    public contrato(int idcontrato, int idtrabajdor, Date fecha_desde, Date fecha_hasta) {
+    public contrato(String idcontrato, String idtrabajdor, Date fecha_desde, Date fecha_hasta) {
         this.idcontrato = idcontrato;
         this.idtrabajador = idtrabajador;
         this.fecha_desde = fecha_desde;
         this.fecha_hasta = fecha_hasta;
     }
 
-    public contrato(int idcontrato, int idtrabajdor, Date fecha_desde, Date fecha_hasta, int puesto_id) {
+    public contrato(String idcontrato, String idtrabajdor, Date fecha_desde, Date fecha_hasta, String puesto_id) {
         this.idcontrato = idcontrato;
         this.idtrabajador = idtrabajador;
         this.fecha_desde = fecha_desde;
@@ -40,19 +40,19 @@ public class contrato {
         this.puesto_id = puesto_id;
     }
 
-    public int getIdcontrato() {
+    public String getIdcontrato() {
         return idcontrato;
     }
 
-    public void setIdcontrato(int idcontrato) {
+    public void setIdcontrato(String idcontrato) {
         this.idcontrato = idcontrato;
     }
 
-    public int getIdtrabajador() {
+    public String getIdtrabajador() {
         return idtrabajador;
     }
 
-    public void setIdtrabajador(int idtrabajador) {
+    public void setIdtrabajador(String idtrabajador) {
         this.idtrabajador = idtrabajador;
     }
 
@@ -72,11 +72,11 @@ public class contrato {
         this.fecha_hasta = fecha_hasta;
     }
 
-    public int getPuesto_id() {
+    public String getPuesto_id() {
         return puesto_id;
     }
 
-    public void setPuesto_id(int puesto_id) {
+    public void setPuesto_id(String puesto_id) {
         this.puesto_id = puesto_id;
     }
     

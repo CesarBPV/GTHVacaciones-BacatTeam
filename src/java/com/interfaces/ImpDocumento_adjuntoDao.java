@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ImpDocumento_adjuntoDao {
     public List<documento_adjunto> ReadAll();
-    public List<documento_adjunto> Read(int id);
+    public List<documento_adjunto> Read(String id);
     public int update(documento_adjunto x);
     public int insert(documento_adjunto x);
-    public int delete(int id);  
-    public List<documento_adjunto> buscar(int id);
+    public int delete(String id);  
+    public List<documento_adjunto> buscar(String id);
 }

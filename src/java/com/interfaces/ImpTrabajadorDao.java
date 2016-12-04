@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ImpTrabajadorDao {
     public List<trabajador> ReadAll();
-    public List<trabajador> Read(int id);
+    public List<trabajador> Read(String id);
     public int update(trabajador x);
     public int insert(trabajador x);
-    public int delete(int id);  
-    public List<trabajador> buscar(int id);
+    public int delete(String id);  
+    public List<trabajador> buscar(String id);
 }

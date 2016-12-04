@@ -9,30 +9,30 @@ package com.model;
  *
  * @author Jose_Luis
  */
-public class vacacion_actualizacion {
-    private int idautorizacion_vacacion;
+public class vacacion_autorizacion {
+    private String idautorizacion_vacacion;
     private String estado;
     private String nropaso;
-    private int vacacion_id;
-    private int puesto_id;
+    private String vacacion_id;
+    private String puesto_id;
 
-    public vacacion_actualizacion() {
+    public vacacion_autorizacion() {
     }
 
-    public vacacion_actualizacion(int idautorizacion_vacacion, String estado, String nropaso) {
+    public vacacion_autorizacion(String idautorizacion_vacacion, String estado, String nropaso) {
         this.idautorizacion_vacacion = idautorizacion_vacacion;
         this.estado = estado;
         this.nropaso = nropaso;
     }
 
-    public vacacion_actualizacion(int idautorizacion_vacacion, String estado, String nropaso, int vacacion_id) {
+    public vacacion_autorizacion(String idautorizacion_vacacion, String estado, String nropaso, String vacacion_id) {
         this.idautorizacion_vacacion = idautorizacion_vacacion;
         this.estado = estado;
         this.nropaso = nropaso;
         this.vacacion_id = vacacion_id;
     }
 
-    public vacacion_actualizacion(int idautorizacion_vacacion, String estado, String nropaso, int vacacion_id, int puesto_id) {
+    public vacacion_autorizacion(String idautorizacion_vacacion, String estado, String nropaso, String vacacion_id, String puesto_id) {
         this.idautorizacion_vacacion = idautorizacion_vacacion;
         this.estado = estado;
         this.nropaso = nropaso;
@@ -40,11 +40,11 @@ public class vacacion_actualizacion {
         this.puesto_id = puesto_id;
     }
 
-    public int getIdautorizacion_vacacion() {
+    public String getIdautorizacion_vacacion() {
         return idautorizacion_vacacion;
     }
 
-    public void setIdautorizacion_vacacion(int idautorizacion_vacacion) {
+    public void setIdautorizacion_vacacion(String idautorizacion_vacacion) {
         this.idautorizacion_vacacion = idautorizacion_vacacion;
     }
 
@@ -64,19 +64,19 @@ public class vacacion_actualizacion {
         this.nropaso = nropaso;
     }
 
-    public int getVacacion_id() {
+    public String getVacacion_id() {
         return vacacion_id;
     }
 
-    public void setVacacion_id(int vacacion_id) {
+    public void setVacacion_id(String vacacion_id) {
         this.vacacion_id = vacacion_id;
     }
 
-    public int getPuesto_id() {
+    public String getPuesto_id() {
         return puesto_id;
     }
 
-    public void setPuesto_id(int puesto_id) {
+    public void setPuesto_id(String puesto_id) {
         this.puesto_id = puesto_id;
     }
     

@@ -10,32 +10,32 @@ package com.model;
  * @author Jose_Luis
  */
 public class usuario {
-    private int idusuario;
+    private String idusuario;
     private String usuario;
     private String clave;
-    private int idtrabajador;
+    private String idtrabajador;
 
     public usuario() {
     }
 
-    public usuario(int idusuario, String usuario, String clave) {
-        this.idusuario = idusuario;
+    public usuario(String idtrabajador, String usuario, String clave) {
+        this.idtrabajador = idtrabajador;
         this.usuario = usuario;
         this.clave = clave;
     }
 
-    public usuario(int idusuario, String usuario, String clave, int idtrabajador) {
+    public usuario(String idusuario, String usuario, String clave, String idtrabajador) {
         this.idusuario = idusuario;
         this.usuario = usuario;
         this.clave = clave;
         this.idtrabajador = idtrabajador;
     }
 
-    public int getIdusuario() {
+    public String getIdusuario() {
         return idusuario;
     }
 
-    public void setIdusuario(int idusuario) {
+    public void setIdusuario(String idusuario) {
         this.idusuario = idusuario;
     }
 
@@ -55,11 +55,11 @@ public class usuario {
         this.clave = clave;
     }
 
-    public int getIdtrabajador() {
+    public String getIdtrabajador() {
         return idtrabajador;
     }
 
-    public void setIdtrabajador(int idtrabajador) {
+    public void setIdtrabajador(String idtrabajador) {
         this.idtrabajador = idtrabajador;
     }
     

@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ImpContratoDao {
     public List<contrato> ReadAll();
-    public List<contrato> Read(int id);
+    public List<contrato> Read(String id);
     public int update(contrato x);
     public int insert(contrato x);
-    public int delete(int id);  
-    public List<contrato> buscar(int id);
+    public int delete(String id);  
+    public List<contrato> buscar(String id);
 }
