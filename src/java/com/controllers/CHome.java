@@ -71,14 +71,23 @@ public class CHome {
         }
         return "login";
     }
+    @RequestMapping("/proceso")
+    public String proceso(HttpServletRequest request, HttpServletResponse response) {
+        return "proceso";
+    }
 
     @RequestMapping("/index")
     public String index(HttpServletRequest request, HttpServletResponse response) {
         HttpSession sesion = request.getSession();
         if (sesion.getAttribute("idusuario") == null) {
-            return "login";
+            try {
+                response.sendRedirect("login");
+            } catch (IOException ex) {
+                Logger.getLogger(CHome.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             return "index";
         }
+        return "index";
     }
 }
