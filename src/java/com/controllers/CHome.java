@@ -80,6 +80,7 @@ public class CHome {
     public String proceso(HttpServletRequest request, HttpServletResponse response) {
         return "proceso";
     }
+    
 
     @RequestMapping("/index")
     public String index(HttpServletRequest request, HttpServletResponse response) {
@@ -95,4 +96,5 @@ public class CHome {
         }
         return "index";
     }
+    
 }
