@@ -9,13 +9,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <%
-    HttpSession sesion=request.getSession();
-    ImpUsuarioDao udao=new usuarioDAO();
-    ImpTrabajadorDao tdao=new trabajadorDAO();
-    usuario u=udao.Read((String) sesion.getAttribute("idusuario")).get(0);
-    System.out.println("USUARIO: "+u.getIdusuario());
-    trabajador t=tdao.Read(u.getIdtrabajador()).get(0);
-    String nombres=t.getNombres()+" "+t.getApellidos();
+    HttpSession sesion = request.getSession();
+    if (sesion.getAttribute("idusuario") == null) {
+        try {
+            response.sendRedirect("login");
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+    } else {
+        ImpUsuarioDao udao = new usuarioDAO();
+        ImpTrabajadorDao tdao = new trabajadorDAO();
+        usuario u = udao.Read((String) sesion.getAttribute("idusuario")).get(0);
+        System.out.println("USUARIO: " + u.getIdusuario());
+        trabajador t = tdao.Read(u.getIdtrabajador()).get(0);
+        String nombres = t.getNombres() + " " + t.getApellidos();
 %>
 <html>
     <head>
@@ -41,9 +48,6 @@
         <!-- We recommend you use "your_style.css" to override SmartAdmin
              specific styles this will also ensure you retrain your customization with each SmartAdmin update.
         <link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
-
-        <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-        <link rel="stylesheet" type="text/css" media="screen" href="resources/css/demo.min.css">
 
         <!-- FAVICONS -->
         <link rel="shortcut icon" href="resources/img/favicon/favicon.ico" type="image/x-icon">
@@ -198,7 +202,7 @@
             <!-- logout button -->
             <div id="logout" class="btn-header transparent pull-right">
                 <span> <a href="login?opc=logout" title="Sign Out" data-action="userLogout" data-logout-msg="¿Está complemetamente seguro de cerrar sesión?"><i class="fa fa-sign-out"></i>
-                            Salir</a> </span>
+                        Salir</a> </span>
             </div>
             <!-- end logout button -->
 
@@ -320,30 +324,30 @@
     <aside id="left-panel">
 
         <!-- User info -->
-            <div class="logininfo slideInRight fast animated">
-                <div class="row">
-                    <div class="avatar-user col-md-3">
-                        <input id="id_trabajador" type="hidden" value="<%out.println(sesion.getAttribute("idtrabajador"));%>" />
-                        <input id="iuser" type="hidden" value="<%out.println(sesion.getAttribute("idusuario"));%>" />
-                        <a href="javascript:void(0);" id="show-shortcut" >
-                            <img id="foto_usuario" src="resources/img/avatars/4.png"  />
-                        </a>  
+        <div class="logininfo slideInRight fast animated">
+            <div class="row">
+                <div class="avatar-user col-md-3">
+                    <input id="id_trabajador" type="hidden" value="<%out.println(sesion.getAttribute("idtrabajador"));%>" />
+                    <input id="iuser" type="hidden" value="<%out.println(sesion.getAttribute("idusuario"));%>" />
+                    <a href="javascript:void(0);" id="show-shortcut" >
+                        <img id="foto_usuario" src="resources/img/avatars/4.png"  />
+                    </a>  
+                </div>
+                <div class="col-md-9">
+                    <div class="login-info text-right">
+                        <span class="spanuser"> <%out.println((String) u.getUsuario()); %></span>  
                     </div>
-                    <div class="col-md-9">
-                        <div class="login-info text-right">
-                            <span class="spanuser"> <%out.println((String) u.getUsuario()); %></span>  
-                        </div>
 
-                        <div class="login-info text-right">
-                            <span ><%out.println(nombres.trim()); %> </span> 
-                        </div>
+                    <div class="login-info text-right">
+                        <span ><%out.println(nombres.trim()); %> </span> 
                     </div>
                 </div>
-
             </div>
 
+        </div>
 
-            <!-- end user info -->
+
+        <!-- end user info -->
 
         <!-- NAVIGATION : This navigation is also responsive-->
         <nav>
@@ -352,12 +356,12 @@
             Please note that these links work a bit different than
             traditional href="" links. See documentation for details.
             -->
-                       
+
             <ul> 
                 <li class="top-menu-invisible">
                     <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">Programar Vacaciones</span></a>
                     <ul>
-                        <li class="">
+                        <li class="active">
                             <a href="proceso" title="Dashboard"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">Proceso</span></a>
                         </li>
                         <li class="">
@@ -398,241 +402,7 @@
                     </ul>
                 </li>
             </ul>
-                <!--
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Tables</span></a>
-                    <ul>
-                        <li>
-                            <a href="table.html">Normal Tables</a>
-                        </li>
-                        <li>
-                            <a href="datatables.html">Data Tables <span class="badge inbox-badge bg-color-greenLight hidden-mobile">responsive</span></a>
-                        </li>
-                        <li>
-                            <a href="jqgrid.html">Jquery Grid</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Forms</span></a>
-                    <ul>
-                        <li>
-                            <a href="form-elements.html">Smart Form Elements</a>
-                        </li>
-                        <li>
-                            <a href="form-templates.html">Smart Form Layouts</a>
-                        </li>
-                        <li>
-                            <a href="validation.html">Smart Form Validation</a>
-                        </li>
-                        <li>
-                            <a href="bootstrap-forms.html">Bootstrap Form Elements</a>
-                        </li>
-                        <li>
-                            <a href="bootstrap-validator.html">Bootstrap Form Validation</a>
-                        </li>
-                        <li>
-                            <a href="plugins.html">Form Plugins</a>
-                        </li>
-                        <li>
-                            <a href="wizard.html">Wizards</a>
-                        </li>
-                        <li>
-                            <a href="other-editors.html">Bootstrap Editors</a>
-                        </li>
-                        <li>
-                            <a href="dropzone.html">Dropzone</a>
-                        </li>
-                        <li>
-                            <a href="image-editor.html">Image Cropping</a>
-                        </li>
-                        <li>
-                            <a href="ckeditor.html">CK Editor</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">UI Elements</span></a>
-                    <ul>
-                        <li>
-                            <a href="general-elements.html">General Elements</a>
-                        </li>
-                        <li>
-                            <a href="buttons.html">Buttons</a>
-                        </li>
-                        <li>
-                            <a href="#">Icons</a>
-                            <ul>
-                                <li>
-                                    <a href="fa.html"><i class="fa fa-plane"></i> Font Awesome</a>
-                                </li>
-                                <li>
-                                    <a href="glyph.html"><i class="glyphicon glyphicon-plane"></i> Glyph Icons</a>
-                                </li>
-                                <li>
-                                    <a href="flags.html"><i class="fa fa-flag"></i> Flags</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="grid.html">Grid</a>
-                        </li>
-                        <li>
-                            <a href="treeview.html">Tree View</a>
-                        </li>
-                        <li>
-                            <a href="nestable-list.html">Nestable Lists</a>
-                        </li>
-                        <li>
-                            <a href="jqui.html">JQuery UI</a>
-                        </li>
-                        <li>
-                            <a href="typography.html">Typography</a>
-                        </li>
-                        <li>
-                            <a href="#">Six Level Menu</a>
-                            <ul>
-                                <li>
-                                    <a href="#"><i class="fa fa-fw fa-folder-open"></i> Item #2</a>
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fa fa-fw fa-folder-open"></i> Sub #2.1 </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-fw fa-file-text"></i> Item #2.1.1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-fw fa-plus"></i> Expand</a>
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-fw fa-folder-open"></i> Item #3</a>
-
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fa fa-fw fa-folder-open"></i> 3ed Level </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>	
-                                </li>
-                                <li>
-                                    <a href="#" class="inactive"><i class="fa fa-fw fa-folder-open"></i> Item #4 (disabled)</a>
-                                </li>	
-
-                            </ul>
-                        </li>
-                    </ul>
-                </li>	
-                <li>
-                    <a href="widgets.html"><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Widgets</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-cloud"><em>3</em></i> <span class="menu-item-parent">Cool Features!</span></a>
-                    <ul>
-                        <li>
-                            <a href="calendar.html"><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">Calendar</span></a>
-                        </li>
-                        <li>
-                            <a href="gmap-xml.html"><i class="fa fa-lg fa-fw fa-map-marker"></i> <span class="menu-item-parent">GMap Skins</span><span class="badge bg-color-greenLight pull-right inbox-badge">9</span></a>
-                        </li>
-                    </ul>
-                </li>	
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-puzzle-piece"></i> <span class="menu-item-parent">App Views</span></a>
-                    <ul>
-                        <li>
-                            <a href="projects.html"><i class="fa fa-file-text-o"></i> Projects</a>
-                        </li>	
-                        <li>
-                            <a href="blog.html"><i class="fa fa-paragraph"></i> Blog</a>
-                        </li>
-                        <li>
-                            <a href="gallery.html"><i class="fa fa-picture-o"></i> Gallery</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-comments"></i> Forum Layout</a>
-                            <ul>
-                                <li><a href="forum.html">General View</a></li>
-                                <li><a href="forum-topic.html">Topic View</a></li>
-                                <li><a href="forum-post.html">Post View</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="profile.html"><i class="fa fa-group"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="timeline.html"><i class="fa fa-clock-o"></i> Timeline</a>
-                        </li>
-                        <li>
-                            <a href="search.html"><i class="fa fa-search"></i>  Search Page</a>
-                        </li>
-                    </ul>		
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">E-Commerce</span></a>
-                    <ul>
-                        <li><a href="orders.html">Orders</a></li>
-                        <li><a href="products-view.html">Products View</a></li>
-                        <li><a href="products-detail.html">Products Detail</a></li>
-                    </ul>
-                </li>	
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">Miscellaneous</span></a>
-                    <ul>
-                        <li>
-                            <a href="../Landing_Page/" target="_blank">Landing Page <i class="fa fa-external-link"></i></a>
-                        </li>
-                        <li>
-                            <a href="pricing-table.html">Pricing Tables</a>
-                        </li>
-                        <li>
-                            <a href="invoice.html">Invoice</a>
-                        </li>
-                        <li>
-                            <a href="login.html" target="_top">Login</a>
-                        </li>
-                        <li>
-                            <a href="register.html" target="_top">Register</a>
-                        </li>
-                        <li>
-                            <a href="forgotpassword.html" target="_top">Forgot Password</a>
-                        </li>
-                        <li>
-                            <a href="lock.html" target="_top">Locked Screen</a>
-                        </li>
-                        <li>
-                            <a href="error404.html">Error 404</a>
-                        </li>
-                        <li>
-                            <a href="error500.html">Error 500</a>
-                        </li>
-                        <li>
-                            <a href="blank_.html">Blank Page</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="chat-users top-menu-invisible">
-                    <a href="#"><i class="fa fa-lg fa-fw fa-comment-o"><em class="bg-color-pink flash animated">!</em></i> <span class="menu-item-parent">Smart Chat API <sup>beta</sup></span></a>
-                    <ul>
-                        <li>
-                   
             
-            -->
         </nav>
 
 
@@ -643,6 +413,43 @@
     </aside>
     <!-- END NAVIGATION -->
 
+    <!-- MAIN PANEL -->
+		<div id="main" role="main">
+
+			<!-- RIBBON -->
+			<div id="ribbon">
+				<!-- breadcrumb -->
+				<ol class="breadcrumb">
+					<li>Home</li><li>Dashboard</li>
+				</ol>
+				<!-- end breadcrumb -->
+
+				<!-- You can also add more buttons to the
+				ribbon for further usability
+
+				Example below:
+
+				<span class="ribbon-button-alignment pull-right">
+				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
+				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
+				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
+				</span> -->
+
+			</div>
+			<!-- END RIBBON -->
+
+			<!-- MAIN CONTENT -->
+			<div id="content">
+
+                            <iframe src="proceso" style="height: 800px;width: 100%; border: none; overflow-y: hidden">
+                                
+                            </iframe>
+
+			</div>
+			<!-- END MAIN CONTENT -->
+
+		</div>
+		<!-- END MAIN PANEL -->
     <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
     <script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
@@ -706,8 +513,6 @@
 
     <![endif]-->
 
-    <!-- Demo purpose only -->
-    <script src="resources/js/demo.min.js"></script>
 
     <!-- MAIN APP JS FILE -->
     <script src="resources/js/app.min.js"></script>
@@ -789,15 +594,7 @@
                                         }
 
                                     })
-                                    // count tasks
-                                    function countTasks() {
-
-                                        $('.todo-group-title').each(function () {
-                                            var $this = $(this);
-                                            $this.find(".num-of-tasks").text($this.next().find("li").size());
-                                        });
-
-                                    }
+                                    
 
                                     /*
                                      * RUN PAGE GRAPHS
@@ -1305,3 +1102,4 @@
     </script>
 </body>
 </html>
+<%}%>

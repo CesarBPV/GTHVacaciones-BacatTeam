@@ -44,7 +44,7 @@ public class CHome {
                         response.sendRedirect("login");
                     }
                 } else {
-                    response.sendRedirect("login");;
+                    response.sendRedirect("login");
                 }
             } else {
                 System.out.println(request.getSession().getAttribute("idusuario"));
@@ -59,18 +59,23 @@ public class CHome {
     @RequestMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response) {
         HttpSession sesion = request.getSession();
-        String opc = request.getParameter("opc");
-        if ("logout".equals(opc)) {
-            sesion.removeAttribute("idusuario");
+        if (sesion.getAttribute("idusuario") == null) {
+            return "login";
         } else {
-            try {
-                response.sendRedirect("index");
-            } catch (IOException ex) {
-                Logger.getLogger(CHome.class.getName()).log(Level.SEVERE, null, ex);
+            String opc = request.getParameter("opc");
+            if ("logout".equals(opc)) {
+                sesion.removeAttribute("idusuario");
+            } else {
+                try {
+                    response.sendRedirect("index");
+                } catch (IOException ex) {
+                    Logger.getLogger(CHome.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
         return "login";
     }
+
     @RequestMapping("/proceso")
     public String proceso(HttpServletRequest request, HttpServletResponse response) {
         return "proceso";
