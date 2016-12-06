@@ -147,8 +147,8 @@
                                                                     <div id="bootstrap-wizard-1" class="col-sm-12">
                                                                         <div class="form-bootstrapWizard">
                                                                             <ul class="bootstrapWizard form-wizard">
-                                                                                <li class="active" data-target="#step1">
-                                                                                    <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Paso 1</span> </a>
+                                                                                <li  class="active" data-target="#step1">
+                                                                                   <span class="step">1</span> <span class="title">Paso 1</span> 
                                                                                 </li>
                                                                                 <li data-target="#step2">
                                                                                       <span class="step">2</span> <span class="title">Paso 2</span> 
@@ -187,7 +187,7 @@
                                                                         <div class="form-bootstrapWizard">
                                                                             <ul class="bootstrapWizard form-wizard">
                                                                                 <li class="active" data-target="#step1">
-                                                                                    <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Paso 1</span> </a>
+                                                                                  <span class="step">1</span> <span class="title">Paso 1</span>  
                                                                                 </li>
                                                                                 <li data-target="#step2">
                                                                                     <span class="step">2</span> <span class="title">Paso 2</span>  
@@ -226,7 +226,7 @@
                                                                         <div class="form-bootstrapWizard">
                                                                             <ul class="bootstrapWizard form-wizard">
                                                                                 <li class="active" data-target="#step1">
-                                                                                    <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Paso 1</span> </a>
+                                                                                    <span class="step">1</span> <span class="title">Paso 1</span>  
                                                                                 </li>
                                                                                 <li data-target="#step2">
                                                                                      <span class="step">2</span> <span class="title">Paso 2</span>  
