@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en-us">
     <head>
         <meta charset="utf-8">
@@ -124,20 +125,66 @@
                                             <tr>
                                                 <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Nombre</th>
                                                 <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Apellido</th>
-                                                <th data-hide="phone"><i class="fa fa-fw fa-phone text-muted hidden-md hidden-sm hidden-xs"></i> Telefono</th>
-                                                <th>EstadoCivil</th>
-
-                                                <th data-hide="phone,tablet">Ciudad</th>
+                                                <th data-hide="phone"><i class="fa fa-fw fa-phone text-muted hidden-md hidden-sm hidden-xs"></i> Sexo</th>
+                                                <th>Tipo de Documento</th> 
+                                                <th data-hide="phone,tablet">Numero de Documento</th>
+                                                <th data-hide="phone,tablet">Correo</th>
+                                                <th data-hide="phone,tablet">Fecha de Nacimiento</th>
                                                 <th data-hide="phone,tablet"><i class="fa fa-fw fa-fw txt-color-blue hidden-md hidden-sm hidden-xs"></i>Proceso</th>
                                                 <th></th>        
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <c:forEach items="${lista}" var="datos"> 
+                                                <tr>
+                                                      <td><c:out value="${datos.nombres}"/></td>
+                                                      <td><c:out value="${datos.apellidos}"/></td> 
+                                                      <td><c:out value="${datos.sexo}"/></td> 
+                                                      <td><c:out value="${datos.tipo_doc}"/></td> 
+                                                      <td><c:out value="${datos.num_doc}"/></td> 
+                                                      <td><c:out value="${datos.correo}"/></td> 
+                                                      <td><c:out value="${datos.fecha_nac}"/></td>  
+                                                      <td><article class="col-sm-12"> 
+                                                        <div class="widget-body">
+
+                                                            <div class="row">
+                                                                <form id="wizard-1"  >
+                                                                    <div id="bootstrap-wizard-1" class="col-sm-12">
+                                                                        <div class="form-bootstrapWizard">
+                                                                            <ul class="bootstrapWizard form-wizard">
+                                                                                <li  class="active" data-target="#step1">
+                                                                                   <span class="step">1</span> <span class="title">Paso 1</span> 
+                                                                                </li>
+                                                                                <li data-target="#step2">
+                                                                                      <span class="step">2</span> <span class="title">Paso 2</span> 
+                                                                                </li>
+                                                                                <li data-target="#step3">
+                                                                                     <span class="step">3</span> <span class="title">Paso 3 </span>  
+                                                                                </li>
+                                                                                <li data-target="#step4">
+                                                                                     <span class="step">4</span> <span class="title">Paso 4</span>  
+                                                                                </li>
+                                                                            </ul>
+                                                                            <div class="clearfix"></div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+
+                                                        </div>
+                                                    </article>
+                                                </td>
+                                                <td><a class="btn btn-danger  " href="javascript:void(0);">Iniciar</a></td>
+                                                </tr>
+                                                <!--
                                             <tr>
                                                 <td>Jennifer</td>
                                                 <td>1-342-463-8341</td>
                                                 <td>Et Rutrum Non Associates</td>
                                                 <td>35728</td>
+                                                <td>Fogo</td>
+                                                <td>Fogo</td>
                                                 <td>Fogo</td>
                                                 <td><article class="col-sm-12"> 
                                                         <div class="widget-body">
@@ -250,7 +297,8 @@
                                                 </td>
                                                 <td><a class="btn btn-danger  " href="javascript:void(0);">Iniciar</a></td>
                                             </tr>
-
+                                            -->
+                                            </c:forEach> 
                                         </tbody>
                                     </table>
 

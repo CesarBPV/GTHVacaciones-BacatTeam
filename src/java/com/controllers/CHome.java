@@ -5,7 +5,9 @@
  */
 package com.controllers;
 
+import com.dao.trabajadorDAO;
 import com.dao.usuarioDAO;
+import com.interfaces.ImpTrabajadorDao;
 import com.interfaces.ImpUsuarioDao;
 import java.io.IOException;
 import java.util.List;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -25,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CHome {
 
     ImpUsuarioDao udao = new usuarioDAO();
-
+    ImpTrabajadorDao aO = new trabajadorDAO();
     @RequestMapping("/menu")
     public String menu(HttpServletRequest request, HttpServletResponse response) {
         HttpSession sesion = request.getSession();
@@ -99,5 +102,15 @@ public class CHome {
     @RequestMapping("/profech")
     public String profech() {
         return "ProgramFechas";
+    }
+    @RequestMapping("/pro")
+    public String trabajador(Model model){
+        String url = "proceso";
+        try {
+            model.addAttribute("lista",aO.ReadAll());
+        } catch (Exception e) {
+            System.out.println("Error: "+e);
+        }
+        return url;
     }
 }
