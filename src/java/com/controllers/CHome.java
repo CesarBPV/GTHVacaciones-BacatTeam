@@ -80,7 +80,10 @@ public class CHome {
     public String proceso(HttpServletRequest request, HttpServletResponse response) {
         return "proceso";
     }
-
+@RequestMapping("/q")
+    public String q(HttpServletRequest request, HttpServletResponse response) {
+        return "q";
+    }
     @RequestMapping("/index")
     public String index(HttpServletRequest request, HttpServletResponse response) {
         HttpSession sesion = request.getSession();
