@@ -57,10 +57,13 @@ public class departamentoDAO implements ImpDepartamentoDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                departamento x = new departamento();
-                ps.setString(1, x.getIddepartamento());
+                 departamento x = new departamento();
+                x.setIddepartamento(rs.getString("iddepartamento"));
+                x.setNombre(rs.getString("nombre"));
+                x.setDireccion_id(rs.getString("direccion_id"));
                 lista.add(x);
             }
         } catch (Exception e) {

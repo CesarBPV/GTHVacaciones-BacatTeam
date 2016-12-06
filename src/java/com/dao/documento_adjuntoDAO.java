@@ -57,10 +57,14 @@ public class documento_adjuntoDAO implements ImpDocumento_adjuntoDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 documento_adjunto x = new documento_adjunto();
-                ps.setString(1, x.getDocumento_adjunto_id());
+                x.setDocumento_adjunto_id(rs.getString("documento_adjunto_id"));
+                x.setDireccion_doc(rs.getString("direccion_doc"));
+                x.setNombre_doc(rs.getString("nombre_doc"));
+                x.setDescripcion_doc(rs.getString("descripcion_doc"));
                 lista.add(x);
             }
         } catch (Exception e) {

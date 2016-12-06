@@ -36,6 +36,7 @@ public class seccionDAO implements ImpSeccionDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READALL);
+            
             rs = ps.executeQuery();
             while (rs.next()) {
                 seccion x = new seccion();
