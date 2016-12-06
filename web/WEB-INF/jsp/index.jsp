@@ -359,13 +359,13 @@
 
             <ul> 
                 <li class="top-menu-invisible">
-                    <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">Programar Vacaciones</span></a>
+                    <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">Gestionar Vacaciones</span></a>
                     <ul>
                         <li class="active">
                             <a href="proceso" target="mainContent" title="Dashboard"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">Proceso</span></a>
                         </li>
                         <li class="">
-                            <a href="skins.html" title="Dashboard"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">Prebuilt Skins</span></a>
+                            <a href="profech" target="mainContent" title="Dashboard"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">Programar vacaciones</span></a>
                         </li>
                         <li>
                             <a href="applayout.html"><i class="fa fa-cube"></i> App Settings</a>
