@@ -155,14 +155,14 @@
                                                                                 <li  class="active" data-target="#step1">
                                                                                    <span class="step">1</span> <span class="title">Paso 1</span> 
                                                                                 </li>
-                                                                                <li data-target="#step2">
+                                                                                <li class="active" data-target="#step2">
                                                                                       <span class="step">2</span> <span class="title">Paso 2</span> 
                                                                                 </li>
                                                                                 <li data-target="#step3">
-                                                                                     <span class="">3</span> <span class="title">Paso 3 </span>  
+                                                                                     <span class="step">3</span> <span class="title">Paso 3 </span>  
                                                                                 </li>
                                                                                 <li data-target="#step4">
-                                                                                     <span class="">4</span> <span class="title">Paso 4</span>  
+                                                                                     <span class="step">4</span> <span class="title">Paso 4</span>  
                                                                                 </li>
                                                                             </ul>
                                                                             <div class="clearfix"></div>
