@@ -175,7 +175,7 @@
                                                         </div>
                                                     </article>
                                                 </td>
-                                                <td><a class="btn btn-danger  " href="javascript:void(0);">Autorizar</a></td>
+                                                <td><a class="btn btn-success  " href="javascript:void(0);">Autorizar</a></td>
                                                 </tr>
                                                 <!--
                                             <tr>
