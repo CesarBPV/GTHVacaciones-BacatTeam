@@ -155,7 +155,7 @@
                                                                                 <li  class="active" data-target="#step1">
                                                                                    <span class="step">1</span> <span class="title">Paso 1</span> 
                                                                                 </li>
-                                                                                <li data-target="#step2">
+                                                                                <li class="active" data-target="#step2">
                                                                                       <span class="step">2</span> <span class="title">Paso 2</span> 
                                                                                 </li>
                                                                                 <li data-target="#step3">
@@ -175,7 +175,7 @@
                                                         </div>
                                                     </article>
                                                 </td>
-                                                <td><a class="btn btn-danger  " href="profech">Iniciar</a></td>
+                                                <td><a class="btn btn-success  " href="javascript:void(0);">Autorizar</a></td>
                                                 </tr>
                                                 <!--
                                             <tr>

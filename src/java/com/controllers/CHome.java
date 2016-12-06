@@ -90,6 +90,17 @@ public class CHome {
         }
         return url;
     }
+    
+    @RequestMapping("/proceso_autorizacion")
+    public String proceso_autorizacion(HttpServletRequest request, HttpServletResponse response, Model model) {
+        String url = "proceso_autorizacion";
+        try {
+            model.addAttribute("lista",aO.ReadAll());
+        } catch (Exception e) {
+            System.out.println("Error: "+e);
+        }
+        return url;
+    }
 
     @RequestMapping("/index")
     public String index(HttpServletRequest request, HttpServletResponse response) {
