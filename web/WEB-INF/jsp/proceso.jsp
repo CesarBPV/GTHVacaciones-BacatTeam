@@ -103,7 +103,7 @@
 
                             <header>
                                 <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                                <h2>Trabajadoresssss</h2>
+                                <h2>Trabajadores</h2>
 
                             </header>
 
