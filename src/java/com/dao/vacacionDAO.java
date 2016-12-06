@@ -58,10 +58,16 @@ public class vacacionDAO implements ImpVacacionDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
+             ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 vacacion x = new vacacion();
-                ps.setString(1, x.getIdvacacion());                
+             
+                x.setIdvacacion(rs.getString("idvacacion"));
+                x.setEs_vacacion(rs.getInt("es_vacacion"));                
+                x.setSolicitud_vacacion(rs.getInt("solicitud_vacacion"));
+                x.setReprogramacion_vacacion(rs.getInt("reprogramacion_vacacion"));
+                x.setIdcontrato(rs.getString("idcontrato"));
                 lista.add(x);
             }
         } catch (Exception e) {

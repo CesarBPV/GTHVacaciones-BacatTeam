@@ -57,10 +57,13 @@ public class seccionDAO implements ImpSeccionDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 seccion x = new seccion();
-                ps.setString(1, x.getIdseccion());
+                x.setIdseccion(rs.getString("idusuario"));
+                x.setNombre(rs.getString("nombre"));
+                x.setArea_id(rs.getString("area_id"));
                 lista.add(x);
             }
         } catch (Exception e) {
