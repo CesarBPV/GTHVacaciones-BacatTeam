@@ -129,7 +129,7 @@
 
                                                 <th data-hide="phone,tablet">Ciudad</th>
                                                 <th data-hide="phone,tablet"><i class="fa fa-fw fa-fw txt-color-blue hidden-md hidden-sm hidden-xs"></i>Proceso</th>
-
+                                                <th></th>        
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -143,7 +143,7 @@
                                                         <div class="widget-body">
 
                                                             <div class="row">
-                                                                <form id="wizard-1" novalidate="novalidate">
+                                                                <form id="wizard-1"  >
                                                                     <div id="bootstrap-wizard-1" class="col-sm-12">
                                                                         <div class="form-bootstrapWizard">
                                                                             <ul class="bootstrapWizard form-wizard">
@@ -151,13 +151,13 @@
                                                                                     <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Paso 1</span> </a>
                                                                                 </li>
                                                                                 <li data-target="#step2">
-                                                                                    <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Paso 2</span> </a>
+                                                                                      <span class="step">2</span> <span class="title">Paso 2</span> 
                                                                                 </li>
                                                                                 <li data-target="#step3">
-                                                                                    <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Paso 3 </span> </a>
+                                                                                     <span class="step">3</span> <span class="title">Paso 3 </span>  
                                                                                 </li>
                                                                                 <li data-target="#step4">
-                                                                                    <a href="#tab4" data-toggle="tab"> <span class="step">4</span> <span class="title">Paso 4</span> </a>
+                                                                                     <span class="step">4</span> <span class="title">Paso 4</span>  
                                                                                 </li>
                                                                             </ul>
                                                                             <div class="clearfix"></div>
@@ -170,6 +170,7 @@
                                                         </div>
                                                     </article>
                                                 </td>
+                                               <td><a class="btn btn-danger  " href="javascript:void(0);">Iniciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Jennifer</td>
@@ -189,13 +190,13 @@
                                                                                     <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Paso 1</span> </a>
                                                                                 </li>
                                                                                 <li data-target="#step2">
-                                                                                    <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Paso 2</span> </a>
+                                                                                    <span class="step">2</span> <span class="title">Paso 2</span>  
                                                                                 </li>
                                                                                 <li data-target="#step3">
-                                                                                    <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Paso 3 </span> </a>
+                                                                                     <span class="step">3</span> <span class="title">Paso 3 </span>  
                                                                                 </li>
                                                                                 <li data-target="#step4">
-                                                                                    <a href="#tab4" data-toggle="tab"> <span class="step">4</span> <span class="title">Paso 4</span> </a>
+                                                                                    <span class="step">4</span> <span class="title">Paso 4</span>  
                                                                                 </li>
                                                                             </ul>
                                                                             <div class="clearfix"></div>
@@ -208,9 +209,10 @@
                                                         </div>
                                                     </article>
                                                 </td>
+                                                <td><a class="btn btn-danger  " href="javascript:void(0);">Iniciar</a></td>
                                             </tr>
                                             <tr>
-                                                <td>Jennifer</td>
+                                                <td>JHON</td>
                                                 <td>1-342-463-8341</td>
                                                 <td>Et Rutrum Non Associates</td>
                                                 <td>35728</td>
@@ -227,13 +229,13 @@
                                                                                     <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Paso 1</span> </a>
                                                                                 </li>
                                                                                 <li data-target="#step2">
-                                                                                    <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Paso 2</span> </a>
+                                                                                     <span class="step">2</span> <span class="title">Paso 2</span>  
                                                                                 </li>
                                                                                 <li data-target="#step3">
-                                                                                    <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Paso 3 </span> </a>
+                                                                                     <span class="step">3</span> <span class="title">Paso 3 </span> 
                                                                                 </li>
                                                                                 <li data-target="#step4">
-                                                                                    <a href="#tab4" data-toggle="tab"> <span class="step">4</span> <span class="title">Paso 4</span> </a>
+                                                                                     <span class="step">4</span> <span class="title">Paso 4</span>  
                                                                                 </li>
                                                                             </ul>
                                                                             <div class="clearfix"></div>
@@ -246,6 +248,7 @@
                                                         </div>
                                                     </article>
                                                 </td>
+                                                <td><a class="btn btn-danger  " href="javascript:void(0);">Iniciar</a></td>
                                             </tr>
 
                                         </tbody>
