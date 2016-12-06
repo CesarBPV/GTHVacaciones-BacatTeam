@@ -67,7 +67,7 @@
         <div class="row">
 
             <!-- NEW WIDGET START -->
-            <article class="col-sm-12 col-md-12 col-lg-6">
+            <article class="col-sm-12 col-md-12 col-lg-12">
 
                 <!-- Widget ID (each widget will need unique ID)-->
                 <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false">
@@ -86,7 +86,7 @@
                     -->
                     <header>
                         <span class="widget-icon"> <i class="fa fa-check"></i> </span>
-                        <h2>Very Basic Wizard Example </h2>
+                        <h2>Programación de fechas</h2>
 
                     </header>
 
@@ -106,43 +106,10 @@
                             <div class="row">
                                 <form id="wizard-1" novalidate="novalidate">
                                     <div id="bootstrap-wizard-1" class="col-sm-12">
-                                        <div class="form-bootstrapWizard">
-                                            <ul class="bootstrapWizard form-wizard">
-                                                <li class="active" data-target="#step1">
-                                                    
-                                                </li>
-                                                <li data-target="#step2">
-                                                    
-                                                </li>
-                                                <li data-target="#step3">
-                                                    
-                                                </li>
-                                                <li data-target="#step4">
-                                                   
-                                                </li>
-                                            </ul>
-                                            <div class="clearfix"></div>
-                                        </div>
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab1">
                                                 <br>
-                                                <h3><strong> Step 1 </strong> - Programacion de vacaciones  - Datos del trabajador</h3>
-
-                                                <div class="row">
-
-                                                    <div class="col-sm-12">
-                                                        <div class="form-group">
-                                                            <label>Correo</label>
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><i class="fa fa-envelope fa-lg fa-fw"></i></span>
-                                                                <input class="form-control input-lg" placeholder="Correo" type="text" name="email" id="email">
-
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
+                                                <h3>Programacion de vacaciones  - Datos del trabajador</h3>
 
                                                 <div class="row">
                                                     <div class="col-sm-6">
@@ -167,10 +134,10 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label>Codigo</label>
+                                                            <label>Correo</label>
                                                             <div class="input-group">
-                                                                <span class="input-group-addon"><i class="fa fa-user fa-lg fa-fw"></i></span>
-                                                                <input class="form-control input-lg" placeholder="Codigo" type="text" name="lname" id="lname">
+                                                                <span class="input-group-addon"><i class="fa fa-envelope fa-lg fa-fw"></i></span>
+                                                                <input class="form-control input-lg" placeholder="Correo" type="text" name="email" id="email">
                                                             </div>
                                                         </div>
                                                     </div>

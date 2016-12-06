@@ -376,30 +376,7 @@
                     <a href="inbox.html"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Reprogramar Vacaciones</span> <span class="badge pull-right inbox-badge margin-right-13">14</span></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Autorizar Vacaciones</span></a>
-                    <ul>
-                        <li>
-                            <a href="flot.html">Flot Chart</a>
-                        </li>
-                        <li>
-                            <a href="morris.html">Morris Charts</a>
-                        </li>
-                        <li>
-                            <a href="sparkline-charts.html">Sparklines</a>
-                        </li>
-                        <li>
-                            <a href="easypie-charts.html">EasyPieCharts</a>
-                        </li>
-                        <li>
-                            <a href="dygraphs.html">Dygraphs</a>
-                        </li>
-                        <li>
-                            <a href="chartjs.html">Chart.js</a>
-                        </li>
-                        <li>
-                            <a href="hchartable.html">HighchartTable <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
-                        </li>
-                    </ul>
+                    <a href="proceso_autorizacion" target="mainContent"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Autorizar Vacaciones</span></a>
                 </li>
             </ul>
             
