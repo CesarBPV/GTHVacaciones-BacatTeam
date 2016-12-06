@@ -362,7 +362,7 @@
                     <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">Programar Vacaciones</span></a>
                     <ul>
                         <li class="active">
-                            <a href="proceso" title="Dashboard"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">Proceso</span></a>
+                            <a href="proceso" target="mainContent" title="Dashboard"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">Proceso</span></a>
                         </li>
                         <li class="">
                             <a href="skins.html" title="Dashboard"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">Prebuilt Skins</span></a>
@@ -416,37 +416,9 @@
     <!-- MAIN PANEL -->
 		<div id="main" role="main">
 
-			<!-- RIBBON -->
-			<div id="ribbon">
-				<!-- breadcrumb -->
-				<ol class="breadcrumb">
-					<li>Home</li><li>Dashboard</li>
-				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
-
-			</div>
-			<!-- END RIBBON -->
-
-			<!-- MAIN CONTENT -->
-			<div id="content">
-
-                            <iframe src="proceso" style="height: 800px;width: 100%; border: none; overflow-y: hidden">
+                            <iframe name="mainContent" src="proceso" style="height: 800px;width: 100%; border: none; overflow-y: hidden">
                                 
                             </iframe>
-
-			</div>
-			<!-- END MAIN CONTENT -->
 
 		</div>
 		<!-- END MAIN PANEL -->
