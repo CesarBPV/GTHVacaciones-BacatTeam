@@ -109,7 +109,7 @@
                                         <div class="form-bootstrapWizard">
                                             <ul class="bootstrapWizard form-wizard">
                                                 <li class="active" data-target="#step1">
-                                                    <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Basic information</span> </a>
+                                                    <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Solicitud</span> </a>
                                                 </li>
                                                 <li data-target="#step2">
                                                     <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Billing information</span> </a>
@@ -126,7 +126,7 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab1">
                                                 <br>
-                                                <h3><strong> Step 1 </strong> - Programacion de vacaciones</h3>
+                                                <h3><strong> Step 1 </strong> - Programacion de vacaciones  - Datos del trabajador</h3>
 
                                                 <div class="row">
 
@@ -180,29 +180,29 @@
                                                     </div>
                                                     <div class='col-md-3'>
                                                     </div>
-                                                    	<div class="col-sm-12">
-                                                            <h3><label>Select a date (range):</label></h3>
-													</div>
-													<div class="col-sm-6">
-				
-														<div class="form-group">
-															<div class="input-group">
-																<input class="form-control" id="from" type="text" placeholder="From">
-																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-															</div>
-														</div>
-				
-													</div>
-													<div class="col-sm-6">
-				
-														<div class="form-group">
-															<div class="input-group">
-																<input class="form-control" id="to" type="text" placeholder="Select a date">
-																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-															</div>
-														</div>
-				
-													</div>
+                                                    <div class="col-sm-12">
+                                                        <h3><label>Seleccionar rango de días a solicitar:</label></h3>
+                                                    </div>
+                                                    <div class="col-sm-6">
+
+                                                        <div class="form-group">
+                                                            <div class="input-group">
+                                                                <input class="form-control" id="from" type="text" placeholder="From">
+                                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-sm-6">
+
+                                                        <div class="form-group">
+                                                            <div class="input-group">
+                                                                <input class="form-control" id="to" type="text" placeholder="Select a date">
+                                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                 </div> 
 
 
@@ -663,29 +663,31 @@
                     $(document).ready(function () {
 
                         pageSetUp();
-                        $("#from").datepicker({
-			    defaultDate: "+1w",
-			    changeMonth: true,
-			    numberOfMonths: 3,
-			    prevText: '<i class="fa fa-chevron-left"></i>',
-			    nextText: '<i class="fa fa-chevron-right"></i>',
-			    onClose: function (selectedDate) {
-			        $("#to").datepicker("option", "maxDate", selectedDate);
-			    }
-		
-			});
-                        $("#to").datepicker({
-			    defaultDate: "+1w",
-			    changeMonth: true,
-			    numberOfMonths: 3,
-			    prevText: '<i class="fa fa-chevron-left"></i>',
-			    nextText: '<i class="fa fa-chevron-right"></i>',
-			    onClose: function (selectedDate) {
-			        $("#from").datepicker("option", "minDate", selectedDate);
-			    }
-			});
-
                         
+                        $("#to").datepicker({
+                            defaultDate: "+1w",
+                            changeMonth: true,
+                            numberOfMonths: 3,
+                            prevText: '<i class="fa fa-chevron-left"></i>',
+                            nextText: '<i class="fa fa-chevron-right"></i>',
+                            onClose: function (selectedDate) {
+                                $("#from").datepicker("option", "maxDate", selectedDate);
+                            }
+                        });
+                        $("#from").datepicker({
+                            defaultDate: "+1w",
+                            changeMonth: true,
+                            numberOfMonths: 3,
+                            prevText: '<i class="fa fa-chevron-left"></i>',
+                            nextText: '<i class="fa fa-chevron-right"></i>',
+                            onClose: function (selectedDate) {
+                                $("#to").datepicker("option", "minDate", selectedDate);
+                            }
+
+                        });
+                        
+
+
                         //Bootstrap Wizard Validations
 
                         var $validator = $("#wizard-1").validate({
