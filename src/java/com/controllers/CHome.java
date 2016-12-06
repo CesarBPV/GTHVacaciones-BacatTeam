@@ -41,6 +41,7 @@ public class CHome {
                     System.out.println("idusuario:   " + list.get(0));
                     if (list.get(0) != null) {
                         sesion.setAttribute("idusuario", list.get(0));
+                        System.out.println("idusuario: "+list.get(0));
                         sesion.setAttribute("idtrabajador", list.get(1));
                         return "modules";
                     } else {
@@ -80,8 +81,14 @@ public class CHome {
     }
 
     @RequestMapping("/proceso")
-    public String proceso(HttpServletRequest request, HttpServletResponse response) {
-        return "proceso";
+    public String proceso(HttpServletRequest request, HttpServletResponse response, Model model) {
+        String url = "proceso";
+        try {
+            model.addAttribute("lista",aO.ReadAll());
+        } catch (Exception e) {
+            System.out.println("Error: "+e);
+        }
+        return url;
     }
 
     @RequestMapping("/index")
@@ -102,15 +109,5 @@ public class CHome {
     @RequestMapping("/profech")
     public String profech() {
         return "ProgramFechas";
-    }
-    @RequestMapping("/pro")
-    public String trabajador(Model model){
-        String url = "proceso";
-        try {
-            model.addAttribute("lista",aO.ReadAll());
-        } catch (Exception e) {
-            System.out.println("Error: "+e);
-        }
-        return url;
     }
 }
