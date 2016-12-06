@@ -132,6 +132,7 @@
 
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
+                                                            <label>Correo</label>
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><i class="fa fa-envelope fa-lg fa-fw"></i></span>
                                                                 <input class="form-control input-lg" placeholder="Correo" type="text" name="email" id="email">
@@ -146,6 +147,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
+                                                            <label>Nombres</label>
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><i class="fa fa-user fa-lg fa-fw"></i></span>
                                                                 <input class="form-control input-lg" placeholder="Nombres" type="text" name="fname" id="fname">
@@ -155,6 +157,7 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
+                                                            <label>Apellidos</label>
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><i class="fa fa-user fa-lg fa-fw"></i></span>
                                                                 <input class="form-control input-lg" placeholder="Apellidos" type="text" name="lname" id="lname">
@@ -164,6 +167,7 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
+                                                            <label>Codigo</label>
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><i class="fa fa-user fa-lg fa-fw"></i></span>
                                                                 <input class="form-control input-lg" placeholder="Codigo" type="text" name="lname" id="lname">
@@ -172,6 +176,7 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
+                                                            <label>Dirección</label>
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><i class="fa fa-user fa-lg fa-fw"></i></span>
                                                                 <input class="form-control input-lg" placeholder="Dirección" type="text" name="lname" id="lname">
@@ -186,6 +191,7 @@
                                                     <div class="col-sm-6">
 
                                                         <div class="form-group">
+                                                            <label>Desde</label>
                                                             <div class="input-group">
                                                                 <input class="form-control" id="from" type="text" placeholder="From">
                                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -196,6 +202,7 @@
                                                     <div class="col-sm-6">
 
                                                         <div class="form-group">
+                                                            <label>Hasta</label>
                                                             <div class="input-group">
                                                                 <input class="form-control" id="to" type="text" placeholder="Select a date">
                                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
