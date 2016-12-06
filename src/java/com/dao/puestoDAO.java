@@ -56,10 +56,13 @@ public class puestoDAO implements ImpPuestoDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 puesto x = new puesto();
-                ps.setString(1, x.getIdpuesto());
+                x.setIdpuesto(rs.getString("idpuesto"));
+                x.setNombre(rs.getString("nombre"));
+                x.setSeccion_id(rs.getString("seccion_id"));
                 lista.add(x);
             }
         } catch (Exception e) {

@@ -22,7 +22,7 @@ public class areaDAO implements ImpAreaDao {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection con;
-    private final static String SQL_VALIDA = "SELECT *FROM AREA WHERE user=? AND clave=?";
+   
     private final static String SQL_CREATE = "INSERT INTO AREA ( nombre, departamento) VALUES (?, ?)";
     private final static String SQL_UPDATE = "UPDATE AREA SET nombre=?, departamento=? WHERE idarea=?";
     private final static String SQL_DELETE = "DELETE FROM AREA WHERE idarea=?";
@@ -58,10 +58,13 @@ public class areaDAO implements ImpAreaDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 area x = new area();
-                ps.setString(1, x.getIdarea());
+                x.setIdarea(rs.getString("idarea"));
+                x.setNombre(rs.getString("nombre"));
+                x.setDepartamento_id(rs.getString("iddeparatamento"));
                 lista.add(x);
             }
         } catch (Exception e) {

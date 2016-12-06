@@ -58,16 +58,24 @@ public class contratoDAO implements ImpContratoDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
+            ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 contrato x = new contrato();
-                ps.setString(1, x.getIdcontrato());
+                x.setPuesto_id(rs.getString("puesto_id"));
+                x.setIdcontrato(rs.getString("idcontrato"));
+                x.setFecha_desde(rs.getDate("fecha_desde"));
+                x.setFecha_hasta(rs.getDate("fecha_hasta"));
+                x.setIdtrabajador(rs.getString("idtrabajador"));
                 lista.add(x);
             }
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
-        return lista;  }
+        return lista; 
+
+       
+    }
 
     @Override
     public int update(contrato x) {

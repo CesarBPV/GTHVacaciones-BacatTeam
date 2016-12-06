@@ -57,10 +57,14 @@ public class detalle_vacacionDAO implements ImpDetalle_vacacionDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
+             ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                detalle_vacacion x = new detalle_vacacion();
-                ps.setString(1, x.getIddetalle_vacacion());
+               detalle_vacacion x = new detalle_vacacion();
+                x.setIddetalle_vacacion(rs.getString("iddetalle_vacacion"));
+                x.setFecha_inicio(rs.getDate("fecha_inicio"));
+                x.setFecha_fin(rs.getDate("fecha_fin"));
+                x.setVacacion_id(rs.getString("vacacion_id"));;
                 lista.add(x);
             }
         } catch (Exception e) {

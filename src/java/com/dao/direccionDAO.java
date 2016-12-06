@@ -57,16 +57,20 @@ public class direccionDAO implements ImpDireccionDao {
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
+             ps.setString(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 direccion x = new direccion();
-                ps.setString(1, x.getIddireccion());
+                x.setIddireccion(rs.getString("iddireccion"));
+                x.setNombre(rs.getString("nombre"));
+                x.setFilial(rs.getString("filial"));
                 lista.add(x);
             }
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
-        return lista;  }
+        return lista;  
+    }
 
     @Override
     public int update(direccion x) {
