@@ -156,55 +156,77 @@
                                                     <div class="col-sm-12 text-center">
                                                         <h3><label>Seleccionar rango de días a solicitar:</label></h3>
                                                     </div>
-                                                     <div class="col-sm-4 ">
-                                                     </div>
+                                                    <div class="col-sm-4 ">
+                                                    </div>
                                                     <div class="col-sm-4 ">
 
                                                         <div class="form-group">
                                                             <label>Desde</label> 
                                                             <div class="input-group "> 
-                                                                <input type="text" name="fechas" class="form-control pull-right" id="reservation">
-                                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                <input type="text" name="fechas" class="form-control pull-right fa-lg fa-fw" id="reservation">
+                                                                <span class="input-group-addon"><i class="fa fa-calendar  "></i></span>
                                                             </div> 
                                                         </div>
 
+                                                        
+                                                        <div class="form-group">
+                                                            <!-- Date range -->
+                                                        </div>
+
+
                                                     </div> 
-                                                    <div class="form-group">
-                                                        <!-- Date range -->
-                                                    </div>
+                                                     <div class="widget-body">
+
+                                                            <p>
+                                                                Extra Large round buttons
+                                                                <code>
+
+                                                                </code>
+                                                            </p>
+                                                            <ul class="demo-btns">
+                                                                <li>
+                                                                    <a href="javascript:void(0);" class="btn btn-default txt-color-blueDark "><i class="fa fa-gear"></i></a>
+                                                                </li>
+
+                                                            </ul>
+
+                                                        </div>
 
 
-                                                </div> 
-
-
-                                            </div>
+                                                </div>
 
 
 
 
-                                            <div class="form-actions">
-                                                <div class="row">
-                                                    <div class="col-sm-12 ">
-                                                        <ul class="pager wizard no-margin">
-                                                            <!--<li class="previous first disabled">
-                                                            <a href="javascript:void(0);" class="btn btn-lg btn-default"> First </a>
-                                                            </li>-->
+                                                <div class="form-actions">
+                                                    <div class="row">
+                                                        <div class="col-sm-12 ">
+                                                            <ul class="pager wizard no-margin">
+                                                                <!--<li class="previous first disabled">
+                                                                <a href="javascript:void(0);" class="btn btn-lg btn-default"> First </a>
+                                                                </li>-->
 
-                                                            <!--<li class="next last">
-                                                            <a href="javascript:void(0);" class="btn btn-lg btn-primary"> Last </a>
-                                                            </li>-->
-                                                            <li class="">
-                                                                <a href="javascript:void(0);" class="btn btn-lg btn-danger txt-color-darken"> ACEPTAR </a>
-                                                                
-                                                                <a href="javascript:void(0);" class="btn btn-lg txt-color-darken"> CANCELAR </a>
-                                                            </li>
-                                                        </ul>
+                                                                <!--<li class="next last">
+                                                                <a href="javascript:void(0);" class="btn btn-lg btn-primary"> Last </a>
+                                                                </li>-->
+                                                                <li class="">
+                                                                    <div class="btn-group"> 
+                                                                         
+                                                                        
+                                                                        <a href="javascript:void(0);" class="btn btn-labeled btn-success"> <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Success </a>
+                                                                        <div class="col-sm-1 ">
+                                                                        </div>
+                                                                        <a href="javascript:void(0);" class="btn btn-labeled btn-danger"> <span class="btn-label"><i class="glyphicon glyphicon-remove"></i></span>Cancelar </a>
+                                                                        
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
+                                            </div>
                                         </div>
-                                    </div>
                                 </form>
                             </div>
 
