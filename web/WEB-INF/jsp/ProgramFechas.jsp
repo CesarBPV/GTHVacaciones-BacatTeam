@@ -62,6 +62,8 @@
     </head>
 
     <body>
+        
+        
 
         <article class="col-sm-6 col-md-6 col-lg-3"></article>
         <!-- widget grid -->
@@ -85,9 +87,10 @@
                     data-widget-sortable="false"
 
                     -->
+                    
                     <header>
                         <span class="widget-icon"> <i class="fa fa-check"></i> </span>
-                        <h2>Programación de fechas</h2>
+                        <h2>Programación de fechas</h2> 
 
                     </header>
 
