@@ -52,8 +52,9 @@
         <!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+        <link href="resources/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css"/>
         <!-- Startup image for web apps -->
+
         <link rel="apple-touch-startup-image" href="img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
         <link rel="apple-touch-startup-image" href="img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
         <link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="screen and (max-device-width: 320px)">
@@ -150,56 +151,52 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class='col-md-3'>
+                                                    <div class='col-md-8'>
                                                     </div>
-                                                    <div class="col-sm-12">
+                                                    <div class="col-sm-12 text-center">
                                                         <h3><label>Seleccionar rango de días a solicitar:</label></h3>
                                                     </div>
-                                                    <div class="col-sm-6">
+                                                     <div class="col-sm-4 ">
+                                                     </div>
+                                                    <div class="col-sm-4 ">
 
                                                         <div class="form-group">
-                                                            <label>Desde</label>
-                                                            <div class="input-group">
-                                                                <input class="form-control" id="from" type="text" placeholder="From">
+                                                            <label>Desde</label> 
+                                                            <div class="input-group "> 
+                                                                <input type="text" name="fechas" class="form-control pull-right" id="reservation">
                                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                            </div>
+                                                            </div> 
                                                         </div>
 
+                                                    </div> 
+                                                    <div class="form-group">
+                                                        <!-- Date range -->
                                                     </div>
-                                                    <div class="col-sm-6">
 
-                                                        <div class="form-group">
-                                                            <label>Hasta</label>
-                                                            <div class="input-group">
-                                                                <input class="form-control" id="to" type="text" placeholder="Select a date">
-                                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                            </div>
-                                                        </div>
 
-                                                    </div>
                                                 </div> 
 
 
                                             </div>
-                                           
-                                           
-                                            
+
+
+
 
                                             <div class="form-actions">
                                                 <div class="row">
-                                                    <div class="col-sm-12">
+                                                    <div class="col-sm-12 ">
                                                         <ul class="pager wizard no-margin">
                                                             <!--<li class="previous first disabled">
                                                             <a href="javascript:void(0);" class="btn btn-lg btn-default"> First </a>
                                                             </li>-->
-                                                            <li class="previous disabled">
-                                                                <a href="javascript:void(0);" class="btn btn-lg btn-default"> Previous </a>
-                                                            </li>
+
                                                             <!--<li class="next last">
                                                             <a href="javascript:void(0);" class="btn btn-lg btn-primary"> Last </a>
                                                             </li>-->
-                                                            <li class="next">
-                                                                <a href="javascript:void(0);" class="btn btn-lg txt-color-darken"> Next </a>
+                                                            <li class="">
+                                                                <a href="javascript:void(0);" class="btn btn-lg btn-danger txt-color-darken"> ACEPTAR </a>
+                                                                
+                                                                <a href="javascript:void(0);" class="btn btn-lg txt-color-darken"> CANCELAR </a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -214,6 +211,8 @@
                         </div>
                     </div>
                 </div>
+                <script src="resources/jQuery/jquery-2.2.3.min.js"></script>
+                <script src="resources/daterangepicker/moment.min.js" type="text/javascript"></script>
                 <script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
                 <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
@@ -293,6 +292,9 @@
                 <!-- PAGE RELATED PLUGIN(S) -->
                 <script src="resources/js/plugin/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
                 <script src="resources/js/plugin/fuelux/wizard/wizard.min.js"></script>
+                <script src="resources/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+
+
 
 
                 <script type="text/javascript">
@@ -302,29 +304,28 @@
                     $(document).ready(function () {
 
                         pageSetUp();
-                        
-                        $("#to").datepicker({
-                            defaultDate: "+1w",
-                            changeMonth: true,
-                            numberOfMonths: 3,
-                            prevText: '<i class="fa fa-chevron-left"></i>',
-                            nextText: '<i class="fa fa-chevron-right"></i>',
-                            onClose: function (selectedDate) {
-                                $("#from").datepicker("option", "maxDate", selectedDate);
+                        //Date range picker
+                        $('#reservation').daterangepicker({
+                            startDate: moment(),
+                            separator: ' hasta ',
+                            locale: {
+                                applyLabel: 'Enviar',
+                                fromLabel: 'Desde',
+                                toLabel: 'Hasta',
+                                customRangeLabel: 'Rango Personalizado',
+                                daysOfWeek: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+                                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                                firstDay: 1,
+                                format: 'YYYY/MM/DD'
                             }
                         });
-                        $("#from").datepicker({
-                            defaultDate: "+1w",
-                            changeMonth: true,
-                            numberOfMonths: 3,
-                            prevText: '<i class="fa fa-chevron-left"></i>',
-                            nextText: '<i class="fa fa-chevron-right"></i>',
-                            onClose: function (selectedDate) {
-                                $("#to").datepicker("option", "minDate", selectedDate);
-                            }
+                        //Date picker
+                        $('#datepicker').datepicker({
+                            autoclose: true
+                        });
 
-                        });
-                        
+
+
 
 
                         //Bootstrap Wizard Validations
