@@ -63,54 +63,25 @@
 
     <body>
 
-        <article class="col-sm-6 col-md-6 col-lg-3"></article>
-        <!-- widget grid -->
         <div class="row">
 
             <!-- NEW WIDGET START -->
             <article class="col-sm-12 col-md-12 col-lg-12">
-
                 <!-- Widget ID (each widget will need unique ID)-->
                 <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false">
-                    <!-- widget options:
-                    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-                    data-widget-colorbutton="false"
-                    data-widget-editbutton="false"
-                    data-widget-togglebutton="false"
-                    data-widget-deletebutton="false"
-                    data-widget-fullscreenbutton="false"
-                    data-widget-custombutton="false"
-                    data-widget-collapsed="true"
-                    data-widget-sortable="false"
-
-                    -->
                     <header>
                         <span class="widget-icon"> <i class="fa fa-check"></i> </span>
                         <h2>Programación de fechas</h2>
-
                     </header>
-
-                    <!-- widget div-->
                     <div>
-
-                        <!-- widget edit box -->
-                        <div class="jarviswidget-editbox">
-                            <!-- This area used as dropdown edit box -->
-
-                        </div>
-                        <!-- end widget edit box -->
-
-                        <!-- widget content -->
                         <div class="widget-body">
-
                             <div class="row">
                                 <form id="wizard-1" novalidate="novalidate">
                                     <div id="bootstrap-wizard-1" class="col-sm-12">
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab1">
-                                                <br>
                                                 <h3>Programacion de vacaciones  - Datos del trabajador</h3>
+                                                <br>
 
                                                 <div class="row">
                                                     <div class="col-sm-6">
@@ -151,84 +122,47 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class='col-md-8'>
-                                                    </div>
-                                                    <div class="col-sm-12 text-center">
+                                                        <div class=" text-center">
                                                         <h3><label>Seleccionar rango de días a solicitar:</label></h3>
                                                     </div>
-                                                    <div class="col-sm-4 ">
-                                                    </div>
+                                                     <div class="col-sm-4 ">
+                                                     </div>
                                                     <div class="col-sm-4 ">
 
                                                         <div class="form-group">
                                                             <label>Desde</label> 
                                                             <div class="input-group "> 
-                                                                <input type="text" name="fechas" class="form-control pull-right fa-lg fa-fw" id="reservation">
-                                                                <span class="input-group-addon"><i class="fa fa-calendar  "></i></span>
+                                                                <input type="text" name="fechas" class="form-control pull-right" id="reservation">
+                                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                                             </div> 
                                                         </div>
 
-                                                        
-                                                        <div class="form-group">
-                                                            <!-- Date range -->
-                                                        </div>
-
-
                                                     </div> 
-                                                     <div class="widget-body">
 
-                                                            <p>
-                                                                Extra Large round buttons
-                                                                <code>
+                                                </div> 
 
-                                                                </code>
-                                                            </p>
-                                                            <ul class="demo-btns">
-                                                                <li>
-                                                                    <a href="javascript:void(0);" class="btn btn-default txt-color-blueDark "><i class="glyphicon glyphicon-plus"></i></a>
-                                                                     <span class=""></span>
-                                                                    <span classs="glyphicon-class">Añadir más fechas</span>
-                                                                </li>
-
-                                                            </ul>
-
-                                                        </div>
-
-
-                                                </div>
-
-
-
-
-                                                <div class="form-actions">
-                                                    <div class="row">
-                                                        <div class="col-sm-12 ">
-                                                            <ul class="pager wizard no-margin">
-                                                                <!--<li class="previous first disabled">
-                                                                <a href="javascript:void(0);" class="btn btn-lg btn-default"> First </a>
-                                                                </li>-->
-
-                                                                <!--<li class="next last">
-                                                                <a href="javascript:void(0);" class="btn btn-lg btn-primary"> Last </a>
-                                                                </li>-->
-                                                                <li class="">
-                                                                    <div class="btn-group"> 
-                                                                         
-                                                                        
-                                                                        <a href="javascript:void(0);" class="btn btn-labeled btn-success"> <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Aceptar </a>
-                                                                        <div class="col-sm-1 ">
-                                                                        </div>
-                                                                        <a href="javascript:void(0);" class="btn btn-labeled btn-danger"> <span class="btn-label"><i class="glyphicon glyphicon-remove"></i></span>Cancelar </a>
-                                                                        
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
                                             </div>
+
+
+
+
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-sm-12 ">
+                                                        <ul class="pager wizard no-margin">
+                                                            <li class="">
+                                                                <a href="javascript:void(0);" class="btn btn-lg btn-danger txt-color-darken"> ACEPTAR </a>
+                                                                
+                                                                <a href="javascript:void(0);" class="btn btn-lg txt-color-darken"> CANCELAR </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
+                                    </div>
                                 </form>
                             </div>
 
