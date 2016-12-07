@@ -102,371 +102,307 @@
                         <!-- end widget edit box -->
 
                         <!-- widget content -->
-                        <div class="widget-body">
-
-                            <div class="row">
-                                <form id="wizard-1" novalidate="novalidate">
-                                    <div id="bootstrap-wizard-1" class="col-sm-12">
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="tab1">
-                                                <br>
-                                                <h3>Programacion de vacaciones  - Datos del trabajador</h3>
-
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Nombres</label>
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><i class="fa fa-user fa-lg fa-fw"></i></span>
-                                                                <input class="form-control input-lg" placeholder="Nombres" type="text" name="fname" id="fname">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Apellidos</label>
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><i class="fa fa-user fa-lg fa-fw"></i></span>
-                                                                <input class="form-control input-lg" placeholder="Apellidos" type="text" name="lname" id="lname">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Correo</label>
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><i class="fa fa-envelope fa-lg fa-fw"></i></span>
-                                                                <input class="form-control input-lg" placeholder="Correo" type="text" name="email" id="email">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Dirección</label>
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><i class="fa fa-user fa-lg fa-fw"></i></span>
-                                                                <input class="form-control input-lg" placeholder="Dirección" type="text" name="lname" id="lname">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class='col-md-8'>
-                                                    </div>
-                                                    <div class="col-sm-12 text-center">
-                                                        <h3><label>Seleccionar rango de días a solicitar:</label></h3>
-                                                    </div>
-                                                    <div class="col-sm-4 ">
-                                                    </div>
-                                                    <div class="col-sm-4 ">
-
-                                                        <div class="form-group">
-                                                            <label>Desde</label> 
-                                                            <div class="input-group "> 
-                                                                <input type="text" name="fechas" class="form-control pull-right fa-lg fa-fw" id="reservation">
-                                                                <span class="input-group-addon"><i class="fa fa-calendar  "></i></span>
-                                                            </div> 
-                                                        </div>
-
-                                                        
-                                                        <div class="form-group">
-                                                            <!-- Date range -->
-                                                        </div>
-
-
-                                                    </div> 
-                                                     <div class="widget-body">
-
-                                                            <p>
-                                                                Extra Large round buttons
-                                                                <code>
-
-                                                                </code>
-                                                            </p>
-                                                            <ul class="demo-btns">
-                                                                <li>
-                                                                    <a href="javascript:void(0);" class="btn btn-default txt-color-blueDark "><i class="glyphicon glyphicon-plus"></i></a>
-                                                                     <span class=""></span>
-                                                                    <span classs="glyphicon-class">Añadir más fechas</span>
-                                                                </li>
-
-                                                            </ul>
-
-                                                        </div>
-
-
-                                                </div>
-
-
-
-
-                                                <div class="form-actions">
-                                                    <div class="row">
-                                                        <div class="col-sm-12 ">
-                                                            <ul class="pager wizard no-margin">
-                                                                <!--<li class="previous first disabled">
-                                                                <a href="javascript:void(0);" class="btn btn-lg btn-default"> First </a>
-                                                                </li>-->
-
-                                                                <!--<li class="next last">
-                                                                <a href="javascript:void(0);" class="btn btn-lg btn-primary"> Last </a>
-                                                                </li>-->
-                                                                <li class="">
-                                                                    <div class="btn-group"> 
-                                                                         
-                                                                        
-                                                                        <a href="javascript:void(0);" class="btn btn-labeled btn-success"> <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Aceptar </a>
-                                                                        <div class="col-sm-1 ">
-                                                                        </div>
-                                                                        <a href="javascript:void(0);" class="btn btn-labeled btn-danger"> <span class="btn-label"><i class="glyphicon glyphicon-remove"></i></span>Cancelar </a>
-                                                                        
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
+                        <div class="widget-body no-padding">
+                            <form class="smart-form">
+                                <header>
+                                    Programacion de vacaciones  - Datos del trabajador
+                                </header>
+                                <fieldset>
+                                    <div class="row">
+                                        <section class="col col-6">
+                                            <label>Nombres</label>
+                                            <label class="input"><i class="icon-prepend fa fa-user"></i>
+                                                <input placeholder="Nombres" type="text" name="fname" id="fname">
+                                            </label>
+                                        </section>
+                                        <section class="col col-6">
+                                            <label>Apellidos</label>
+                                            <label class="input"><i class="icon-prepend fa fa-user"></i>
+                                                <input placeholder="Apellidos" type="text" name="lname" id="lname">
+                                            </label>
+                                        </section>
+                                    </div>
+                                    <div class="row">
+                                        <section class="col col-6">
+                                            <label>Email</label>
+                                            <label class="input"> <i class="icon-prepend fa fa-envelope-o"></i>
+                                                <input type="email" name="email" placeholder="E-mail">
+                                            </label>
+                                        </section>
+                                        <section class="col col-6">
+                                            <label>Dirección</label>
+                                            <label class="input"><i class="icon-prepend fa fa-home"></i>
+                                                <input placeholder="Dirección" type="text" name="dir" id="dir">
+                                            </label>
+                                        </section>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-12 text-center">
+                                            <h3><label>Seleccionar rango de días a solicitar:</label></h3>
                                         </div>
-                                </form>
-                            </div>
-
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-4"></div>
+                                        <section class="col col-4 ">
+                                            <div class="form-group">
+                                                <label>Rango</label> 
+                                                <label class="input"><i class="icon-prepend fa fa-calendar  "></i>
+                                                    <input type="text" name="fechas" class="form-control pull-right fa-lg fa-fw" id="range">
+                                                </label> 
+                                            </div>
+                                        </section>
+                                        <div class="col col-4">
+                                            <a href="javascript:void(0);" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <footer>
+                                    <input type="hidden" name="opc"   value="REGISTRAR CONTRATO">
+                                    <button id="submitbtn" type="button" class="btn btn-labeled btn-success">
+                                        Registrar
+                                    </button>
+                                    <button type="button" id="cancelbtn" class="btn btn-labeled btn-danger">
+                                        Cancelar
+                                    </button>
+                                </footer>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <script src="resources/jQuery/jquery-2.2.3.min.js"></script>
-                <script src="resources/daterangepicker/moment.min.js" type="text/javascript"></script>
-                <script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
+            </article>
+        </div>
+        <script src="resources/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="resources/daterangepicker/moment.min.js" type="text/javascript"></script>
+        <script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
-                <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-                <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                <script>
-                    if (!window.jQuery) {
-                        document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');
+        <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            if (!window.jQuery) {
+                document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');
+            }
+        </script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script>
+            if (!window.jQuery.ui) {
+                document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+            }
+        </script>
+
+        <!-- IMPORTANT: APP CONFIG -->
+        <script src="resources/js/app.config.js"></script>
+
+        <!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+        <script src="resources/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
+
+        <!-- BOOTSTRAP JS -->
+        <script src="resources/js/bootstrap/bootstrap.min.js"></script>
+
+        <!-- CUSTOM NOTIFICATION -->
+        <script src="resources/js/notification/SmartNotification.min.js"></script>
+
+        <!-- JARVIS WIDGETS -->
+        <script src="resources/js/smartwidgets/jarvis.widget.min.js"></script>
+
+        <!-- EASY PIE CHARTS -->
+        <script src="resources/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+        <!-- SPARKLINES -->
+        <script src="resources/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+        <!-- JQUERY VALIDATE -->
+        <script src="resources/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+        <!-- JQUERY MASKED INPUT -->
+        <script src="resources/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+        <!-- JQUERY SELECT2 INPUT -->
+        <script src="resources/js/plugin/select2/select2.min.js"></script>
+
+        <!-- JQUERY UI + Bootstrap Slider -->
+        <script src="resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+        <!-- browser msie issue fix -->
+        <script src="resources/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+        <!-- FastClick: For mobile devices -->
+        <script src="resources/js/plugin/fastclick/fastclick.min.js"></script>
+
+        <!--[if IE 8]>
+
+        <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+        <![endif]-->
+
+        <!-- Demo purpose only -->
+        <script src="resources/js/demo.min.js"></script>
+
+        <!-- MAIN APP JS FILE -->
+        <script src="resources/js/app.min.js"></script>
+
+        <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+        <!-- Voice command : plugin -->
+        <script src="resources/js/speech/voicecommand.min.js"></script>
+
+        <!-- SmartChat UI : plugin -->
+        <script src="resources/js/smart-chat-ui/smart.chat.ui.min.js"></script>
+        <script src="resources/js/smart-chat-ui/smart.chat.manager.min.js"></script>
+
+        <!-- PAGE RELATED PLUGIN(S) -->
+        <script src="resources/js/plugin/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+        <script src="resources/js/plugin/fuelux/wizard/wizard.min.js"></script>
+        <script src="resources/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+
+
+
+
+        <script type="text/javascript">
+
+            // DO NOT REMOVE : GLOBAL FUNCTIONS!
+
+            $(document).ready(function () {
+
+                pageSetUp();
+                //Date range picker
+                $('#range').daterangepicker({
+                    startDate: moment(),
+                    separator: ' hasta ',
+                    locale: {
+                        applyLabel: 'Enviar',
+                        fromLabel: 'Desde',
+                        toLabel: 'Hasta',
+                        customRangeLabel: 'Rango Personalizado',
+                        daysOfWeek: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+                        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                        firstDay: 1,
+                        format: 'YYYY/MM/DD'
                     }
-                </script>
+                });
+                //Date picker
+                $('#datepicker').datepicker({
+                    autoclose: true
+                });
 
-                <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-                <script>
-                    if (!window.jQuery.ui) {
-                        document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+
+
+
+
+                //Bootstrap Wizard Validations
+
+                var $validator = $("#wizard-1").validate({
+                    rules: {
+                        email: {
+                            required: true,
+                            email: "Your email address must be in the format of name@domain.com"
+                        },
+                        fname: {
+                            required: true
+                        },
+                        lname: {
+                            required: true
+                        },
+                        country: {
+                            required: true
+                        },
+                        city: {
+                            required: true
+                        },
+                        postal: {
+                            required: true,
+                            minlength: 4
+                        },
+                        wphone: {
+                            required: true,
+                            minlength: 10
+                        },
+                        hphone: {
+                            required: true,
+                            minlength: 10
+                        }
+                    },
+                    messages: {
+                        fname: "Please specify your First name",
+                        lname: "Please specify your Last name",
+                        email: {
+                            required: "We need your email address to contact you",
+                            email: "Your email address must be in the format of name@domain.com"
+                        }
+                    },
+                    highlight: function (element) {
+                        $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+                    },
+                    unhighlight: function (element) {
+                        $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+                    },
+                    errorElement: 'span',
+                    errorClass: 'help-block',
+                    errorPlacement: function (error, element) {
+                        if (element.parent('.input-group').length) {
+                            error.insertAfter(element.parent());
+                        } else {
+                            error.insertAfter(element);
+                        }
                     }
-                </script>
+                });
 
-                <!-- IMPORTANT: APP CONFIG -->
-                <script src="resources/js/app.config.js"></script>
-
-                <!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-                <script src="resources/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
-
-                <!-- BOOTSTRAP JS -->
-                <script src="resources/js/bootstrap/bootstrap.min.js"></script>
-
-                <!-- CUSTOM NOTIFICATION -->
-                <script src="resources/js/notification/SmartNotification.min.js"></script>
-
-                <!-- JARVIS WIDGETS -->
-                <script src="resources/js/smartwidgets/jarvis.widget.min.js"></script>
-
-                <!-- EASY PIE CHARTS -->
-                <script src="resources/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
-
-                <!-- SPARKLINES -->
-                <script src="resources/js/plugin/sparkline/jquery.sparkline.min.js"></script>
-
-                <!-- JQUERY VALIDATE -->
-                <script src="resources/js/plugin/jquery-validate/jquery.validate.min.js"></script>
-
-                <!-- JQUERY MASKED INPUT -->
-                <script src="resources/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
-
-                <!-- JQUERY SELECT2 INPUT -->
-                <script src="resources/js/plugin/select2/select2.min.js"></script>
-
-                <!-- JQUERY UI + Bootstrap Slider -->
-                <script src="resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
-
-                <!-- browser msie issue fix -->
-                <script src="resources/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
-
-                <!-- FastClick: For mobile devices -->
-                <script src="resources/js/plugin/fastclick/fastclick.min.js"></script>
-
-                <!--[if IE 8]>
-        
-                <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-        
-                <![endif]-->
-
-                <!-- Demo purpose only -->
-                <script src="resources/js/demo.min.js"></script>
-
-                <!-- MAIN APP JS FILE -->
-                <script src="resources/js/app.min.js"></script>
-
-                <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-                <!-- Voice command : plugin -->
-                <script src="resources/js/speech/voicecommand.min.js"></script>
-
-                <!-- SmartChat UI : plugin -->
-                <script src="resources/js/smart-chat-ui/smart.chat.ui.min.js"></script>
-                <script src="resources/js/smart-chat-ui/smart.chat.manager.min.js"></script>
-
-                <!-- PAGE RELATED PLUGIN(S) -->
-                <script src="resources/js/plugin/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-                <script src="resources/js/plugin/fuelux/wizard/wizard.min.js"></script>
-                <script src="resources/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+                $('#bootstrap-wizard-1').bootstrapWizard({
+                    'tabClass': 'form-wizard',
+                    'onNext': function (tab, navigation, index) {
+                        var $valid = $("#wizard-1").valid();
+                        if (!$valid) {
+                            $validator.focusInvalid();
+                            return false;
+                        } else {
+                            $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index - 1).addClass(
+                                    'complete');
+                            $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index - 1).find('.step')
+                                    .html('<i class="fa fa-check"></i>');
+                        }
+                    }
+                });
 
 
+                // fuelux wizard
+                var wizard = $('.wizard').wizard();
 
-
-                <script type="text/javascript">
-
-                    // DO NOT REMOVE : GLOBAL FUNCTIONS!
-
-                    $(document).ready(function () {
-
-                        pageSetUp();
-                        //Date range picker
-                        $('#reservation').daterangepicker({
-                            startDate: moment(),
-                            separator: ' hasta ',
-                            locale: {
-                                applyLabel: 'Enviar',
-                                fromLabel: 'Desde',
-                                toLabel: 'Hasta',
-                                customRangeLabel: 'Rango Personalizado',
-                                daysOfWeek: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
-                                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                                firstDay: 1,
-                                format: 'YYYY/MM/DD'
-                            }
-                        });
-                        //Date picker
-                        $('#datepicker').datepicker({
-                            autoclose: true
-                        });
-
-
-
-
-
-                        //Bootstrap Wizard Validations
-
-                        var $validator = $("#wizard-1").validate({
-                            rules: {
-                                email: {
-                                    required: true,
-                                    email: "Your email address must be in the format of name@domain.com"
-                                },
-                                fname: {
-                                    required: true
-                                },
-                                lname: {
-                                    required: true
-                                },
-                                country: {
-                                    required: true
-                                },
-                                city: {
-                                    required: true
-                                },
-                                postal: {
-                                    required: true,
-                                    minlength: 4
-                                },
-                                wphone: {
-                                    required: true,
-                                    minlength: 10
-                                },
-                                hphone: {
-                                    required: true,
-                                    minlength: 10
-                                }
-                            },
-                            messages: {
-                                fname: "Please specify your First name",
-                                lname: "Please specify your Last name",
-                                email: {
-                                    required: "We need your email address to contact you",
-                                    email: "Your email address must be in the format of name@domain.com"
-                                }
-                            },
-                            highlight: function (element) {
-                                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-                            },
-                            unhighlight: function (element) {
-                                $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-                            },
-                            errorElement: 'span',
-                            errorClass: 'help-block',
-                            errorPlacement: function (error, element) {
-                                if (element.parent('.input-group').length) {
-                                    error.insertAfter(element.parent());
-                                } else {
-                                    error.insertAfter(element);
-                                }
-                            }
-                        });
-
-                        $('#bootstrap-wizard-1').bootstrapWizard({
-                            'tabClass': 'form-wizard',
-                            'onNext': function (tab, navigation, index) {
-                                var $valid = $("#wizard-1").valid();
-                                if (!$valid) {
-                                    $validator.focusInvalid();
-                                    return false;
-                                } else {
-                                    $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index - 1).addClass(
-                                            'complete');
-                                    $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index - 1).find('.step')
-                                            .html('<i class="fa fa-check"></i>');
-                                }
-                            }
-                        });
-
-
-                        // fuelux wizard
-                        var wizard = $('.wizard').wizard();
-
-                        wizard.on('finished', function (e, data) {
-                            //$("#fuelux-wizard").submit();
-                            //console.log("submitted!");
-                            $.smallBox({
-                                title: "Congratulations! Your form was submitted",
-                                content: "<i class='fa fa-clock-o'></i> <i>1 seconds ago...</i>",
-                                color: "#5F895F",
-                                iconSmall: "fa fa-check bounce animated",
-                                timeout: 4000
-                            });
-
-                        });
-
-
+                wizard.on('finished', function (e, data) {
+                    //$("#fuelux-wizard").submit();
+                    //console.log("submitted!");
+                    $.smallBox({
+                        title: "Congratulations! Your form was submitted",
+                        content: "<i class='fa fa-clock-o'></i> <i>1 seconds ago...</i>",
+                        color: "#5F895F",
+                        iconSmall: "fa fa-check bounce animated",
+                        timeout: 4000
                     });
 
-                </script>
-
-                <!-- Your GOOGLE ANALYTICS CODE Below -->
-                <script type="text/javascript">
-                    var _gaq = _gaq || [];
-                    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-                    _gaq.push(['_trackPageview']);
-
-                    (function () {
-                        var ga = document.createElement('script');
-                        ga.type = 'text/javascript';
-                        ga.async = true;
-                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                        var s = document.getElementsByTagName('script')[0];
-                        s.parentNode.insertBefore(ga, s);
-                    })();
-
-                </script>
+                });
 
 
+            });
 
-                </body>
+        </script>
 
-                </html>
+        <!-- Your GOOGLE ANALYTICS CODE Below -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+
+
+
+    </body>
+
+</html>
