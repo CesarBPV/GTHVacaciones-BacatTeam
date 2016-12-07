@@ -185,7 +185,9 @@
                                                             </p>
                                                             <ul class="demo-btns">
                                                                 <li>
-                                                                    <a href="javascript:void(0);" class="btn btn-default txt-color-blueDark "><i class="fa fa-gear"></i></a>
+                                                                    <a href="javascript:void(0);" class="btn btn-default txt-color-blueDark "><i class="glyphicon glyphicon-plus"></i></a>
+                                                                     <span class=""></span>
+                                                                    <span classs="glyphicon-class">Añadir más fechas</span>
                                                                 </li>
 
                                                             </ul>
@@ -213,7 +215,7 @@
                                                                     <div class="btn-group"> 
                                                                          
                                                                         
-                                                                        <a href="javascript:void(0);" class="btn btn-labeled btn-success"> <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Success </a>
+                                                                        <a href="javascript:void(0);" class="btn btn-labeled btn-success"> <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Aceptar </a>
                                                                         <div class="col-sm-1 ">
                                                                         </div>
                                                                         <a href="javascript:void(0);" class="btn btn-labeled btn-danger"> <span class="btn-label"><i class="glyphicon glyphicon-remove"></i></span>Cancelar </a>
