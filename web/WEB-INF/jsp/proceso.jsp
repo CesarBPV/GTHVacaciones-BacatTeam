@@ -123,6 +123,7 @@
                                     <table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
                                         <thead>			                
                                             <tr>
+                                                <th ><input type="checkbox"  onchange="togglecheckboxes(this,'cbg1')"></th>
                                                 <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Nombre</th>
                                                 <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Apellido</th>
                                                 <th data-hide="phone"><i class="fa fa-fw fa-phone text-muted hidden-md hidden-sm hidden-xs"></i> Sexo</th>
@@ -137,16 +138,16 @@
                                         <tbody>
                                             <c:forEach items="${lista}" var="datos"> 
                                                 <tr>
-                                                    <td><c:out value="${datos.nombres}"/></td>
-                                                    <td><c:out value="${datos.apellidos}"/></td> 
-                                                    <td><c:out value="${datos.sexo}"/></td> 
-                                                    <td><c:out value="${datos.tipo_doc}"/></td> 
-                                                    <td><c:out value="${datos.num_doc}"/></td> 
-                                                    <td><c:out value="${datos.correo}"/></td> 
-                                                    <td><c:out value="${datos.fecha_nac}"/></td>  
-                                                    <td>
-                                                        <article class="col-sm-12"> 
-                                                            <div class="widget-body">
+                                                      <td><input type="checkbox"   name="cbg1" ></td>
+                                                      <td><c:out value="${datos.nombres}"/></td>
+                                                      <td><c:out value="${datos.apellidos}"/></td> 
+                                                      <td><c:out value="${datos.sexo}"/></td> 
+                                                      <td><c:out value="${datos.tipo_doc}"/></td> 
+                                                      <td><c:out value="${datos.num_doc}"/></td> 
+                                                      <td><c:out value="${datos.correo}"/></td> 
+                                                      <td><c:out value="${datos.fecha_nac}"/></td>  
+                                                      <td><article class="col-sm-12"> 
+                                                        <div class="widget-body">
 
                                                                 <div class="row">
                                                                     <form id="wizard-1"  >
@@ -199,6 +200,14 @@
         <!--================================================== -->
 
         <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+        <script>
+            function togglecheckboxes(master,group){
+                var cbarray = document.getElementsByName(group);
+                for(var i = 0; i < cbarray.length; i++){
+                cbarray[i].checked = master.checked;
+                }
+            }
+        </script>
         <script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
         <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
