@@ -5,12 +5,13 @@
 --%>
 
 <!DOCTYPE html>
-<html lang="en-us">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-        <title> SmartAdmin </title>
+        <title>.:RRHH:.</title>
         <meta name="description" content="">
         <meta name="author" content="">
 
@@ -62,9 +63,6 @@
     </head>
 
     <body>
-        
-        
-
         <article class="col-sm-6 col-md-6 col-lg-3"></article>
         <!-- widget grid -->
         <div class="row">
@@ -87,7 +85,7 @@
                     data-widget-sortable="false"
 
                     -->
-                    
+
                     <header>
                         <span class="widget-icon"> <i class="fa fa-check"></i> </span>
                         <h2>Programación de fechas</h2> 
@@ -110,64 +108,86 @@
                                 <header>
                                     Programacion de vacaciones  - Datos del trabajador
                                 </header>
-                                <fieldset>
-                                    <div class="row">
-                                        <section class="col col-6">
-                                            <label>Nombres</label>
-                                            <label class="input"><i class="icon-prepend fa fa-user"></i>
-                                                <input placeholder="Nombres" type="text" name="fname" id="fname">
-                                            </label>
-                                        </section>
-                                        <section class="col col-6">
-                                            <label>Apellidos</label>
-                                            <label class="input"><i class="icon-prepend fa fa-user"></i>
-                                                <input placeholder="Apellidos" type="text" name="lname" id="lname">
-                                            </label>
-                                        </section>
-                                    </div>
-                                    <div class="row">
-                                        <section class="col col-6">
-                                            <label>Email</label>
-                                            <label class="input"> <i class="icon-prepend fa fa-envelope-o"></i>
-                                                <input type="email" name="email" placeholder="E-mail">
-                                            </label>
-                                        </section>
-                                        <section class="col col-6">
-                                            <label>Dirección</label>
-                                            <label class="input"><i class="icon-prepend fa fa-home"></i>
-                                                <input placeholder="Dirección" type="text" name="dir" id="dir">
-                                            </label>
-                                        </section>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col col-12 text-center">
-                                            <h3><label>Seleccionar rango de días a solicitar:</label></h3>
+                                <c:forEach items="${lista}" var="datos"> 
+                                    <fieldset>
+                                        <div class="row">
+                                            <section class="col col-6">
+                                                <label>Nombres</label>
+                                                <label class="input"><i class="icon-prepend fa fa-user"></i>
+                                                    <input type="text" name="fname" value="<c:out value="${datos.nombres}"/>" id="fname" disabled="disabled">
+                                                </label>
+                                            </section>
+                                            <section class="col col-6">
+                                                <label>Apellidos</label>
+                                                <label class="input"><i class="icon-prepend fa fa-user"></i>
+                                                    <input type="text" name="lname" value="<c:out value="${datos.apellidos}"/>" id="lname" disabled="disabled">
+                                                </label>
+                                            </section>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col col-4"></div>
-                                        <section class="col col-4 ">
-                                            <div class="form-group">
-                                                <label>Rango</label> 
-                                                <label class="input"><i class="icon-prepend fa fa-calendar  "></i>
-                                                    <input type="text" name="fechas" class="form-control pull-right fa-lg fa-fw" id="range">
-                                                </label> 
+                                        <div class="row">
+                                            <section class="col col-6">
+                                                <label>Correo</label>
+                                                <label class="input"> <i class="icon-prepend fa fa-envelope-o"></i>
+                                                    <input type="email" name="email" value='<c:out value="${datos.correo}"/>' disabled="disabled">
+                                                </label>
+                                            </section>
+                                            <section class="col col-6">
+                                                <label>Fecha de nacimiento</label>
+                                                <label class="input"><i class="icon-prepend fa fa-home"></i>
+                                                    <input type="text" name="fecha_nac" id="fecha_doc" disabled value="<c:out value="${datos.fecha_nac}"/>">
+                                                </label>
+                                            </section>
+                                        </div>
+                                        <div class="row">
+                                            <section class="col col-4">
+                                                <label>Sexo</label>
+                                                <label class="input"> <i class="icon-prepend fa fa-envelope-o"></i>
+                                                    <input type="email" name="sexo" value='<c:out value="${datos.sexo}"/>' disabled="disabled">
+                                                </label>
+                                            </section>
+                                            <section class="col col-4">
+                                                <label>Tipo de documento</label>
+                                                <label class="input"><i class="icon-prepend fa fa-home"></i>
+                                                    <input type="text" name="tip_doc" id="tip_doc" disabled value="<c:out value="${datos.tipo_doc}"/>">
+                                                </label>
+                                            </section>
+                                            <section class="col col-4">
+                                                <label>Número de documento</label>
+                                                <label class="input"><i class="icon-prepend fa fa-home"></i>
+                                                    <input type="text" name="num_doc" id="num_doc" disabled value="<c:out value="${datos.num_doc}"/>">
+                                                </label>
+                                            </section>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col col-12 text-center">
+                                                <h3><label>Seleccionar rango de días a solicitar:</label></h3>
                                             </div>
-                                        </section>
-                                        <div class="col col-4">
-                                            <a href="javascript:void(0);" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-plus"></i></a>
                                         </div>
-                                    </div>
-                                </fieldset>
-                                <footer>
-                                    <input type="hidden" name="opc"   value="REGISTRAR CONTRATO">
-                                    <button id="submitbtn" type="button" class="btn btn-labeled btn-success">
-                                        Registrar
-                                    </button>
-                                    <button type="button" id="cancelbtn" class="btn btn-labeled btn-danger">
-                                        Cancelar
-                                    </button>
-                                </footer>
+                                        <div class="row">
+                                            <div class="col col-4"></div>
+                                            <section class="col col-4 ">
+                                                <div class="form-group">
+                                                    <label>Rango</label> 
+                                                    <label class="input"><i class="icon-prepend fa fa-calendar  "></i>
+                                                        <input type="text" name="fechas" class="form-control pull-right fa-lg fa-fw" id="range">
+                                                    </label> 
+                                                </div>
+                                            </section>
+                                            <div class="col col-4">
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <footer>
+                                        <input type="hidden" name="opc"   value="REGISTRAR CONTRATO">
+                                        <button id="submitbtn" type="button" class="btn btn-labeled btn-success">
+                                            Registrar
+                                        </button>
+                                        <button type="button" id="cancelbtn" class="btn btn-labeled btn-danger">
+                                            Cancelar
+                                        </button>
+                                    </footer>
+                                </c:forEach>
                             </form>
                         </div>
                     </div>

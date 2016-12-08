@@ -13,6 +13,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import com.interfaces.ImpVacacion_autorizacionDao;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -49,6 +52,13 @@ public class vacacion_autorizacionDAO implements ImpVacacion_autorizacionDao {
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return lista;
     }
 
@@ -73,6 +83,13 @@ public class vacacion_autorizacionDAO implements ImpVacacion_autorizacionDao {
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return lista;  }
 
     @Override
@@ -89,6 +106,13 @@ public class vacacion_autorizacionDAO implements ImpVacacion_autorizacionDao {
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return op;
     }
@@ -107,6 +131,13 @@ public class vacacion_autorizacionDAO implements ImpVacacion_autorizacionDao {
         } catch (Exception e) {
             System.out.println("Error: "+e);
         }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return op;        
     }
 
@@ -120,6 +151,13 @@ public class vacacion_autorizacionDAO implements ImpVacacion_autorizacionDao {
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return op;
     }
@@ -139,6 +177,13 @@ public class vacacion_autorizacionDAO implements ImpVacacion_autorizacionDao {
             }
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return lista;
     }

@@ -137,167 +137,47 @@
                                         <tbody>
                                             <c:forEach items="${lista}" var="datos"> 
                                                 <tr>
-                                                      <td><c:out value="${datos.nombres}"/></td>
-                                                      <td><c:out value="${datos.apellidos}"/></td> 
-                                                      <td><c:out value="${datos.sexo}"/></td> 
-                                                      <td><c:out value="${datos.tipo_doc}"/></td> 
-                                                      <td><c:out value="${datos.num_doc}"/></td> 
-                                                      <td><c:out value="${datos.correo}"/></td> 
-                                                      <td><c:out value="${datos.fecha_nac}"/></td>  
-                                                      <td><article class="col-sm-12"> 
-                                                        <div class="widget-body">
+                                                    <td><c:out value="${datos.nombres}"/></td>
+                                                    <td><c:out value="${datos.apellidos}"/></td> 
+                                                    <td><c:out value="${datos.sexo}"/></td> 
+                                                    <td><c:out value="${datos.tipo_doc}"/></td> 
+                                                    <td><c:out value="${datos.num_doc}"/></td> 
+                                                    <td><c:out value="${datos.correo}"/></td> 
+                                                    <td><c:out value="${datos.fecha_nac}"/></td>  
+                                                    <td>
+                                                        <article class="col-sm-12"> 
+                                                            <div class="widget-body">
 
-                                                            <div class="row">
-                                                                <form id="wizard-1"  >
-                                                                    <div id="bootstrap-wizard-1" class="col-sm-12">
-                                                                        <div class="form-bootstrapWizard">
-                                                                            <ul class="bootstrapWizard form-wizard">
-                                                                                <li  class="active" data-target="#step1">
-                                                                                   <span class="step">1</span> <span class="title">Paso 1</span> 
-                                                                                </li>
-                                                                                <li data-target="#step2">
-                                                                                      <span class="step">2</span> <span class="title">Paso 2</span> 
-                                                                                </li>
-                                                                                <li data-target="#step3">
-                                                                                     <span class="step">3</span> <span class="title">Paso 3 </span>  
-                                                                                </li>
-                                                                                <li data-target="#step4">
-                                                                                     <span class="step">4</span> <span class="title">Paso 4</span>  
-                                                                                </li>
-                                                                            </ul>
-                                                                            <div class="clearfix"></div>
+                                                                <div class="row">
+                                                                    <form id="wizard-1"  >
+                                                                        <div id="bootstrap-wizard-1" class="col-sm-12">
+                                                                            <div class="form-bootstrapWizard">
+                                                                                <ul class="bootstrapWizard form-wizard">
+                                                                                    <li  class="active" data-target="#step1">
+                                                                                        <span class="step">1</span> <span class="title">Paso 1</span> 
+                                                                                    </li>
+                                                                                    <li data-target="#step2">
+                                                                                        <span class="step">2</span> <span class="title">Paso 2</span> 
+                                                                                    </li>
+                                                                                    <li data-target="#step3">
+                                                                                        <span class="step">3</span> <span class="title">Paso 3 </span>  
+                                                                                    </li>
+                                                                                    <li data-target="#step4">
+                                                                                        <span class="step">4</span> <span class="title">Paso 4</span>  
+                                                                                    </li>
+                                                                                </ul>
+                                                                                <div class="clearfix"></div>
+                                                                            </div>
+
                                                                         </div>
+                                                                    </form>
+                                                                </div>
 
-                                                                    </div>
-                                                                </form>
                                                             </div>
-
-                                                        </div>
-                                                    </article>
-                                                </td>
-                                                <td><a class="btn btn-danger  " href="profech">Iniciar</a></td>
+                                                        </article>
+                                                    </td>
+                                                    <td><a class="btn btn-danger" onclick='setinfo("<c:out value="${datos.idtrabajador}"/>")'>Iniciar</a></td>
                                                 </tr>
-                                                <!--
-                                            <tr>
-                                                <td>Jennifer</td>
-                                                <td>1-342-463-8341</td>
-                                                <td>Et Rutrum Non Associates</td>
-                                                <td>35728</td>
-                                                <td>Fogo</td>
-                                                <td>Fogo</td>
-                                                <td>Fogo</td>
-                                                <td><article class="col-sm-12"> 
-                                                        <div class="widget-body">
-
-                                                            <div class="row">
-                                                                <form id="wizard-1"  >
-                                                                    <div id="bootstrap-wizard-1" class="col-sm-12">
-                                                                        <div class="form-bootstrapWizard">
-                                                                            <ul class="bootstrapWizard form-wizard">
-                                                                                <li  class="active" data-target="#step1">
-                                                                                   <span class="step">1</span> <span class="title">Paso 1</span> 
-                                                                                </li>
-                                                                                <li data-target="#step2">
-                                                                                      <span class="step">2</span> <span class="title">Paso 2</span> 
-                                                                                </li>
-                                                                                <li data-target="#step3">
-                                                                                     <span class="step">3</span> <span class="title">Paso 3 </span>  
-                                                                                </li>
-                                                                                <li data-target="#step4">
-                                                                                     <span class="step">4</span> <span class="title">Paso 4</span>  
-                                                                                </li>
-                                                                            </ul>
-                                                                            <div class="clearfix"></div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-
-                                                        </div>
-                                                    </article>
-                                                </td>
-                                               <td><a class="btn btn-danger  " href="javascript:void(0);">Iniciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jennifer</td>
-                                                <td>1-342-463-8341</td>
-                                                <td>Et Rutrum Non Associates</td>
-                                                <td>35728</td>
-                                                <td>Fogo</td>
-                                                <td><article class="col-sm-12"> 
-                                                        <div class="widget-body">
-
-                                                            <div class="row">
-                                                                <form id="wizard-1" novalidate="novalidate">
-                                                                    <div id="bootstrap-wizard-1" class="col-sm-12">
-                                                                        <div class="form-bootstrapWizard">
-                                                                            <ul class="bootstrapWizard form-wizard">
-                                                                                <li class="active" data-target="#step1">
-                                                                                  <span class="step">1</span> <span class="title">Paso 1</span>  
-                                                                                </li>
-                                                                                <li data-target="#step2">
-                                                                                    <span class="step">2</span> <span class="title">Paso 2</span>  
-                                                                                </li>
-                                                                                <li data-target="#step3">
-                                                                                     <span class="step">3</span> <span class="title">Paso 3 </span>  
-                                                                                </li>
-                                                                                <li data-target="#step4">
-                                                                                    <span class="step">4</span> <span class="title">Paso 4</span>  
-                                                                                </li>
-                                                                            </ul>
-                                                                            <div class="clearfix"></div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-
-                                                        </div>
-                                                    </article>
-                                                </td>
-                                                <td><a class="btn btn-danger  " href="javascript:void(0);">Iniciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>JHON</td>
-                                                <td>1-342-463-8341</td>
-                                                <td>Et Rutrum Non Associates</td>
-                                                <td>35728</td>
-                                                <td>Fogo</td>
-                                                <td><article class="col-sm-12"> 
-                                                        <div class="widget-body">
-
-                                                            <div class="row">
-                                                                <form id="wizard-1" novalidate="novalidate">
-                                                                    <div id="bootstrap-wizard-1" class="col-sm-12">
-                                                                        <div class="form-bootstrapWizard">
-                                                                            <ul class="bootstrapWizard form-wizard">
-                                                                                <li class="active" data-target="#step1">
-                                                                                    <span class="step">1</span> <span class="title">Paso 1</span>  
-                                                                                </li>
-                                                                                <li data-target="#step2">
-                                                                                     <span class="step">2</span> <span class="title">Paso 2</span>  
-                                                                                </li>
-                                                                                <li data-target="#step3">
-                                                                                     <span class="step">3</span> <span class="title">Paso 3 </span> 
-                                                                                </li>
-                                                                                <li data-target="#step4">
-                                                                                     <span class="step">4</span> <span class="title">Paso 4</span>  
-                                                                                </li>
-                                                                            </ul>
-                                                                            <div class="clearfix"></div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-
-                                                        </div>
-                                                    </article>
-                                                </td>
-                                                <td><a class="btn btn-danger  " href="javascript:void(0);">Iniciar</a></td>
-                                            </tr>
-                                            -->
                                             </c:forEach> 
                                         </tbody>
                                     </table>
@@ -324,16 +204,16 @@
         <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script>
-            if (!window.jQuery) {
-                document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');
-            }
+                                                        if (!window.jQuery) {
+                                                            document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');
+                                                        }
         </script>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
         <script>
-            if (!window.jQuery.ui) {
-                document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
-            }
+                                                        if (!window.jQuery.ui) {
+                                                            document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+                                                        }
         </script>
 
         <!-- IMPORTANT: APP CONFIG -->
@@ -404,61 +284,70 @@
 
         <script type="text/javascript">
 
-            // DO NOT REMOVE : GLOBAL FUNCTIONS!
+                                                        // DO NOT REMOVE : GLOBAL FUNCTIONS!
 
-            $(document).ready(function () {
+                                                        $(document).ready(function () {
 
-                pageSetUp();
+                                                            pageSetUp();
 
-                /* // DOM Position key index //
-                 
-                 l - Length changing (dropdown)
-                 f - Filtering input (search)
-                 t - The Table! (datatable)
-                 i - Information (records)
-                 p - Pagination (paging)
-                 r - pRocessing 
-                 < and > - div elements
-                 <"#id" and > - div with an id
-                 <"class" and > - div with a class
-                 <"#id.class" and > - div with an id and class
-                 
-                 Also see: http://legacy.datatables.net/usage/features
-                 */
+                                                            /* // DOM Position key index //
+                                                             
+                                                             l - Length changing (dropdown)
+                                                             f - Filtering input (search)
+                                                             t - The Table! (datatable)
+                                                             i - Information (records)
+                                                             p - Pagination (paging)
+                                                             r - pRocessing 
+                                                             < and > - div elements
+                                                             <"#id" and > - div with an id
+                                                             <"class" and > - div with a class
+                                                             <"#id.class" and > - div with an id and class
+                                                             
+                                                             Also see: http://legacy.datatables.net/usage/features
+                                                             */
 
-                /* BASIC ;*/
-                var responsiveHelper_dt_basic = undefined;
+                                                            /* BASIC ;*/
+                                                            var responsiveHelper_dt_basic = undefined;
 
-                var breakpointDefinition = {
-                    tablet: 1024,
-                    phone: 480
-                };
+                                                            var breakpointDefinition = {
+                                                                tablet: 1024,
+                                                                phone: 480
+                                                            };
 
-                $('#dt_basic').dataTable({
-                    "sDom": "<'dt-toolbar'<'col-xs-15 col-sm-5'f><'col-sm-5 col-xs-15 hidden-xs'l>r>" +
-                            "t" +
-                            "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
-                    "autoWidth": true,
-                    "oLanguage": {
-                        "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-                    },
-                    "preDrawCallback": function () {
-                        // Initialize the responsive datatables helper once.
-                        if (!responsiveHelper_dt_basic) {
-                            responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
-                        }
-                    },
-                    "rowCallback": function (nRow) {
-                        responsiveHelper_dt_basic.createExpandIcon(nRow);
-                    },
-                    "drawCallback": function (oSettings) {
-                        responsiveHelper_dt_basic.respond();
-                    }
-                });
+                                                            $('#dt_basic').dataTable({
+                                                                "sDom": "<'dt-toolbar'<'col-xs-15 col-sm-5'f><'col-sm-5 col-xs-15 hidden-xs'l>r>" +
+                                                                        "t" +
+                                                                        "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+                                                                "autoWidth": true,
+                                                                "oLanguage": {
+                                                                    "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+                                                                },
+                                                                "preDrawCallback": function () {
+                                                                    // Initialize the responsive datatables helper once.
+                                                                    if (!responsiveHelper_dt_basic) {
+                                                                        responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
+                                                                    }
+                                                                },
+                                                                "rowCallback": function (nRow) {
+                                                                    responsiveHelper_dt_basic.createExpandIcon(nRow);
+                                                                },
+                                                                "drawCallback": function (oSettings) {
+                                                                    responsiveHelper_dt_basic.respond();
+                                                                }
+                                                            });
 
-                /* END BASIC */
+                                                            /* END BASIC */
 
-            })
+                                                        });
+                                                        function setinfo(idtr) {
+                                                            $.post("profech", "opc=programar&idtr=" + idtr, function (redirect) {
+                                                                if (redirect == "login") {
+                                                                    top.location.href = redirect;
+                                                                } else {
+                                                                    $(location).attr('href', redirect);
+                                                                }
+                                                            });
+                                                        }
 
         </script>
 

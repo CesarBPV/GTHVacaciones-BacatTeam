@@ -9,6 +9,7 @@ import com.dao.trabajadorDAO;
 import com.dao.usuarioDAO;
 import com.interfaces.ImpTrabajadorDao;
 import com.interfaces.ImpUsuarioDao;
+import com.model.trabajador;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -28,7 +29,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CHome {
 
     ImpUsuarioDao udao = new usuarioDAO();
-    ImpTrabajadorDao aO = new trabajadorDAO();
+    ImpTrabajadorDao tdao = new trabajadorDAO();
+
     @RequestMapping("/menu")
     public String menu(HttpServletRequest request, HttpServletResponse response) {
         HttpSession sesion = request.getSession();
@@ -41,7 +43,7 @@ public class CHome {
                     System.out.println("idusuario:   " + list.get(0));
                     if (list.get(0) != null) {
                         sesion.setAttribute("idusuario", list.get(0));
-                        System.out.println("idusuario: "+list.get(0));
+                        System.out.println("idusuario: " + list.get(0));
                         sesion.setAttribute("idtrabajador", list.get(1));
                         return "modules";
                     } else {
@@ -84,20 +86,20 @@ public class CHome {
     public String proceso(HttpServletRequest request, HttpServletResponse response, Model model) {
         String url = "proceso";
         try {
-            model.addAttribute("lista",aO.ReadAll());
+            model.addAttribute("lista", tdao.ReadAll());
         } catch (Exception e) {
-            System.out.println("Error: "+e);
+            System.out.println("Error: " + e);
         }
         return url;
     }
-    
+
     @RequestMapping("/proceso_autorizacion")
     public String proceso_autorizacion(HttpServletRequest request, HttpServletResponse response, Model model) {
         String url = "proceso_autorizacion";
         try {
-            model.addAttribute("lista",aO.ReadAll());
+            model.addAttribute("lista", tdao.ReadAll());
         } catch (Exception e) {
-            System.out.println("Error: "+e);
+            System.out.println("Error: " + e);
         }
         return url;
     }
@@ -118,7 +120,42 @@ public class CHome {
     }
 
     @RequestMapping("/profech")
-    public String profech() {
+    public void profech(HttpServletRequest request, HttpServletResponse response, Model model) {
+        HttpSession sesion = request.getSession();
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
+        try {
+            if (sesion.getAttribute("idusuario") == null) {
+                try {
+                    response.sendRedirect("login");
+                    response.getWriter().write("login");
+                } catch (IOException ex) {
+                    Logger.getLogger(CHome.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                String opc = request.getParameter("opc");
+                System.out.println("opc: " + opc);
+                if ("programar".equals(opc)) {
+                    String idtr = request.getParameter("idtr");
+                    sesion.setAttribute("idp", idtr);
+                    response.getWriter().write("pf");
+                } else {
+                    response.getWriter().write("login");
+                }
+            }
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+    }
+
+    @RequestMapping("/pf")
+    public String prf(HttpServletRequest request, HttpServletResponse response, Model model) {
+        String idtr = (String) request.getSession().getAttribute("idp");
+        System.out.println("trabajador: " + idtr);
+        List<trabajador> list = tdao.Read(idtr);
+        System.out.println(list.size());
+        model.addAttribute("lista", list);
+        System.out.println(list.get(0).getApellidos());
         return "ProgramFechas";
     }
 }

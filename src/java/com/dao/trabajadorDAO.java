@@ -11,8 +11,11 @@ import com.util.DBConn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,10 +28,9 @@ public class trabajadorDAO implements ImpTrabajadorDao {
     private final static String SQL_CREATE = "INSERT INTO trabajador (NOMBRES, APELLIDOS, SEXO, TIPO_DOC, NUM_DOC, CORREO, FECHA_NAC) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private final static String SQL_UPDATE = "UPDATE trabajador SET NOMBRES=?, APELLIDOS=?, SEXO=?, TIPO_DOC=?, NUM_DOC=?, CORREO=?, FECHA_NAC=? WHERE idtrabajador=?";
     private final static String SQL_DELETE = "DELETE FROM trabajador WHERE idtrabajador=?";
-    private final static String SQL_SEARCH = "SELECT * FROM trabajador WHERE user=?";
     private final static String SQL_READALL = "SELECT * FROM trabajador";
     private final static String SQL_READ = "SELECT * FROM trabajador WHERE idtrabajador=?";
-    private final static String SQL_BUSCAR = "SELECT * FROM trabajador WHERE idtrabajador=?";
+    private final static String SQL_BUSCAR = "SELECT idtrabajador FROM trabajador WHERE idtrabajador=?";
 
     @Override
     public List<trabajador> ReadAll() {
@@ -39,6 +41,7 @@ public class trabajadorDAO implements ImpTrabajadorDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 trabajador x = new trabajador();
+                x.setIdtrabajador(rs.getString("idtrabajador"));
                 x.setNombres(rs.getString("nombres"));
                 x.setApellidos(rs.getString("apellidos"));
                 x.setSexo(rs.getString("sexo"));
@@ -50,6 +53,13 @@ public class trabajadorDAO implements ImpTrabajadorDao {
             }
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return lista;
     }
@@ -57,27 +67,36 @@ public class trabajadorDAO implements ImpTrabajadorDao {
     @Override
     public List<trabajador> Read(String id) {
         List<trabajador> lista = new ArrayList<>();
+        System.out.println(id);
         try {
             con = DBConn.getConnection();
             ps = con.prepareStatement(SQL_READ);
             ps.setString(1, id);
-            rs = ps.executeQuery();
+            rs=ps.executeQuery();
             while (rs.next()) {
                 trabajador x = new trabajador();
                 x.setIdtrabajador(rs.getString("idtrabajador"));
-                x.setCorreo(rs.getString("correo"));
-                x.setApellidos(rs.getString("apellidos"));
-                x.setFecha_nac(rs.getDate("fecha_nac"));
                 x.setNombres(rs.getString("nombres"));
+                x.setApellidos(rs.getString("apellidos"));
                 x.setSexo(rs.getString("sexo"));
                 x.setTipo_doc(rs.getString("tipo_doc"));
                 x.setNum_doc(rs.getInt("num_doc"));
+                x.setCorreo(rs.getString("correo"));
+                x.setFecha_nac(rs.getDate("fecha_nac"));
                 lista.add(x);
             }
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
-        return lista;  }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return lista;
+    }
 
     @Override
     public int update(trabajador x) {
@@ -96,6 +115,13 @@ public class trabajadorDAO implements ImpTrabajadorDao {
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return op;
     }
@@ -117,6 +143,13 @@ public class trabajadorDAO implements ImpTrabajadorDao {
         } catch (Exception e) {
             System.out.println("Error: "+e);
         }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return op;        
     }
 
@@ -130,6 +163,13 @@ public class trabajadorDAO implements ImpTrabajadorDao {
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return op;
     }
@@ -149,6 +189,13 @@ public class trabajadorDAO implements ImpTrabajadorDao {
             }
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+        finally{
+            try {
+                con=DBConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return lista;
     }
